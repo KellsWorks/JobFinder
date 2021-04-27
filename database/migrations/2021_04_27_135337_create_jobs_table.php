@@ -14,7 +14,9 @@ class CreateJobsTable extends Migration
     public function up()
     {
         Schema::create('jobs', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->integer('jobs_category_id')->unsigned()->nullable();
+            $table->foreign('jobs_category_id')->references('id')->on('jobs_category');
             $table->string('employer');
             $table->string('avatar');
             $table->string('title');

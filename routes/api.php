@@ -28,6 +28,12 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/auth/logout', [App\Http\Controllers\AuthController::class, 'logout']);
 });
 
+//App info routes
+
+Route::prefix('app')->group(function () {
+    Route::post('/copyright/terms-and-conditions', [App\Http\Controllers\CopyrightController::class, 'get']);
+});
+
 // Jobs routes
 
 Route::prefix('jobs')->group(function () {
