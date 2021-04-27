@@ -33,6 +33,19 @@ class JobsController extends Controller
         );
     }
 
+    public function followJob(Request $request){
+
+        $savedJob = new SavedJobs();
+        $savedJob->user_id = $request->user_id;
+
+        $job = Jobs::find($request->id);
+        $job->savedJobs()->save($savedJob);
+
+        return(
+            $this->success("","Job followed successfully!")
+        );
+    }
+
     public function getSavedJobs(Request $request){
 
         $savedJobs = SavedJobs::where('user_id', $request->user_id)->get();
