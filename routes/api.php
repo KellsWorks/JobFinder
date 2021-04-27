@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Authentication Routes
+// Authentication Routes secured with Laravel Sanctum
 
 Route::post('/auth/register', [App\Http\Controllers\AuthController::class, 'register']);
 
