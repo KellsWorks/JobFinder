@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Jobs;
 use App\Traits\ApiResponser;
 use App\Models\SavedJobs;
+use App\Models\JobLikes;
+use App\Models\FollowedJobs;
 
 class JobsController extends Controller
 {
@@ -18,6 +20,19 @@ class JobsController extends Controller
         return $this->success([
             "jobs" => $jobs
         ]);
+    }
+
+    public function likeJob(Request $request){
+
+        $likedJob = new JobLikes();
+        $likedJob->user_id = $request->user_id;
+
+        $job = Jobs::find($request->id);
+        $job->jobLikes()->save($likedJob);
+
+        return(
+            $this->success("","Job liked successfully!")
+        );
     }
 
     public function saveJob(Request $request){
@@ -35,11 +50,11 @@ class JobsController extends Controller
 
     public function followJob(Request $request){
 
-        $savedJob = new SavedJobs();
+        $savedJob = new FollowedJobs();
         $savedJob->user_id = $request->user_id;
 
         $job = Jobs::find($request->id);
-        $job->savedJobs()->save($savedJob);
+        $job->followedJobs()->save($savedJob);
 
         return(
             $this->success("","Job followed successfully!")
