@@ -44,3 +44,14 @@ Route::prefix('jobs')->group(function () {
 
     Route::post('/save/job', [App\Http\Controllers\JobsController::class, 'saveJob']);
 });
+
+//Notifications
+
+Route::prefix('notifications')->group(function () {
+
+    Route::post('/get/all', [App\Http\Controllers\NotificationsController::class, 'getUserNotifications']);
+
+    Route::post('/create', [App\Http\Controllers\NotificationsController::class, 'create']);
+
+    Route::post('/delete', [App\Http\Controllers\NotificationsController::class, 'delete']);
+});

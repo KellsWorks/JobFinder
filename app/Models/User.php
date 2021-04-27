@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Profiles;
+use App\Models\UserNotifications;
 
 class User extends Authenticatable
 {
@@ -46,5 +47,10 @@ class User extends Authenticatable
     public function profile()
     {
         return $this->hasOne(Profiles::class);
+    }
+
+    public function notifications()
+    {
+        return $this->hasOne(UserNotifications::class);
     }
 }
