@@ -11,23 +11,6 @@ class NotificationsController extends Controller
 {
     use ApiResponser;
 
-    public function create(Request $request){
-
-        $notification = new UserNotifications();
-        $notification->title = $request->title;
-        $notification->category = $request->category;
-        $notification->content = $request->content;
-
-        $user = User::find($request->id);
-        $user->notifications()->save($notification);
-
-        return(
-            $this->success([
-                'notification' => 'saved'
-            ], 'Notification created')
-        );
-    }
-
     public function getUserNotifications(Request $request){
 
         $notifications = UserNotifications::where('user_id', $request->user_id)->get();
