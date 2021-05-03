@@ -5,16 +5,12 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| AUTH API Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
+| Authentication Routes secured with Laravel Sanctum
 |
 */
-
-// Authentication Routes secured with Laravel Sanctum
 
 Route::post('/auth/register', [App\Http\Controllers\AuthController::class, 'register']);
 
@@ -28,13 +24,29 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/auth/logout', [App\Http\Controllers\AuthController::class, 'logout']);
 });
 
-//App info routes
+/*
+|--------------------------------------------------------------------------
+| APP INFO API Routes
+|--------------------------------------------------------------------------
+|
+| Application information
+|
+*/
+
 
 Route::prefix('app')->group(function () {
     Route::post('/copyright/terms-and-conditions', [App\Http\Controllers\CopyrightController::class, 'get']);
 });
 
-// Jobs routes
+/*
+|--------------------------------------------------------------------------
+| JOB API Routes
+|--------------------------------------------------------------------------
+|
+| Routes for jobs and it's related stuff
+|
+*/
+
 
 Route::prefix('jobs')->group(function () {
 
@@ -48,7 +60,15 @@ Route::prefix('jobs')->group(function () {
     Route::post('/job/dislike', [App\Http\Controllers\JobLikesController::class, 'dislike']);
 });
 
-//Notifications
+/*
+|--------------------------------------------------------------------------
+| NOTIFICATIONS API Routes
+|--------------------------------------------------------------------------
+|
+| Notifications routes based on user preferences
+|
+*/
+
 
 Route::prefix('notifications')->group(function () {
 
