@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\SavedJobs;
 use App\Models\FollowedJobs;
 use App\Models\JobLikes;
+use Overtrue\LaravelLike\Traits\Likeable;
 
 class Jobs extends Model
 {
     use HasFactory;
+
+    use Likeable;
 
     public function savedJobs()
     {
