@@ -17,11 +17,14 @@ Route::post('/auth/register', [App\Http\Controllers\AuthController::class, 'regi
 Route::post('/auth/login', [App\Http\Controllers\AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
+
     Route::get('/me', function(Request $request) {
         return auth()->user();
     });
 
     Route::post('/auth/logout', [App\Http\Controllers\AuthController::class, 'logout']);
+
+    Route::post('/auth/change-profile-picture', [App\Http\Controllers\AuthController::class, 'change_profile_picture']);
 });
 
 /*

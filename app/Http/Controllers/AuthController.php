@@ -66,4 +66,20 @@ class AuthController extends Controller
             'message' => 'Tokens Revoked'
         ];
     }
+
+    public function change_profile_picture(Request $request){
+
+
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('storage\profiles'), $imageName);
+
+        $userId = Profiles::where('user_id', $request->user_id)->pluck('id');
+        $profile = Profiles::findOrFail($userId);
+        $profile->photo = $imageName;
+        $profile->update();
+
+        return $this->success([
+            'profile' => $profile
+        ], 'profile picture updated successfully');
+    }
 }
