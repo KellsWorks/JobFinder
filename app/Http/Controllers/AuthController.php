@@ -49,8 +49,12 @@ class AuthController extends Controller
             return $this->error('Credentials not match', 401);
         }
 
+        $userId = User::where('email', $request->email)->pluck('id');
+        $profile = Profiles::where('user_id', $userId)->get();
+
         return $this->success([
-            'token' => auth()->user()->createToken('API Token')->plainTextToken
+            'token' => auth()->user()->createToken('API Token')->plainTextToken,
+            'profile' => $profile
         ]);
     }
 
@@ -61,5 +65,21 @@ class AuthController extends Controller
         return [
             'message' => 'Tokens Revoked'
         ];
+    }
+
+    public function change_profile_picture(Request $request){
+
+
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('storage\profiles'), $imageName);
+
+        $userId = Profiles::where('user_id', $request->user_id)->pluck('id');
+        $profile = Profiles::findOrFail($userId);
+        $profile->photo = $imageName;
+        $profile->update();
+
+        return $this->success([
+            'profile' => $profile
+        ], 'profile picture updated successfully');
     }
 }

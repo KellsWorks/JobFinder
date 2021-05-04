@@ -9,9 +9,12 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Profiles;
 use App\Models\UserNotifications;
+use Overtrue\LaravelLike\Traits\Liker;
 
 class User extends Authenticatable
 {
+    use Liker;
+
     use HasFactory, Notifiable, HasApiTokens;
 
     /**
