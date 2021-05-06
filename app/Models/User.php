@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Models\Profiles;
 use App\Models\UserNotifications;
 use Overtrue\LaravelLike\Traits\Liker;
+use App\Models\Activity;
 
 class User extends Authenticatable
 {
@@ -55,5 +56,10 @@ class User extends Authenticatable
     public function notifications()
     {
         return $this->hasOne(UserNotifications::class);
+    }
+
+    public function activity()
+    {
+        return $this->hasOne(Activity::class);
     }
 }

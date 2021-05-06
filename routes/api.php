@@ -80,9 +80,29 @@ Route::prefix('notifications')->group(function () {
     Route::post('/delete', [App\Http\Controllers\NotificationsController::class, 'delete']);
 });
 
+
 Route::group(['middleware' => ['auth:sanctum']], function(){
   
     Route::get('/get/all', [App\Http\Controllers\NotificationsController::class, 'getUserNotifications']);
     Route::get('/get/saved-jobs', [App\Http\Controllers\JobsController::class, 'getSavedJobs']);
+});
 
+
+/*
+|--------------------------------------------------------------------------
+| ACTIVITIES API Routes
+|--------------------------------------------------------------------------
+|
+| Activities routes based on user preferences
+|
+*/
+
+
+Route::prefix('activities')->group(function () {
+
+    Route::post('/create', [App\Http\Controllers\ActivityController::class, 'create']);
+
+    Route::post('/delete-one', [App\Http\Controllers\ActivityController::class, 'deleteOne']);
+
+    Route::post('/delete-all', [App\Http\Controllers\ActivityController::class, 'deleteAll']);
 });
