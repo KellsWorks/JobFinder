@@ -79,3 +79,22 @@ Route::prefix('notifications')->group(function () {
 
     Route::post('/delete', [App\Http\Controllers\NotificationsController::class, 'delete']);
 });
+
+/*
+|--------------------------------------------------------------------------
+| ACTIVITIES API Routes
+|--------------------------------------------------------------------------
+|
+| Activities routes based on user preferences
+|
+*/
+
+
+Route::prefix('activities')->group(function () {
+
+    Route::post('/create', [App\Http\Controllers\ActivityController::class, 'create']);
+
+    Route::post('/delete-one', [App\Http\Controllers\ActivityController::class, 'deleteOne']);
+
+    Route::post('/delete-all', [App\Http\Controllers\ActivityController::class, 'deleteAll']);
+});
