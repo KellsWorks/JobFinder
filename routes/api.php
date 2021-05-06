@@ -55,7 +55,7 @@ Route::prefix('jobs')->group(function () {
 
     Route::get('/get/all', [App\Http\Controllers\JobsController::class, 'getJobs']);
 
-    Route::post('/get/saved-jobs', [App\Http\Controllers\JobsController::class, 'getSavedJobs']);
+    Route::get('/get/saved-jobs', [App\Http\Controllers\JobsController::class, 'getSavedJobs']);
 
     Route::post('/save/job', [App\Http\Controllers\JobsController::class, 'saveJob']);
 
@@ -78,4 +78,11 @@ Route::prefix('notifications')->group(function () {
     Route::post('/get/all', [App\Http\Controllers\NotificationsController::class, 'getUserNotifications']);
 
     Route::post('/delete', [App\Http\Controllers\NotificationsController::class, 'delete']);
+});
+
+Route::group(['middleware' => ['auth:sanctum']], function(){
+  
+    Route::get('/get/all', [App\Http\Controllers\NotificationsController::class, 'getUserNotifications']);
+    Route::get('/get/saved-jobs', [App\Http\Controllers\JobsController::class, 'getSavedJobs']);
+
 });

@@ -62,8 +62,8 @@ class JobsController extends Controller
     }
 
     public function getSavedJobs(Request $request){
-
-        $savedJobs = SavedJobs::where('user_id', $request->user_id)->get();
+       $id = auth()->user()->id;
+        $savedJobs = SavedJobs::where('user_id', $id)->get();
 
         return(
             $this->success(

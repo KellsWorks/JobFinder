@@ -12,8 +12,9 @@ class NotificationsController extends Controller
     use ApiResponser;
 
     public function getUserNotifications(Request $request){
+        $id = auth()->user()->id;
 
-        $notifications = UserNotifications::where('user_id', $request->user_id)->get();
+        $notifications = UserNotifications::where('user_id', $id)->get();
 
         return(
             $this->success([
