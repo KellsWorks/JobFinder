@@ -94,6 +94,8 @@ Route::prefix('activities')->group(function () {
 
     Route::post('/create', [App\Http\Controllers\ActivityController::class, 'create']);
 
+    Route::get('/get-all', [App\Http\Controllers\ActivityController::class, 'getAll']);
+
     Route::post('/delete-one', [App\Http\Controllers\ActivityController::class, 'deleteOne']);
 
     Route::post('/delete-all', [App\Http\Controllers\ActivityController::class, 'deleteAll']);
