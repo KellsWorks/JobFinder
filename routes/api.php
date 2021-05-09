@@ -22,6 +22,15 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         return auth()->user();
     });
 
+    Route::get('/profile', function(Request $request){
+        $id=auth()->user()->id;
+        $profile = Profiles::where('user_id', $id)->get();
+        return $this->success([
+         "profile"=>$profile,
+         "user"=>auth()->user()
+        ]);
+    });
+
     Route::post('/auth/logout', [App\Http\Controllers\AuthController::class, 'logout']);
 
     Route::post('/auth/change-profile-picture', [App\Http\Controllers\AuthController::class, 'change_profile_picture']);
