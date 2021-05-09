@@ -53,7 +53,9 @@ Route::prefix('app')->group(function () {
 */
 
 Route::prefix('user')->group(function () {
+
     Route::get('/profile', [App\Http\Controllers\AuthController::class, 'profile']);
+
 });
 
 /*
@@ -79,6 +81,7 @@ Route::prefix('jobs')->group(function () {
     Route::post('/job/like', [App\Http\Controllers\JobLikesController::class, 'like']);
 
     Route::post('/job/dislike', [App\Http\Controllers\JobLikesController::class, 'dislike']);
+
 });
 
 /*
@@ -96,6 +99,7 @@ Route::prefix('notifications')->group(function () {
     Route::post('/get/all', [App\Http\Controllers\NotificationsController::class, 'getUserNotifications']);
 
     Route::post('/delete', [App\Http\Controllers\NotificationsController::class, 'delete']);
+
 });
 
 /*

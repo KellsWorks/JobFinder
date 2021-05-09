@@ -21,6 +21,7 @@ class JobsController extends Controller
         return $this->success([
             "jobs" => $jobs
         ]);
+
     }
 
     public function likeJob(Request $request){
@@ -34,6 +35,7 @@ class JobsController extends Controller
         return(
             $this->success("","Job liked successfully!")
         );
+
     }
 
     public function saveJob(Request $request){
@@ -47,6 +49,7 @@ class JobsController extends Controller
         return(
             $this->success("","Job saved successfully!")
         );
+
     }
 
     public function followJob(Request $request){
@@ -60,6 +63,7 @@ class JobsController extends Controller
         return(
             $this->success("","Job followed successfully!")
         );
+
     }
 
     public function getSavedJobs(Request $request){
