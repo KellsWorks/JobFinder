@@ -67,6 +67,13 @@ class AuthController extends Controller
         ];
     }
 
+    public function profile(Request $request){
+
+        $profile = Profiles::where('user_id', $request->user_id)->get();
+
+        return response()->json($profile, 200);
+    }
+
     public function change_profile_picture(Request $request){
 
 

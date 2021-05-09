@@ -12,19 +12,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/auth/register', [App\Http\Controllers\AuthController::class, 'register']);
+Route::prefix('auth')->group(function () {
 
-Route::post('/auth/login', [App\Http\Controllers\AuthController::class, 'login']);
+    Route::post('register', [App\Http\Controllers\AuthController::class, 'register']);
+
+    Route::post('login', [App\Http\Controllers\AuthController::class, 'login']);
+
+});
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-
-    Route::get('/me', function(Request $request) {
-        return auth()->user();
-    });
 
     Route::post('/auth/logout', [App\Http\Controllers\AuthController::class, 'logout']);
 
     Route::post('/auth/change-profile-picture', [App\Http\Controllers\AuthController::class, 'change_profile_picture']);
+
 });
 
 /*
@@ -36,9 +37,23 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 |
 */
 
-
 Route::prefix('app')->group(function () {
+
     Route::post('/copyright/terms-and-conditions', [App\Http\Controllers\CopyrightController::class, 'get']);
+
+});
+
+/*
+|--------------------------------------------------------------------------
+| PROFILE API Routes
+|--------------------------------------------------------------------------
+|
+| Separate routes for the profiles
+|
+*/
+
+Route::prefix('user')->group(function () {
+    Route::get('/profile', [App\Http\Controllers\AuthController::class, 'profile']);
 });
 
 /*
@@ -60,6 +75,7 @@ Route::prefix('jobs')->group(function () {
     Route::post('/save/job', [App\Http\Controllers\JobsController::class, 'saveJob']);
 
     Route::post('/job/like', [App\Http\Controllers\JobLikesController::class, 'like']);
+
     Route::post('/job/dislike', [App\Http\Controllers\JobLikesController::class, 'dislike']);
 });
 
@@ -99,4 +115,5 @@ Route::prefix('activities')->group(function () {
     Route::post('/delete-one', [App\Http\Controllers\ActivityController::class, 'deleteOne']);
 
     Route::post('/delete-all', [App\Http\Controllers\ActivityController::class, 'deleteAll']);
+
 });
