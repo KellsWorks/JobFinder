@@ -31,6 +31,7 @@ class ActivityController extends Controller
         return response()->json([
             'message' => 'success'
         ], 200);
+
     }
 
     public function getAll(Request $request){
