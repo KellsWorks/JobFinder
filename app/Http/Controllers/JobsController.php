@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Jobs;
+use App\Models\JobsCategory;
 use App\Traits\ApiResponser;
 use App\Models\SavedJobs;
 use App\Models\JobLikes;
@@ -20,6 +21,7 @@ class JobsController extends Controller
         return $this->success([
             "jobs" => $jobs
         ]);
+
     }
 
     public function likeJob(Request $request){
@@ -32,6 +34,7 @@ class JobsController extends Controller
         return(
             $this->success("","Job liked successfully!")
         );
+
     }
 
     public function saveJob(Request $request){
@@ -45,6 +48,7 @@ class JobsController extends Controller
         return(
             $this->success("","Job saved successfully!")
         );
+
     }
 
     public function followJob(Request $request){
@@ -58,6 +62,7 @@ class JobsController extends Controller
         return(
             $this->success("","Job followed successfully!")
         );
+
     }
 
     public function getSavedJobs(Request $request){
@@ -71,6 +76,17 @@ class JobsController extends Controller
                 ],
                 "Your saved jobs"
             )
-                );
+            );
+    }
+
+    public function getJobsByCategory(Request $request){
+
+        $jobsCategory = JobsCategory::where('category', $request->category)
+                      ->pluck('id');
+
+        $jobs = Jobs::find($jobsCategory);
+
+        return response()->json($jobs, 200);
+
     }
 }

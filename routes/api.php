@@ -12,21 +12,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/auth/register', [App\Http\Controllers\AuthController::class, 'register']);
+Route::prefix('auth')->group(function () {
 
-Route::post('/auth/login', [App\Http\Controllers\AuthController::class, 'login']);
+    Route::post('register', [App\Http\Controllers\AuthController::class, 'register']);
+
+    Route::post('login', [App\Http\Controllers\AuthController::class, 'login']);
+
+});
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-
-    Route::get('/me', function(Request $request) {
-        return auth()->user();
-    });
 
     Route::get('/profile', [App\Http\Controllers\AuthController::class, 'profile']);
 
     Route::post('/auth/logout', [App\Http\Controllers\AuthController::class, 'logout']);
 
     Route::post('/auth/change-profile-picture', [App\Http\Controllers\AuthController::class, 'change_profile_picture']);
+
 });
 
 /*
@@ -38,9 +39,25 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 |
 */
 
-
 Route::prefix('app')->group(function () {
+
     Route::post('/copyright/terms-and-conditions', [App\Http\Controllers\CopyrightController::class, 'get']);
+
+});
+
+/*
+|--------------------------------------------------------------------------
+| PROFILE API Routes
+|--------------------------------------------------------------------------
+|
+| Separate routes for the profiles
+|
+*/
+
+Route::prefix('user')->group(function () {
+
+    Route::get('/profile', [App\Http\Controllers\AuthController::class, 'profile']);
+
 });
 
 /*
@@ -60,7 +77,9 @@ Route::prefix('jobs')->group(function () {
     Route::get('/get/saved-jobs', [App\Http\Controllers\JobsController::class, 'getSavedJobs']);
 
     Route::post('/job/like', [App\Http\Controllers\JobLikesController::class, 'like']);
+
     Route::post('/job/dislike', [App\Http\Controllers\JobLikesController::class, 'dislike']);
+
 });
 
 /*
@@ -79,9 +98,11 @@ Route::prefix('notifications')->group(function () {
 
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
-  
+
     Route::get('/get/all', [App\Http\Controllers\NotificationsController::class, 'getUserNotifications']);
+
     Route::get('/get/saved-jobs', [App\Http\Controllers\JobsController::class, 'getSavedJobs']);
+
     Route::post('/save/job', [App\Http\Controllers\JobsController::class, 'saveJob']);
 });
 
@@ -100,7 +121,10 @@ Route::prefix('activities')->group(function () {
 
     Route::post('/create', [App\Http\Controllers\ActivityController::class, 'create']);
 
+    Route::get('/get-all', [App\Http\Controllers\ActivityController::class, 'getAll']);
+
     Route::post('/delete-one', [App\Http\Controllers\ActivityController::class, 'deleteOne']);
 
     Route::post('/delete-all', [App\Http\Controllers\ActivityController::class, 'deleteAll']);
+
 });
