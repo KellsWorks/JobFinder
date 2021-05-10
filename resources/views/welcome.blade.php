@@ -21,6 +21,20 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/ui-range-slider/jquery-ui.css') }}">
     <!-- Vendor stylesheets  -->
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/brands.min.css" integrity="sha512-apX8rFN/KxJW8rniQbkvzrshQ3KvyEH+4szT3Sno5svdr6E/CP0QE862yEeLBMUnCqLko8QaugGkzvWS7uNfFQ==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" integrity="sha512-OdEXQYCOldjqUEsuMKsZRj93Ht23QRlhIb8E/X0sbwZhme8eUw6g8q7AdxGJKakcBbv7+/PX0Gc2btf7Ru8cZA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/regular.min.css" integrity="sha512-Nqct4Jg8iYwFRs/C34hjAF5og5HONE2mrrUV1JZUswB+YU7vYSPyIjGMq+EAQYDmOsMuO9VIhKpRUa7GjRKVlg==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/solid.min.css" integrity="sha512-jQqzj2vHVxA/yCojT8pVZjKGOe9UmoYvnOuM/2sQ110vxiajBU+4WkyRs1ODMmd4AfntwUEV4J+VfM6DkfjLRg==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/svg-with-js.min.css" integrity="sha512-W3ZfgmZ5g1rCPFiCbOb+tn7g7sQWOQCB1AkDqrBG1Yp3iDjY9KYFh/k1AWxrt85LX5BRazEAuv+5DV2YZwghag==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/v4-shims.min.css" integrity="sha512-iaLhEHW3p+ZNgkDKBi4zEfH+aWAMGJ7I7njqD3jKnbN0ux4Gkumu2vjuI71YUov20OIPl3R32v8HO+V+6OgbvQ==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/brands.min.js" integrity="sha512-vefaKmSAX3XohXhN50vLfnK12TPIO+4uRpHjXVkX726CqbicEiAQGRzsMTE+EpLkBk4noUcUYu6AQ5af2vfRLA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/fontawesome.min.js" integrity="sha512-KCwrxBJebca0PPOaHELfqGtqkUlFUCuqCnmtydvBSTnJrBirJ55hRG5xcP4R9Rdx9Fz9IF3Yw6Rx40uhuAHR8Q==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/conflict-detection.min.js" integrity="sha512-yJCW8dCR1gd61mpVk3LuLa5wSkGZ3C5cM1gegZzKTrjDB0NaxoJfF8Sh1zLy65SWjkWRz6ynRDYVbm2JAlS0Hg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/solid.min.js" integrity="sha512-Qc+cBMt/4/KXJ1F6nNQahXIsgPygHM4S2XWChoumV8qkpZ9oO+gBDBEpOxgbkQQ/6DlHx6cUxa5nBhEbuiR8xw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/regular.min.js" integrity="sha512-jR9mIF29jOBsgismrZaiPV9H/VNWOpnILyA4MPEPgJFadfbWT0mQ5MnxCMd+JCYdoTuB2n1SkI00XkELU4ETmg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/v4-shims.min.js" integrity="sha512-1ND726aZWs77iIUxmOoCUGluOmCT9apImcOVOcDCOSVAUxk3ZSJcuGsHoJ+i4wIOhXieZZx6rY9s6i5xEy1RPg==" crossorigin="anonymous"></script>
     <!-- Custom stylesheet -->
 </head>
 
@@ -87,7 +101,7 @@
         <!-- Login Modal -->
         <div class="modal fade form-modal" id="login" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog max-width-px-840 position-relative">
-                <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-md-n6 mr-lg-n6 focus-reset z-index-supper" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-md-n6 mr-lg-n6 focus-reset z-index-supper" data-dismiss="modal"><ion-icon name="close-outline"></ion-icon></button>
                 <div class="login-modal-main bg-white rounded-8 overflow-hidden">
                     <div class="row no-gutters">
                         <div class="col-lg-5 col-md-6">
@@ -119,19 +133,8 @@
                         </div>
                         <div class="col-lg-7 col-md-6">
                             <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
-                                <div class="row">
-                                    <div class="col-4 col-xs-12">
-                                        <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-linkedin pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Log in with LinkedIn</span></a>
-                                    </div>
-                                    <div class="col-4 col-xs-12">
-                                        <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-google pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Log in with Google</span></a>
-                                    </div>
-                                    <div class="col-4 col-xs-12">
-                                        <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Log in with Facebook</span></a>
-                                    </div>
-                                </div>
+                                <h3 class="text-center"><span class="text-green">JOB</span> FINDER</h3>
                                 <div class="or-devider">
-                                    <span class="font-size-3 line-height-reset ">Or</span>
                                 </div>
                                 <form action="/">
                                     <div class="form-group">
@@ -142,17 +145,21 @@
                                         <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Password</label>
                                         <div class="position-relative">
                                             <input type="password" class="form-control" id="password" placeholder="Enter password">
-                                            <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
+                                            <a class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
                                         </div>
                                     </div>
                                     <div class="form-group d-flex flex-wrap justify-content-between">
+
                                         <label for="terms-check" class="gr-check-input d-flex  mr-3">
-                      <input class="d-none" type="checkbox" id="terms-check">
-                      <span class="checkbox mr-5"></span>
-                      <span class="font-size-3 mb-0 line-height-reset mb-1 d-block">Remember password</span>
-                    </label>
+                                        <input class="d-none" type="checkbox" id="terms-check">
+                                        <span class="checkbox mr-5"></span>
+                                        <span class="font-size-3 mb-0 line-height-reset mb-1 d-block">Remember password</span>
+                                        </label>
                                         <a href="" class="font-size-3 text-dodger line-height-reset">Forget Password</a>
                                     </div>
+                                    {{-- <div class="form-group form-check">
+
+                                      </div> --}}
                                     <div class="form-group mb-8">
                                         <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Log in </button>
                                     </div>
@@ -190,7 +197,7 @@
                                             <h3 class="font-size-7 text-white">
                                                 14
                                             </h3>
-                                            <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">New companies registered
+                                            <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">New business, companies and firms
                                             </p>
                                         </div>
                                     </div>
@@ -199,19 +206,8 @@
                         </div>
                         <div class="col-lg-7 col-md-6">
                             <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
-                                <div class="row">
-                                    <div class="col-4 col-xs-12">
-                                        <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-linkedin pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Import from LinkedIn</span></a>
-                                    </div>
-                                    <div class="col-4 col-xs-12">
-                                        <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-google pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Import from Google</span></a>
-                                    </div>
-                                    <div class="col-4 col-xs-12">
-                                        <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Import from Facebook</span></a>
-                                    </div>
-                                </div>
+                                <h3 class="text-center"><span class="text-green">JOB</span> FINDER</h3>
                                 <div class="or-devider">
-                                    <span class="font-size-3 line-height-reset">Or</span>
                                 </div>
                                 <form action="/">
                                     <div class="form-group">
@@ -376,7 +372,7 @@
                     <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
                         <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
                             <div class="text-blue bg-blue-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                                <i class="fa fa-briefcase"></i>
+                                <ion-icon name="business-outline"></ion-icon>
                             </div>
                             <!-- Category Content -->
                             <div class="">
@@ -390,7 +386,7 @@
                     <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
                         <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
                             <div class="text-spray bg-spray-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                                <i class="fa fa-headset"></i>
+                                <ion-icon name="people-outline"></ion-icon>
                             </div>
                             <!-- Category Content -->
                             <div class="">
@@ -607,7 +603,7 @@
                             <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">Product Designer</a></h2>
                             <ul class="list-unstyled mb-1 card-tag-list">
                                 <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                    <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> Berlyn
+                    <ion-icon name="pin-outline"></ion-icon> Berlyn
                   </a></li>
                                 <li><a href="" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
                     <i class="fa fa-briefcase mr-2 font-weight-bold"></i> Full-time
@@ -619,8 +615,7 @@
                             <p class="mb-7 font-size-4 text-gray">We are looking for Enrollment Advisors who are looking to take 30-35 appointments per week. All leads are pre-scheduled.</p>
                             <div class="card-btn-group">
                                 <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">Apply Now</a>
-                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
-                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i> Save it</a>
+                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><ion-icon name="bookmark-outline"></ion-icon> Save it</a>
                             </div>
                         </div>
                         <!-- End Feature One -->
@@ -635,7 +630,7 @@
                             <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">UI/UX Designer</a></h2>
                             <ul class="list-unstyled mb-1 card-tag-list">
                                 <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                    <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> Berlyn
+                    <ion-icon name="pin-outline"></ion-icon> Berlyn
                   </a></li>
                                 <li><a href="" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
                     <i class="fa fa-briefcase mr-2 font-weight-bold"></i> Full-time
@@ -647,8 +642,7 @@
                             <p class="mb-7 font-size-4 text-gray">We are looking for Enrollment Advisors who are looking to take 30-35 appointments per week. All leads are pre-scheduled.</p>
                             <div class="card-btn-group">
                                 <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">Apply Now</a>
-                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
-                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i> Save it</a>
+                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><ion-icon name="bookmark-outline"></ion-icon> Save it</a>
                             </div>
                         </div>
                         <!-- End Feature One -->
@@ -663,7 +657,7 @@
                             <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">iOS Developer</a></h2>
                             <ul class="list-unstyled mb-1 card-tag-list">
                                 <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                    <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> Berlyn
+                    <ion-icon name="pin-outline"></ion-icon> Berlyn
                   </a></li>
                                 <li><a href="" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
                     <i class="fa fa-briefcase mr-2 font-weight-bold"></i> Full-time
@@ -675,8 +669,7 @@
                             <p class="mb-7 font-size-4 text-gray">We are looking for Enrollment Advisors who are looking to take 30-35 appointments per week. All leads are pre-scheduled.</p>
                             <div class="card-btn-group">
                                 <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">Apply Now</a>
-                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
-                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i> Save it</a>
+                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><ion-icon name="bookmark-outline"></ion-icon> Save it</a>
                             </div>
                         </div>
                         <!-- End Feature One -->
@@ -691,7 +684,7 @@
                             <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">Creative Director </a></h2>
                             <ul class="list-unstyled mb-1 card-tag-list">
                                 <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                    <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> Berlyn
+                    <ion-icon name="pin-outline"></ion-icon> Berlyn
                   </a></li>
                                 <li><a href="" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
                     <i class="fa fa-briefcase mr-2 font-weight-bold"></i> Full-time
@@ -703,8 +696,7 @@
                             <p class="mb-7 font-size-4 text-gray">We are looking for Enrollment Advisors who are looking to take 30-35 appointments per week. All leads are pre-scheduled.</p>
                             <div class="card-btn-group">
                                 <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">Apply Now</a>
-                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
-                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i> Save it</a>
+                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><ion-icon name="bookmark-outline"></ion-icon> Save it</a>
                             </div>
                         </div>
                         <!-- End Feature One -->
@@ -719,7 +711,7 @@
                             <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">Marketing Manager </a></h2>
                             <ul class="list-unstyled mb-1 card-tag-list">
                                 <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                    <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> Berlyn
+                    <ion-icon name="pin-outline"></ion-icon> Berlyn
                   </a></li>
                                 <li><a href="" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
                     <i class="fa fa-briefcase mr-2 font-weight-bold"></i> Full-time
@@ -731,8 +723,7 @@
                             <p class="mb-7 font-size-4 text-gray">We are looking for Enrollment Advisors who are looking to take 30-35 appointments per week. All leads are pre-scheduled.</p>
                             <div class="card-btn-group">
                                 <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">Apply Now</a>
-                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
-                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i> Save it</a>
+                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><ion-icon name="bookmark-outline"></ion-icon> Save it</a>
                             </div>
                         </div>
                         <!-- End Feature One -->
@@ -747,7 +738,7 @@
                             <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">Software Engineer</a></h2>
                             <ul class="list-unstyled mb-1 card-tag-list">
                                 <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                    <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> Berlyn
+                    <ion-icon name="pin-outline"></ion-icon> Berlyn
                   </a></li>
                                 <li><a href="" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
                     <i class="fa fa-briefcase mr-2 font-weight-bold"></i> Full-time
@@ -759,8 +750,7 @@
                             <p class="mb-7 font-size-4 text-gray">We are looking for Enrollment Advisors who are looking to take 30-35 appointments per week. All leads are pre-scheduled.</p>
                             <div class="card-btn-group">
                                 <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">Apply Now</a>
-                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
-                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i> Save it</a>
+                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><ion-icon name="bookmark-outline"></ion-icon> Save it</a>
                             </div>
                         </div>
                         <!-- End Feature One -->
@@ -893,7 +883,7 @@
                         <!-- footer logo End -->
                         <!-- media start -->
                         <div class="mb-11">
-                            <p>Download the nobile app for both iOS & Android</p>
+                            <p>Download the mobile app for both iOS & Android</p>
                             <div class="media align-items-center">
                                 <img src="{{ asset('img/google-play-badge.png') }}" height="70" width="150" alt="" srcset="">
                                 <img src="{{ asset('img/223-2231228_app-store-apple-transprent-download-on-apple-store.png') }}" height="50" width="150" alt="" srcset="">
