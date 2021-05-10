@@ -22,14 +22,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         return auth()->user();
     });
 
-    Route::get('/profile', function(Request $request){
-        $id=auth()->user()->id;
-        $profile = Profiles::where('user_id', $id)->get();
-        return $this->success([
-         "profile"=>$profile,
-         "user"=>auth()->user()
-        ]);
-    });
+    Route::get('/profile', [App\Http\Controllers\AuthController::class, 'profile']);
 
     Route::post('/auth/logout', [App\Http\Controllers\AuthController::class, 'logout']);
 
