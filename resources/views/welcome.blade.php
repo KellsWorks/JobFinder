@@ -344,10 +344,7 @@
                 <!-- End Brand Logos -->
             </div>
         </div>
-        <!-- End Company Section -->
-        <!-- Brand1Section Area -->
-        <!-- category Area -->
-        <!-- Category Area -->
+
         <div class="pt-11 pt-lg-26 pb-lg-16" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400" data-aos-once="true">
             <div class="container">
                 <!-- Section Top -->
