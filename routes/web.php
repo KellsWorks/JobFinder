@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Districts;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,9 @@ use App\Models\Districts;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
     $districts = Districts::all();
+    Cookie::queue('name', $request->test, 1);
     return view('welcome', compact('districts'));
 });
 // Auth::routes();

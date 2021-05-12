@@ -42,12 +42,13 @@
     <div class="site-wrapper overflow-hidden ">
         <!-- Header start  -->
         <!-- Header Area -->
+
         <header class="site-header site-header--menu-right dynamic-sticky-bg py-7 py-lg-0 site-header--absolute site-header--sticky">
             <div class="container">
                 <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
                     <!-- Brand Logo-->
                     <div class="brand-logo">
-                        <a href="./index.html">
+                        <a href="{{ url('/') }}">
                             <h3>
                                 <span class="text-green">JOB</span> FINDER
                             </h3>
@@ -979,10 +980,35 @@
             </div>
         </footer>
         <!-- footer area function end -->
+        <div class="modal fade" id="cookieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="notice d-flex justify-content-between align-items-center">
+                    <div class="cookie-text">This website uses cookies to personalize content and analyse traffic in order to offer you a better experience.</div>
+                    <div class="buttons d-flex flex-column flex-lg-row">
+                      <a href="#a" class="btn btn-success btn-sm" data-dismiss="modal">I accept</a>
+                      <a href="#a" class="btn btn-secondary btn-sm" data-dismiss="modal">Learn More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#cookieModal">
+              See Cookies
+            </button>
+          </div>
     </div>
     <!-- Vendor Scripts -->
     <script src="./assets/js/vendor.min.js"></script>
     <!-- Plugin's Scripts -->
+    <script>
+        $(document).ready(function() {
+  $('#cookieModal').modal('show');
+});
+    </script>
     <script src="./assets/plugins/fancybox/jquery.fancybox.min.js"></script>
     <script src="./assets/plugins/nice-select/jquery.nice-select.min.js"></script>
     <script src="./assets/plugins/aos/aos.min.js"></script>
