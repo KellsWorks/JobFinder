@@ -994,7 +994,7 @@
               </div>
             </div>
           </div>
-          @include('cookie-consent::index')
+          @include('cookieConsent::index')
           {{-- <div class="container">
             <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#cookieModal">
               See Cookies
