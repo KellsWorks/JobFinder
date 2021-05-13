@@ -988,27 +988,27 @@
                     <div class="cookie-text">This website uses cookies to personalize content and analyse traffic in order to offer you a better experience.</div>
                     <div class="buttons d-flex flex-column flex-lg-row">
                       <a href="#a" class="btn btn-success btn-sm" data-dismiss="modal">I accept</a>
-                      <a href="#a" class="btn btn-secondary btn-sm" data-dismiss="modal">Learn More</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="container">
+          @include('cookie-consent::index')
+          {{-- <div class="container">
             <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#cookieModal">
               See Cookies
             </button>
-          </div>
+          </div> --}}
     </div>
     <!-- Vendor Scripts -->
     <script src="./assets/js/vendor.min.js"></script>
     <!-- Plugin's Scripts -->
-    <script>
+    {{-- <script>
         $(document).ready(function() {
   $('#cookieModal').modal('show');
 });
-    </script>
+    </script> --}}
     <script src="./assets/plugins/fancybox/jquery.fancybox.min.js"></script>
     <script src="./assets/plugins/nice-select/jquery.nice-select.min.js"></script>
     <script src="./assets/plugins/aos/aos.min.js"></script>
