@@ -35,4 +35,9 @@ class HomeController extends Controller
     {
         return view('adminHome');
     }
+
+    public function jobs()
+    {
+        return view('jobs');
+    }
 }

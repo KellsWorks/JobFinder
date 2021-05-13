@@ -42,12 +42,13 @@
     <div class="site-wrapper overflow-hidden ">
         <!-- Header start  -->
         <!-- Header Area -->
+
         <header class="site-header site-header--menu-right dynamic-sticky-bg py-7 py-lg-0 site-header--absolute site-header--sticky">
             <div class="container">
                 <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
                     <!-- Brand Logo-->
                     <div class="brand-logo">
-                        <a href="./index.html">
+                        <a href="{{ url('/') }}">
                             <h3>
                                 <span class="text-green">JOB</span> FINDER
                             </h3>
@@ -64,7 +65,7 @@
                                     <a class="nav-link" aria-expanded="false">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link">JOBS</a>
+                                    <a href="{{ url('jobs') }}" class="nav-link">JOBS</a>
                                 </li>
 
                                 <li class="nav-item">
@@ -136,32 +137,48 @@
                                 <h3 class="text-center"><span class="text-green">JOB</span> FINDER</h3>
                                 <div class="or-devider">
                                 </div>
-                                <form action="/">
+                                <form method="POST" action="{{ route('login') }}">
+                                    @csrf
                                     <div class="form-group">
                                         <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
-                                        <input type="email" class="form-control" placeholder="example@gmail.com" id="email">
+                                        <input type="email" placeholder="Enter your email address" id="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Password</label>
                                         <div class="position-relative">
-                                            <input type="password" class="form-control" id="password" placeholder="Enter password">
+                                            <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" id="password" placeholder="Enter password">
                                             <a class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group d-flex flex-wrap justify-content-between">
 
-                                        <label for="terms-check" class="gr-check-input d-flex  mr-3">
-                                        <input class="d-none" type="checkbox" id="terms-check">
+                                        <label for="remember" class="gr-check-input d-flex  mr-3">
+                                        <input class="d-none" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                         <span class="checkbox mr-5"></span>
-                                        <span class="font-size-3 mb-0 line-height-reset mb-1 d-block">Remember password</span>
+                                        <span class="font-size-3 mb-0 line-height-reset mb-1 d-block">{{ __('Remember Me') }}</span>
                                         </label>
-                                        <a href="" class="font-size-3 text-dodger line-height-reset">Forget Password</a>
+                                        @if (Route::has('password.request'))
+                                            <a href="{{ route('password.request') }}" class="font-size-3 text-dodger line-height-reset">
+                                                {{ __('Forgot Your Password?') }}
+                                            </a>
+                                        @endif
+
                                     </div>
                                     {{-- <div class="form-group form-check">
 
                                       </div> --}}
                                     <div class="form-group mb-8">
-                                        <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Log in </button>
+                                        <button type="submit" class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Log in </button>
                                     </div>
                                     <p class="font-size-4 text-center heading-default-color">Don’t have an account? <a href="" class="text-primary">Create a free account</a></p>
                                 </form>
@@ -272,10 +289,9 @@
                                         <div class="form-group position-relative">
                                             <select name="district" id="district" class="nice-select pl-13 h-100 arrow-3 font-size-4">
                                             <option value="" data-display="Location" class="text-uppercase">Location</option>
-                                            <option value="">Blantyre</option>
-                                            <option value="">Balaka</option>
-                                            <option value="">Chirazulu</option>
-                                            <option value="">Chitipa</option>
+                                            @foreach ($districts as $district)
+                                                  <option value="">{{ $district->name }}</option>
+                                            @endforeach
                                             </select>
                                             <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6"><ion-icon name="pin-outline"></ion-icon></span>
                                         </div>
@@ -964,10 +980,35 @@
             </div>
         </footer>
         <!-- footer area function end -->
+        <div class="modal fade" id="cookieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="notice d-flex justify-content-between align-items-center">
+                    <div class="cookie-text">This website uses cookies to personalize content and analyse traffic in order to offer you a better experience.</div>
+                    <div class="buttons d-flex flex-column flex-lg-row">
+                      <a href="#a" class="btn btn-success btn-sm" data-dismiss="modal">I accept</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          @include('cookie-consent::index')
+          {{-- <div class="container">
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#cookieModal">
+              See Cookies
+            </button>
+          </div> --}}
     </div>
     <!-- Vendor Scripts -->
     <script src="./assets/js/vendor.min.js"></script>
     <!-- Plugin's Scripts -->
+    {{-- <script>
+        $(document).ready(function() {
+  $('#cookieModal').modal('show');
+});
+    </script> --}}
     <script src="./assets/plugins/fancybox/jquery.fancybox.min.js"></script>
     <script src="./assets/plugins/nice-select/jquery.nice-select.min.js"></script>
     <script src="./assets/plugins/aos/aos.min.js"></script>
