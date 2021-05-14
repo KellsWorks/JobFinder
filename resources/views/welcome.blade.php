@@ -226,22 +226,27 @@
                                 <h3 class="text-center"><span class="text-green">JOB</span> FINDER</h3>
                                 <div class="or-devider">
                                 </div>
-                                <form action="/">
+                                <form action="{{ url('register') }}" method="POST">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="username" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Username</label>
+                                        <input name="username" type="name" required class="form-control" placeholder="Username" id="username">
+                                    </div>
                                     <div class="form-group">
                                         <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
-                                        <input type="email" class="form-control" placeholder="example@gmail.com" id="email2">
+                                        <input name="email" type="email" class="form-control" placeholder="example@gmail.com" id="email2">
                                     </div>
                                     <div class="form-group">
                                         <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Password</label>
                                         <div class="position-relative">
-                                            <input type="password" class="form-control" id="password2" placeholder="Enter password">
+                                            <input name="password" type="password" class="form-control" id="password2" placeholder="Enter password">
                                             <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password23" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Confirm Password</label>
                                         <div class="position-relative">
-                                            <input type="password" class="form-control" id="password23" placeholder="Enter password">
+                                            <input name="confirm-password" type="password" class="form-control" id="password23" placeholder="Enter password">
                                             <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password23"></a>
                                         </div>
                                     </div>
@@ -256,7 +261,7 @@
                                     <div class="form-group mb-8">
                                         <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Sign Up </button>
                                     </div>
-                                    <p class="font-size-4 text-center heading-default-color">Don’t have an account? <a href="" class="text-primary">Create a free account</a></p>
+                                    <p class="font-size-4 text-center heading-default-color">Already have an account? <a href="" class="text-primary">Sign in</a></p>
                                 </form>
                             </div>
                         </div>
