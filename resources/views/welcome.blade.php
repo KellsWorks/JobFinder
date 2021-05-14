@@ -35,6 +35,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/solid.min.js" integrity="sha512-Qc+cBMt/4/KXJ1F6nNQahXIsgPygHM4S2XWChoumV8qkpZ9oO+gBDBEpOxgbkQQ/6DlHx6cUxa5nBhEbuiR8xw==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/regular.min.js" integrity="sha512-jR9mIF29jOBsgismrZaiPV9H/VNWOpnILyA4MPEPgJFadfbWT0mQ5MnxCMd+JCYdoTuB2n1SkI00XkELU4ETmg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/v4-shims.min.js" integrity="sha512-1ND726aZWs77iIUxmOoCUGluOmCT9apImcOVOcDCOSVAUxk3ZSJcuGsHoJ+i4wIOhXieZZx6rY9s6i5xEy1RPg==" crossorigin="anonymous"></script>
+
+
+{{--
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
+
     <!-- Custom stylesheet -->
 </head>
 
@@ -379,7 +386,7 @@
                     <!-- Section Button -->
                     <div class="col-12 col-lg-6">
                         <div class="text-center text-lg-right">
-                            <a class="btn btn-outline-green text-uppercase" href="#">Explore All</a>
+                            <a class="btn btn-outline-green text-uppercase" href="{{ url('jobs') }}">Explore All</a>
                         </div>
                     </div>
                     <!-- Section Button End -->
