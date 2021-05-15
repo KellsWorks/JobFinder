@@ -12,7 +12,8 @@
         "laravel/framework": "^8.12",
         "laravel/sanctum": "^2.10",
         "laravel/tinker": "^2.5",
-        "overtrue/laravel-like": "^4.0"
+        "overtrue/laravel-like": "^4.0",
+        "spatie/laravel-cookie-consent": "^2.12"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
