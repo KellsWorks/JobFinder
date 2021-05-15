@@ -35,6 +35,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/solid.min.js" integrity="sha512-Qc+cBMt/4/KXJ1F6nNQahXIsgPygHM4S2XWChoumV8qkpZ9oO+gBDBEpOxgbkQQ/6DlHx6cUxa5nBhEbuiR8xw==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/regular.min.js" integrity="sha512-jR9mIF29jOBsgismrZaiPV9H/VNWOpnILyA4MPEPgJFadfbWT0mQ5MnxCMd+JCYdoTuB2n1SkI00XkELU4ETmg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/v4-shims.min.js" integrity="sha512-1ND726aZWs77iIUxmOoCUGluOmCT9apImcOVOcDCOSVAUxk3ZSJcuGsHoJ+i4wIOhXieZZx6rY9s6i5xEy1RPg==" crossorigin="anonymous"></script>
+
+
+{{--
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
+
     <!-- Custom stylesheet -->
 </head>
 
@@ -226,22 +233,27 @@
                                 <h3 class="text-center"><span class="text-green">JOB</span> FINDER</h3>
                                 <div class="or-devider">
                                 </div>
-                                <form action="/">
+                                <form action="{{ url('register') }}" method="POST">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="username" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Username</label>
+                                        <input name="username" type="name" required class="form-control" placeholder="Username" id="username">
+                                    </div>
                                     <div class="form-group">
                                         <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
-                                        <input type="email" class="form-control" placeholder="example@gmail.com" id="email2">
+                                        <input name="email" type="email" class="form-control" placeholder="example@gmail.com" id="email2">
                                     </div>
                                     <div class="form-group">
                                         <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Password</label>
                                         <div class="position-relative">
-                                            <input type="password" class="form-control" id="password2" placeholder="Enter password">
+                                            <input name="password" type="password" class="form-control" id="password2" placeholder="Enter password">
                                             <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password23" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Confirm Password</label>
                                         <div class="position-relative">
-                                            <input type="password" class="form-control" id="password23" placeholder="Enter password">
+                                            <input name="confirm-password" type="password" class="form-control" id="password23" placeholder="Enter password">
                                             <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password23"></a>
                                         </div>
                                     </div>
@@ -256,7 +268,7 @@
                                     <div class="form-group mb-8">
                                         <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Sign Up </button>
                                     </div>
-                                    <p class="font-size-4 text-center heading-default-color">Don’t have an account? <a href="" class="text-primary">Create a free account</a></p>
+                                    <p class="font-size-4 text-center heading-default-color">Already have an account? <a href="" class="text-primary">Sign in</a></p>
                                 </form>
                             </div>
                         </div>
@@ -374,7 +386,7 @@
                     <!-- Section Button -->
                     <div class="col-12 col-lg-6">
                         <div class="text-center text-lg-right">
-                            <a class="btn btn-outline-green text-uppercase" href="#">Explore All</a>
+                            <a class="btn btn-outline-green text-uppercase" href="{{ url('jobs') }}">Explore All</a>
                         </div>
                     </div>
                     <!-- Section Button End -->
@@ -517,34 +529,34 @@
             </span>
                                 <!-- check-mark end -->
                                 <p class="text-black-2 text-4 font-weight-bold mb-7">
-                                    <span class="font-weight-normal">Found</span> 290+ Jobs
+                                    <span class="font-weight-normal">Found</span> {{ count($jobs)-1 }}+ Jobs
                                 </p>
                                 <div class="d-flex">
                                     <ul class="list-unstyled list-overlapped-icon max-width-130px">
                                         <li class="ml-0">
                                             <a href="" class="circle-34">
-                        <img src="./assets/image/l1/png/smal-logo1.png" alt="" class="img" />
-                      </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                        <img src="./assets/image/l1/png/smal-logo2.png" alt="" class="img img2" />
-                      </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                        <img src="./assets/image/l1/png/smal-logo3.png" alt="" class="img img3" />
-                      </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                        <img src="./assets/image/l1/png/smal-logo4.png" alt="" class="img img4" />
-                      </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                        <img src="./assets/image/l1/png/smal-logo5.png" alt="" class="img img5" />
-                      </a>
+                                            <img src="./assets/image/l1/png/smal-logo1.png" alt="" class="img" />
+                                        </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                            <img src="./assets/image/l1/png/smal-logo2.png" alt="" class="img img2" />
+                                        </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                            <img src="./assets/image/l1/png/smal-logo3.png" alt="" class="img img3" />
+                                        </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                            <img src="./assets/image/l1/png/smal-logo4.png" alt="" class="img img4" />
+                                        </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                            <img src="./assets/image/l1/png/smal-logo5.png" alt="" class="img img5" />
+                                        </a>
                                         </li>
                                     </ul>
                                     <p class="text-space-black font-size-4 mt-1">+14 Giants</p>
@@ -599,33 +611,34 @@
                     <!-- Section Button -->
                     <div class="col-12 col-xl-6 col-lg-6">
                         <div class="text-center text-lg-right">
-                            <a class="btn btn-outline-white text-uppercase" href="#">Explore All</a>
+                            <a class="btn btn-outline-white text-uppercase" href="{{ url('jobs') }}">Explore All</a>
                         </div>
                     </div>
                     <!-- Section Button End -->
                 </div>
                 <!-- End Section Top -->
                 <div class="row justify-content-center">
+                    @foreach ($jobs as $job)
                     <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
                         <!-- Start Feature One -->
                         <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-                            <div class="d-block mb-7">
-                                <a href="#"><img src="./assets/image/l1/png/feature-brand-1.png" alt=""></a>
+                            <div class="d-block mb-7  mx-auto align-items-center">
+                                <a href="#"><img class="img-fluid" src="{{ asset('img/companies/'.$job->employer_logo) }}"  alt=""></a>
                             </div>
-                            <a href="#" class="font-size-3 d-block mb-0 text-gray">Google INC</a>
-                            <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">Product Designer</a></h2>
+                            <a href="#" class="font-size-3 d-block mb-0 text-gray">{{ $job->employer }}</a>
+                            <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">{{ $job->title }}</a></h2>
                             <ul class="list-unstyled mb-1 card-tag-list">
                                 <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                    <ion-icon name="pin-outline"></ion-icon> Berlyn
-                  </a></li>
-                                <li><a href="" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
-                    <i class="fa fa-briefcase mr-2 font-weight-bold"></i> Full-time
-                  </a></li>
-                                <li><a href="" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
-                    <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80K-90K
-                  </a></li>
+                                <ion-icon name="pin-outline"></ion-icon>{{ $job->location }}
+                            </a></li>
+                                            <li><a href="" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
+                                <i class="fa fa-briefcase mr-2 font-weight-bold"></i>{{ $job->duration }}
+                            </a></li>
+                                            <li><a href="" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
+                                <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i>{{ $job->salary }}
+                            </a></li>
                             </ul>
-                            <p class="mb-7 font-size-4 text-gray">We are looking for Enrollment Advisors who are looking to take 30-35 appointments per week. All leads are pre-scheduled.</p>
+                            <p class="mb-7 font-size-4 text-gray">{{ $job->description }}</p>
                             <div class="card-btn-group">
                                 <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">Apply Now</a>
                                 <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><ion-icon name="bookmark-outline"></ion-icon> Save it</a>
@@ -633,140 +646,7 @@
                         </div>
                         <!-- End Feature One -->
                     </div>
-                    <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-                        <!-- Start Feature One -->
-                        <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-                            <div class="d-block mb-7">
-                                <a href="#"><img src="./assets/image/l1/png/feature-brand-2.png" alt=""></a>
-                            </div>
-                            <a href="#" class="font-size-3 d-block mb-0 text-gray">AirBnb</a>
-                            <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">UI/UX Designer</a></h2>
-                            <ul class="list-unstyled mb-1 card-tag-list">
-                                <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                    <ion-icon name="pin-outline"></ion-icon> Berlyn
-                  </a></li>
-                                <li><a href="" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
-                    <i class="fa fa-briefcase mr-2 font-weight-bold"></i> Full-time
-                  </a></li>
-                                <li><a href="" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
-                    <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80K-90K
-                  </a></li>
-                            </ul>
-                            <p class="mb-7 font-size-4 text-gray">We are looking for Enrollment Advisors who are looking to take 30-35 appointments per week. All leads are pre-scheduled.</p>
-                            <div class="card-btn-group">
-                                <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">Apply Now</a>
-                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><ion-icon name="bookmark-outline"></ion-icon> Save it</a>
-                            </div>
-                        </div>
-                        <!-- End Feature One -->
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-                        <!-- Start Feature One -->
-                        <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-                            <div class="d-block mb-7">
-                                <a href="#"><img src="./assets/image/l1/png/feature-brand-3.png" alt=""></a>
-                            </div>
-                            <a href="#" class="font-size-3 d-block mb-0 text-gray">Shopify</a>
-                            <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">iOS Developer</a></h2>
-                            <ul class="list-unstyled mb-1 card-tag-list">
-                                <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                    <ion-icon name="pin-outline"></ion-icon> Berlyn
-                  </a></li>
-                                <li><a href="" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
-                    <i class="fa fa-briefcase mr-2 font-weight-bold"></i> Full-time
-                  </a></li>
-                                <li><a href="" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
-                    <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80K-90K
-                  </a></li>
-                            </ul>
-                            <p class="mb-7 font-size-4 text-gray">We are looking for Enrollment Advisors who are looking to take 30-35 appointments per week. All leads are pre-scheduled.</p>
-                            <div class="card-btn-group">
-                                <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">Apply Now</a>
-                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><ion-icon name="bookmark-outline"></ion-icon> Save it</a>
-                            </div>
-                        </div>
-                        <!-- End Feature One -->
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-                        <!-- Start Feature One -->
-                        <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-                            <div class="d-block mb-7">
-                                <a href="#"><img src="./assets/image/l1/png/feature-brand-4.png" alt=""></a>
-                            </div>
-                            <a href="#" class="font-size-3 d-block mb-0 text-gray">Uber</a>
-                            <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">Creative Director </a></h2>
-                            <ul class="list-unstyled mb-1 card-tag-list">
-                                <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                    <ion-icon name="pin-outline"></ion-icon> Berlyn
-                  </a></li>
-                                <li><a href="" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
-                    <i class="fa fa-briefcase mr-2 font-weight-bold"></i> Full-time
-                  </a></li>
-                                <li><a href="" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
-                    <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80K-90K
-                  </a></li>
-                            </ul>
-                            <p class="mb-7 font-size-4 text-gray">We are looking for Enrollment Advisors who are looking to take 30-35 appointments per week. All leads are pre-scheduled.</p>
-                            <div class="card-btn-group">
-                                <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">Apply Now</a>
-                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><ion-icon name="bookmark-outline"></ion-icon> Save it</a>
-                            </div>
-                        </div>
-                        <!-- End Feature One -->
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-                        <!-- Start Feature One -->
-                        <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-                            <div class="d-block mb-7">
-                                <a href="#"><img src="./assets/image/l1/png/feature-brand-5.png" alt=""></a>
-                            </div>
-                            <a href="#" class="font-size-3 d-block mb-0 text-gray">Facebook</a>
-                            <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">Marketing Manager </a></h2>
-                            <ul class="list-unstyled mb-1 card-tag-list">
-                                <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                    <ion-icon name="pin-outline"></ion-icon> Berlyn
-                  </a></li>
-                                <li><a href="" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
-                    <i class="fa fa-briefcase mr-2 font-weight-bold"></i> Full-time
-                  </a></li>
-                                <li><a href="" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
-                    <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80K-90K
-                  </a></li>
-                            </ul>
-                            <p class="mb-7 font-size-4 text-gray">We are looking for Enrollment Advisors who are looking to take 30-35 appointments per week. All leads are pre-scheduled.</p>
-                            <div class="card-btn-group">
-                                <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">Apply Now</a>
-                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><ion-icon name="bookmark-outline"></ion-icon> Save it</a>
-                            </div>
-                        </div>
-                        <!-- End Feature One -->
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-                        <!-- Start Feature One -->
-                        <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-                            <div class="d-block mb-7">
-                                <a href="#"><img src="./assets/image/l1/png/feature-brand-6.png" alt=""></a>
-                            </div>
-                            <a href="#" class="font-size-3 d-block mb-0 text-gray">Oculus</a>
-                            <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">Software Engineer</a></h2>
-                            <ul class="list-unstyled mb-1 card-tag-list">
-                                <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                    <ion-icon name="pin-outline"></ion-icon> Berlyn
-                  </a></li>
-                                <li><a href="" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
-                    <i class="fa fa-briefcase mr-2 font-weight-bold"></i> Full-time
-                  </a></li>
-                                <li><a href="" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
-                    <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80K-90K
-                  </a></li>
-                            </ul>
-                            <p class="mb-7 font-size-4 text-gray">We are looking for Enrollment Advisors who are looking to take 30-35 appointments per week. All leads are pre-scheduled.</p>
-                            <div class="card-btn-group">
-                                <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">Apply Now</a>
-                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><ion-icon name="bookmark-outline"></ion-icon> Save it</a>
-                            </div>
-                        </div>
-                        <!-- End Feature One -->
+                    @endforeach
                     </div>
                 </div>
             </div>
@@ -994,7 +874,7 @@
               </div>
             </div>
           </div>
-          @include('cookie-consent::index')
+          @include('cookieConsent::index')
           {{-- <div class="container">
             <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#cookieModal">
               See Cookies

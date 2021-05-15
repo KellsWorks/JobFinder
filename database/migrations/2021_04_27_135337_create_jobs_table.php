@@ -18,12 +18,14 @@ class CreateJobsTable extends Migration
             $table->integer('jobs_category_id')->unsigned()->nullable();
             $table->foreign('jobs_category_id')->references('id')->on('jobs_category');
             $table->string('employer');
-            $table->string('avatar');
+            $table->string('employer-logo')->default('employer-logo.png');
             $table->string('title');
             $table->string('description');
-            $table->string('content');
+            $table->text('content');
             $table->string('closing_date');
             $table->string('location');
+            $table->string('duration')->default('Full-time');
+            $table->string('salary')->default('unspecified');
             $table->string('employer_email');
             $table->timestamps();
         });
