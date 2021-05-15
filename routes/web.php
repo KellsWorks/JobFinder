@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Districts;
 use Illuminate\Http\Request;
+use App\Models\Jobs;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,10 @@ use Illuminate\Http\Request;
 Route::get('/', function (Request $request) {
     $districts = Districts::all();
     Cookie::queue('name', $request->test, 1);
-    return view('welcome', compact('districts'));
+
+    $jobs = Jobs::all();
+
+    return view('welcome', compact('districts', 'jobs'));
 });
 // Auth::routes();
 Auth::routes(['reset' => false]);
