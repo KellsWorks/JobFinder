@@ -611,7 +611,7 @@
                     <!-- Section Button -->
                     <div class="col-12 col-xl-6 col-lg-6">
                         <div class="text-center text-lg-right">
-                            <a class="btn btn-outline-white text-uppercase" href="#">Explore All</a>
+                            <a class="btn btn-outline-white text-uppercase" href="{{ url('jobs') }}">Explore All</a>
                         </div>
                     </div>
                     <!-- Section Button End -->
