@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Districts;
 use Illuminate\Http\Request;
+use App\Models\Jobs;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +19,15 @@ use Illuminate\Http\Request;
 Route::get('/', function (Request $request) {
     $districts = Districts::all();
     Cookie::queue('name', $request->test, 1);
-    return view('welcome', compact('districts'));
+
+    $jobs = Jobs::all();
+
+    return view('welcome', compact('districts', 'jobs'));
 });
 // Auth::routes();
 Auth::routes(['reset' => false]);
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/jobs', [\App\Http\Controllers\HomeController::class, 'jobs'])->name('jobs');
-
+Route::get('/jobs', [\App\Http\Controllers\PagesController::class, 'jobs'])->name('jobs');
+Route::get('/404', [\App\Http\Controllers\PagesController::class, 'error'])->name('404');
 Route::get('admin/home', [\App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
