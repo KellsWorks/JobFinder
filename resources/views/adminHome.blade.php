@@ -1,27 +1,10 @@
-{{-- @extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-                <div class="card-body">
-                    You are Admin.
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection --}}
-
-
+{{-- Copyright (c) Nextgenerations Malawi. Created at 15/05/2021 18:28 --}}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="KellsWorks,RodgerCodes@NextgenerationsMalawi" name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ env('ADMIN_TITLE') }}</title>
     <link rel="shortcut icon" href="{{ asset('icon.ico') }}" type="image/x-icon">
@@ -49,7 +32,7 @@
                 <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
 
                     <div class="brand-logo">
-                        <a href="./index.html">
+                        <a href="{{ url('/') }}">
 
                             <img height="40" src="{{ asset('icon.png') }}" alt="" class="light-version-logo default-logo">
 
