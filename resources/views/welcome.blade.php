@@ -622,8 +622,8 @@
                     <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
                         <!-- Start Feature One -->
                         <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-                            <div class="d-block mb-7">
-                                <a href="#"><img src="{{ asset('img/airtel-logo-vector.png') }}" height="100" alt=""></a>
+                            <div class="d-block mb-7  mx-auto align-items-center">
+                                <a href="#"><img class="img-fluid" src="{{ asset('img/companies/'.$job->employer_logo) }}"  alt=""></a>
                             </div>
                             <a href="#" class="font-size-3 d-block mb-0 text-gray">{{ $job->employer }}</a>
                             <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">{{ $job->title }}</a></h2>
