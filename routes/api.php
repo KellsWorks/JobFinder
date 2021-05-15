@@ -56,7 +56,7 @@ Route::prefix('app')->group(function () {
 
 Route::prefix('user')->group(function () {
 
-    Route::get('/profile', [App\Http\Controllers\AuthController::class, 'profile']);
+    
 
 });
 
@@ -98,6 +98,7 @@ Route::prefix('notifications')->group(function () {
 
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
+    Route::get('/profile', [App\Http\Controllers\AuthController::class, 'profile']);
 
     Route::get('/get/all', [App\Http\Controllers\NotificationsController::class, 'getUserNotifications']);
 

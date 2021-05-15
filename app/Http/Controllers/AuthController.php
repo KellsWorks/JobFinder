@@ -65,7 +65,9 @@ class AuthController extends Controller
 
     public function profile(Request $request){
 
-        $profile = Profiles::where('user_id', $request->user_id)->get();
+        $id=auth()->user()->id;
+
+        $profile = Profiles::where('user_id', $id)->get();
 
         return response()->json($profile, 200);
     }
@@ -84,14 +86,5 @@ class AuthController extends Controller
         return $this->success([
             'profile' => $profile
         ], 'profile picture updated successfully');
-    }
-
-    public function profile(Request $request){
-        $id=auth()->user()->id;
-        $profile = Profiles::where('user_id', $id)->get();
-        return $this->success([
-         "profile"=>$profile,
-         "user"=>auth()->user
-        ]);
     }
 }

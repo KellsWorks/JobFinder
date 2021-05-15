@@ -18,10 +18,7 @@ class JobsController extends Controller
 
         $jobs = Jobs::all();
 
-        return $this->success([
-            "jobs" => $jobs
-        ]);
-
+        return $jobs;
     }
 
     public function likeJob(Request $request){
