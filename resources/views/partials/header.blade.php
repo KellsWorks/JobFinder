@@ -32,7 +32,9 @@
                 @if(Route::has('login'))
                 <div class="absolute top-0 right-0 mt-4 mr-4 space-x-4 sm:mt-6 sm:mr-6 sm:space-x-6">
                 @auth
-                <a href="{{ url('/home') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Home') }}</a>
+                <a class="btn btn-primary text-uppercase font-size-3 ml-6" href="{{ route('home') }}">
+                    User home
+                </a>
                 @else
                 <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset" href="javacript:" data-toggle="modal" data-target="#login">
                     {{ __('Login') }}

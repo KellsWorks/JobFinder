@@ -38,7 +38,7 @@
                         <h1 class="font-size-11 mb-12 pr-md-30 pr-lg-0">Find the perfect job that you deserve.</h1>
                         <div class="">
 
-                            <form action="/" class="search-form shadow-6">
+                            <form action="{{ route('search-results') }}" method="POST" class="search-form shadow-6">
                                 <div class="filter-search-form-1 bg-white rounded-sm shadow-4">
                                     <div class="filter-inputs">
                                         <div class="form-group position-relative">

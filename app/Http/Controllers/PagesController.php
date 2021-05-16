@@ -21,4 +21,8 @@ class PagesController extends Controller
 
         return view('job', compact('jobs'));
     }
+
+    public function search_results(){
+        return view('search-results');
+    }
 }

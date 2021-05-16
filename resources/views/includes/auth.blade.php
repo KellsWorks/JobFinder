@@ -10,20 +10,21 @@
                                 Welcome Back
                             </h3>
                             <p class="mb-0 font-size-4 text-white">Log in to continue your account and explore new jobs.</p>
+                            <img class="mt-4" height="250" src="{{ asset('img/no-companies.png') }}" alt="">
                         </div>
                         <div class="border-top border-default-color-2 mt-auto">
                             <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
                                 <div class="pt-5 px-9">
-                                    <h3 class="font-size-7 text-white">
-                                        295
+                                    <h3 class="font-size-7 text-orange">
+                                        <span class="counter">295</span>+
                                     </h3>
                                     <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">New jobs posted today</p>
                                 </div>
                                 <div class="pt-5 px-9">
-                                    <h3 class="font-size-7 text-white">
-                                        14
+                                    <h3 class="font-size-7 text-orange">
+                                        <span class="counter">20</span>+
                                     </h3>
-                                    <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">New companies registered
+                                    <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">New companies and businesses
                                     </p>
                                 </div>
                             </div>
@@ -33,7 +34,7 @@
                 <div class="col-lg-7 col-md-6">
                     <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
                         <h3 class="text-center"><span class="text-green">JOB</span> FINDER</h3>
-                        <div class="or-devider">
+                        <div class="or-devider mt-4 mb-4 pb-4">
                         </div>
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
