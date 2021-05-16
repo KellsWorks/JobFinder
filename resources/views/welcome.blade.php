@@ -4,97 +4,23 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta author="KellsWorks,RodgerCodes@Nextgenerations Malawi" name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>{{ env('APP_NAME') }}</title>
 
     <link rel="shortcut icon" href="{{ asset('icon.png') }}" type="image/x-icon">
 
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/fonts/icon-font/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/fonts/typography-font/typo.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome-5/css/all.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('assets/plugins/aos/aos.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/plugins/fancybox/jquery.fancybox.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/plugins/nice-select/nice-select.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/plugins/slick/slick.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/plugins/ui-range-slider/jquery-ui.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-
-    {{-- Online font awesome scripts --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/brands.min.css" integrity="sha512-apX8rFN/KxJW8rniQbkvzrshQ3KvyEH+4szT3Sno5svdr6E/CP0QE862yEeLBMUnCqLko8QaugGkzvWS7uNfFQ==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" integrity="sha512-OdEXQYCOldjqUEsuMKsZRj93Ht23QRlhIb8E/X0sbwZhme8eUw6g8q7AdxGJKakcBbv7+/PX0Gc2btf7Ru8cZA==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/regular.min.css" integrity="sha512-Nqct4Jg8iYwFRs/C34hjAF5og5HONE2mrrUV1JZUswB+YU7vYSPyIjGMq+EAQYDmOsMuO9VIhKpRUa7GjRKVlg==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/solid.min.css" integrity="sha512-jQqzj2vHVxA/yCojT8pVZjKGOe9UmoYvnOuM/2sQ110vxiajBU+4WkyRs1ODMmd4AfntwUEV4J+VfM6DkfjLRg==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/svg-with-js.min.css" integrity="sha512-W3ZfgmZ5g1rCPFiCbOb+tn7g7sQWOQCB1AkDqrBG1Yp3iDjY9KYFh/k1AWxrt85LX5BRazEAuv+5DV2YZwghag==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/v4-shims.min.css" integrity="sha512-iaLhEHW3p+ZNgkDKBi4zEfH+aWAMGJ7I7njqD3jKnbN0ux4Gkumu2vjuI71YUov20OIPl3R32v8HO+V+6OgbvQ==" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/brands.min.js" integrity="sha512-vefaKmSAX3XohXhN50vLfnK12TPIO+4uRpHjXVkX726CqbicEiAQGRzsMTE+EpLkBk4noUcUYu6AQ5af2vfRLA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/fontawesome.min.js" integrity="sha512-KCwrxBJebca0PPOaHELfqGtqkUlFUCuqCnmtydvBSTnJrBirJ55hRG5xcP4R9Rdx9Fz9IF3Yw6Rx40uhuAHR8Q==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/conflict-detection.min.js" integrity="sha512-yJCW8dCR1gd61mpVk3LuLa5wSkGZ3C5cM1gegZzKTrjDB0NaxoJfF8Sh1zLy65SWjkWRz6ynRDYVbm2JAlS0Hg==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/solid.min.js" integrity="sha512-Qc+cBMt/4/KXJ1F6nNQahXIsgPygHM4S2XWChoumV8qkpZ9oO+gBDBEpOxgbkQQ/6DlHx6cUxa5nBhEbuiR8xw==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/regular.min.js" integrity="sha512-jR9mIF29jOBsgismrZaiPV9H/VNWOpnILyA4MPEPgJFadfbWT0mQ5MnxCMd+JCYdoTuB2n1SkI00XkELU4ETmg==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/v4-shims.min.js" integrity="sha512-1ND726aZWs77iIUxmOoCUGluOmCT9apImcOVOcDCOSVAUxk3ZSJcuGsHoJ+i4wIOhXieZZx6rY9s6i5xEy1RPg==" crossorigin="anonymous"></script>
-
+    @include('scripts.css')
 
 </head>
 
 <body>
     <div class="site-wrapper overflow-hidden ">
 
-        <header class="site-header site-header--menu-right dynamic-sticky-bg py-7 py-lg-0 site-header--absolute site-header--sticky">
-            <div class="container">
-                <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
-
-                    <div class="brand-logo">
-                        <a href="{{ url('/') }}">
-                            <h3>
-                                <span class="text-green">JOB</span> FINDER
-                            </h3>
-                        </a>
-                    </div>
-                    <div class="collapse navbar-collapse" id="mobile-menu">
-                        <div class="navbar-nav-wrapper">
-                            <ul class="navbar-nav main-menu">
-                                <li class="nav-item active">
-                                    <a class="nav-link" aria-expanded="false">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('jobs') }}" class="nav-link">JOBS</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Support</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true" aria-label="Toggle navigation">
-                        <i class="gr-cross-icon"></i>
-                        </button>
-                    </div>
-                    <div class="header-btns header-btn-devider ml-auto pr-2 ml-lg-6 d-none d-xs-flex">
-                        <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset" href="javacript:" data-toggle="modal" data-target="#login">
-                        Log in
-                        </a>
-                        <a class="btn btn-primary text-uppercase font-size-3" href="javacript:" data-toggle="modal" data-target="#signup">
-                        Sign up
-                        </a>
-                    </div>
-
-                    <button class="navbar-toggler btn-close-off-canvas  hamburger-icon border-0" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="hamburger hamburger--squeeze js-hamburger">
-                    <span class="hamburger-box">
-                        <span class="hamburger-inner"></span>
-                        </span>
-                        </span>
-                    </button>
-
-                </nav>
-            </div>
-        </header>
+        @include('partials.header')
 
         @include('includes.auth')
 
@@ -445,7 +371,7 @@
                             </ul>
                             <p class="mb-7 font-size-4 text-gray">{{ $job->description }}</p>
                             <div class="card-btn-group">
-                                <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">Apply Now</a>
+                                <a class="btn btn-green text-uppercase btn-medium rounded-3" href="{{ route('single-job', [$job->title]) }}">Apply Now</a>
                                 <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><ion-icon name="bookmark-outline"></ion-icon> Save it</a>
                             </div>
                         </div>
@@ -544,122 +470,8 @@
             </div>
         </section>
 
-        <footer class="footer bg-ebony-clay dark-mode-texts">
-            <div class="container">
-                <!-- Cta section -->
-                <div class="pt-11 pt-lg-20 pb-13 pb-lg-20 border-bottom border-width-1 border-default-color-2">
-                    <div class="row justify-content-center ">
-                        <div class="col-xl-7 col-lg-12" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
-                            <!-- cta-content start -->
-                            <div class="pb-xl-0 pb-9 text-xl-left text-center">
-                                <h2 class="text-white font-size-8 mb-4">Most comprehensive job portal in Malawi</h2>
-                                <p class="text-hit-gray font-size-5 mb-0">Find 100+ job posts across Malawi everyday</p>
-                            </div>
-                            <!-- cta-content end -->
-                        </div>
-                        <div class="col-xl-5 col-lg-12" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
-                            <!-- cta-btns start -->
-                            <div class="btns d-flex justify-content-xl-end justify-content-center align-items-xl-center flex-wrap h-100  mx-n4">
-                                <a class="btn btn-outline-gallery btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#login">Log in</a>
-                                <a class="btn btn-green btn-h-60 btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#signup">Register</a>
-                            </div>
-                            <!-- cta-btns end -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container  pt-12 pt-lg-19 pb-10 pb-lg-19">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6 mb-lg-0 mb-9">
-                        <!-- footer logo start -->
-                        <h3><span class="text-green">JOB</span> FINDER</h3>
-                        <!-- footer logo End -->
-                        <!-- media start -->
-                        <div class="mb-11">
-                            <p>Download the mobile app for both iOS & Android</p>
-                            <div class="media align-items-center">
-                                <img src="{{ asset('img/google-play-badge.png') }}" height="70" width="150" alt="" srcset="">
-                                <img src="{{ asset('img/223-2231228_app-store-apple-transprent-download-on-apple-store.png') }}" height="50" width="150" alt="" srcset="">
-                            </div>
-                        </div>
-                        <!-- media start -->
-                        <!-- widget social icon start -->
-                        <div class="social-icons">
-                            <ul class="pl-0 list-unstyled d-flex align-items-end ">
-                                <li class="d-flex flex-column justify-content-center px-3 mr-3 font-size-4 heading-default-color">Follow us on:</li>
-                                <li class="d-flex flex-column justify-content-center px-3 mr-3"><a href="#" class="hover-color-primary heading-default-color"><ion-icon name="logo-whatsapp"></ion-icon></a></li>
-                                <li class="d-flex flex-column justify-content-center px-3 mr-3"><a href="#" class="hover-color-primary heading-default-color"><ion-icon name="logo-facebook"></ion-icon></a></li>
-                                <li class="d-flex flex-column justify-content-center px-3 mr-3"><a href="#" class="hover-color-primary heading-default-color"><ion-icon name="logo-twitter"></ion-icon></a></li>
-                            </ul>
-                        </div>
-                        <!-- widget social icon end -->
-                    </div>
-                    <div class="col-lg-8 col-md-6">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6 col-sm-3 col-xs-6">
-                                <div class="footer-widget widget2 mb-md-0 mb-13">
-                                    <!-- footer widget title start -->
-                                    <p class="widget-title font-size-4 text-gray mb-md-8 mb-7">Company</p>
-                                    <!-- footer widget title end -->
-                                    <!-- widget social menu start -->
-                                    <ul class="widget-links pl-0 list-unstyled list-hover-primary">
-                                        <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">About us</a></li>
-                                        <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Contact us</a></li>
-                                        <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Careers</a></li>
-                                        <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Press</a></li>
-                                    </ul>
-                                    <!-- widget social menu end -->
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-3 col-xs-6">
-                                <div class="footer-widget widget3 mb-sm-0 mb-13">
-                                    <!-- footer widget title start -->
-                                    <p class="widget-title font-size-4 text-gray mb-md-8 mb-7">Product</p>
-                                    <!-- footer widget title end -->
-                                    <!-- widget social menu start -->
-                                    <ul class="widget-links pl-0 list-unstyled list-hover-primary">
-                                        <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Features </a></li>
-                                        <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Pricing</a></li>
-                                        <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">News</a></li>
-                                        <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Help desk</a></li>
-                                        <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Support</a></li>
-                                    </ul>
-                                    <!-- widget social menu end -->
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-3 col-xs-6">
-                                <div class="footer-widget widget4 mb-sm-0 mb-13">
-                                    <!-- footer widget title start -->
-                                    <p class="widget-title font-size-4 text-gray mb-md-8 mb-7">Services</p>
-                                    <!-- footer widget title end -->
-                                    <!-- widget social menu start -->
-                                    <ul class="widget-links pl-0 list-unstyled list-hover-primary">
-                                        <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Digital Marketing</a></li>
-                                        <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">SEO for Business</a></li>
-                                        <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Avasta Dash</a></li>
-                                        <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">UI Design</a></li>
-                                    </ul>
-                                    <!-- widget social menu end -->
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-3 col-xs-6">
-                                <div class="footer-widget widget4">
-                                    <!-- footer widget title start -->
-                                    <p class="widget-title font-size-4 text-gray mb-md-8 mb-7">Legal</p>
-                                    <!-- footer widget title end -->
-                                    <ul class="widget-links pl-0 list-unstyled list-hover-primary">
-                                        <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Privacy Policy</a></li>
-                                        <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Terms & Conditions</a></li>
-                                        <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Return Policy</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- footer area function end -->
+        @include('partials.footer')
+
         <div class="modal fade" id="cookieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -675,31 +487,9 @@
             </div>
           </div>
           @include('cookieConsent::index')
-          {{-- <div class="container">
-            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#cookieModal">
-              See Cookies
-            </button>
-          </div> --}}
+
     </div>
-    <!-- Vendor Scripts -->
-    <script src="./assets/js/vendor.min.js"></script>
-    <!-- Plugin's Scripts -->
-    {{-- <script>
-        $(document).ready(function() {
-  $('#cookieModal').modal('show');
-});
-    </script> --}}
-    <script src="./assets/plugins/fancybox/jquery.fancybox.min.js"></script>
-    <script src="./assets/plugins/nice-select/jquery.nice-select.min.js"></script>
-    <script src="./assets/plugins/aos/aos.min.js"></script>
-    <script src="./assets/plugins/slick/slick.min.js"></script>
-    <script src="./assets/plugins/counter-up/jquery.counterup.min.js"></script>
-    <script src="./assets/plugins/counter-up/jquery.waypoints.min.js"></script>
-    <script src="./assets/plugins/ui-range-slider/jquery-ui.js"></script>
-    <!-- Activation Script -->
-    <!-- <script src="js/drag-n-drop.js"></script> -->
-    <script src="./assets/js/custom.js"></script>
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    @include('scripts.js')
 </body>
 
 </html>

@@ -23,11 +23,12 @@ Route::get('/', function (Request $request) {
     $jobs = Jobs::all();
 
     return view('welcome', compact('districts', 'jobs'));
-});
+})->name('index');
 // Auth::routes();
 Auth::routes(['reset' => false]);
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/jobs', [\App\Http\Controllers\PagesController::class, 'jobs'])->name('jobs');
+Route::get('/job/{job:title}', [\App\Http\Controllers\PagesController::class, 'job'])->name('single-job');
 Route::get('/404', [\App\Http\Controllers\PagesController::class, 'error'])->name('404');
 Route::get('admin/home', [\App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
