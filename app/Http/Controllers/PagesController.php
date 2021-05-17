@@ -7,6 +7,7 @@ use App\Models\Jobs;
 use Auth;
 use App\Models\JobLikes;
 use App\Models\JobTags;
+use Http;
 
 class PagesController extends Controller
 {
@@ -25,6 +26,15 @@ class PagesController extends Controller
         $tags = JobTags::where('job_id', $id)->get();
 
         return view('job', ['jobs'  => $jobs, 'likes' => $likes, 'tags' => $tags ]);
+    }
+
+    public function likeJob($job_id){
+
+        $job = new JobLikes();
+        $job->user_id = Auth::user()->id;
+        $job->job_id = $job_id;
+        $job->save();
+
     }
 
     public function search_results(){

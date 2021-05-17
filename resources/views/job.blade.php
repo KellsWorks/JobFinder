@@ -63,9 +63,9 @@
 
                                         <div class="card-btn-group">
                                             <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="#">Apply to this job</a>
-                                            <a class="btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mb-5 px-5" href="#">
+                                            <a class="btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mr-4 mb-5 px-5" href="#">
                                             <ion-icon name="albums-outline"></ion-icon></i>  Save job</a>
-                                            <a class="btn btn-outline-mercury text-red text-uppercase h-px-48 rounded-3 mb-5 px-5" href="#">
+                                            <a id="like" onclick="liked()" class="btn btn-outline-mercury text-uppercase h-px-48 rounded-3 mb-5 px-5" href="javascript:">
                                                 <span class="text-red mt-2"><ion-icon name="heart"></ion-icon></i> </span>  {{ $likes }}</a>
                                         </div>
 
