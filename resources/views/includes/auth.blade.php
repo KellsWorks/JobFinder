@@ -1,3 +1,9 @@
+{{-- Blade imports --}}
+
+@include('includes.terms-and-conditions')
+
+{{-- Sign in Modal dialog --}}
+
 <div class="modal fade form-modal" id="login" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog max-width-px-840 position-relative">
         <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-md-n6 mr-lg-n6 focus-reset z-index-supper" data-dismiss="modal"><ion-icon name="close-outline"></ion-icon></button>
@@ -86,6 +92,10 @@
     </div>
 </div>
 
+{{-- End of sign in Modal dialog --}}
+
+{{-- Sign up Modal dialog  --}}
+
 <div class="modal fade form-modal" id="signup" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog max-width-px-840 position-relative">
         <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-n6 mr-lg-n6 focus-reset shadow-10" data-dismiss="modal"><i class="fas fa-times"></i></button>
@@ -173,7 +183,7 @@
                                 <label for="terms-check2" class="gr-check-input d-flex  mr-3">
                                 <input class="d-none" type="checkbox" id="terms-check2">
                                 <span class="checkbox mr-5"></span>
-                                <span class="font-size-3 mb-0 line-height-reset d-block">Agree to the <a href="#" class="text-primary">Terms & Conditions</a></span>
+                                <span class="font-size-3 mb-0 line-height-reset d-block">Agree to the <a href="javascript:" class="text-primary" data-toggle="modal" data-target="#terms" data-dismiss="#singup">Terms & Conditions</a></span>
                                 </label>
 
                                 @if (Route::has('password.request'))
@@ -194,3 +204,4 @@
         </div>
     </div>
 </div>
+{{-- End of sign up Modal dialog --}}
