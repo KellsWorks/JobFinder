@@ -362,7 +362,7 @@
                             <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">{{ $job->title }}</a></h2>
                             <ul class="list-unstyled mb-1 card-tag-list">
                                 <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                                <ion-icon name="pin-outline"></ion-icon>{{ $job->location }}
+                                <ion-icon name="pin-outline" size="small"></ion-icon>{{ $job->location }}
                             </a></li>
                                             <li><a href="" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
                                 <i class="fa fa-briefcase mr-2 font-weight-bold"></i>{{ $job->duration }}

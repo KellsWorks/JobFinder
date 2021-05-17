@@ -76,7 +76,7 @@ Route::prefix('jobs')->group(function () {
 
     Route::get('/get/saved-jobs', [App\Http\Controllers\JobsController::class, 'getSavedJobs']);
 
-    Route::post('/job/like', [App\Http\Controllers\JobLikesController::class, 'like']);
+    Route::post('/job/like', [App\Http\Controllers\JobsController::class, 'likeJob']);
 
     Route::post('/job/dislike', [App\Http\Controllers\JobLikesController::class, 'dislike']);
 

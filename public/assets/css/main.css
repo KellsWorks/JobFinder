@@ -260,7 +260,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 /*=== Media Query ===*/
 
 /* ---------------------------
-  01.Component -> { Header } 
+  01.Component -> { Header }
 ------------------------------*/
 
 @media (min-width: 992px) {
@@ -554,12 +554,12 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 /* ---------------------------
-  01.Component -> { Menu } 
+  01.Component -> { Menu }
 ------------------------------*/
 
 .main-menu {
     /* ----------------------
-  Custom toggle arrow 
+  Custom toggle arrow
 ------------------------*/
 }
 
@@ -1307,7 +1307,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 /* ---------------------------
-  01.Component -> { Button } 
+  01.Component -> { Button }
 ------------------------------*/
 
 .btn {
@@ -1369,7 +1369,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 /* ---------------------------
-  01.Component -> { Lists } 
+  01.Component -> { Lists }
 ------------------------------*/
 
 /* List components */
@@ -1478,7 +1478,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 /* ---------------------------
-  01.Component -> { Background } 
+  01.Component -> { Background }
 ------------------------------*/
 
 .bg-image {
@@ -1508,7 +1508,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 /* ---------------------------
-  01.Component -> { Form } 
+  01.Component -> { Form }
 ------------------------------*/
 
 .gr-check-input {
@@ -1920,7 +1920,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 /* ---------------------------
-  01.Component -> { Cards } 
+  01.Component -> { Cards }
 ------------------------------*/
 
 .feature-cardOne-adjustments .card-tag-list {
@@ -1997,7 +1997,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 /* ---------------------------
-  01.Component -> { Modal } 
+  01.Component -> { Modal }
 ------------------------------*/
 
 .modal.show .modal-dialog {
@@ -2016,7 +2016,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 /* ---------------------------
-  01.Component -> { Tab } 
+  01.Component -> { Tab }
 ------------------------------*/
 
 .search-nav-tab .active {
@@ -2029,7 +2029,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 /* ---------------------------
-  01.Component -> { Acccordion } 
+  01.Component -> { Acccordion }
 ------------------------------*/
 
 .accordion-trigger.arrow-icon {
@@ -2057,7 +2057,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 /* ---------------------------
-  01.Component -> { Sidebar } 
+  01.Component -> { Sidebar }
 ------------------------------*/
 
 .dashboard-sidebar-wrapper {
@@ -2185,11 +2185,11 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 /* ---------------------------
-  02.Utility -> { Color } 
+  02.Utility -> { Color }
 ------------------------------*/
 
 .bg-primary-opacity-visible {
-    background-color: #00b074;
+    background-color: #34c759;
 }
 
 .bg-primary-opacity-1 {
@@ -2237,7 +2237,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 .gr-color-primary-opacity-visible {
-    color: #00b074;
+    color: #34c759;
 }
 
 .gr-color-primary-opacity-1 {
@@ -2381,7 +2381,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 .bg-success-opacity-visible {
-    background-color: #00b074;
+    background-color: #34c759;
 }
 
 .bg-success-opacity-1 {
@@ -2429,7 +2429,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 .gr-color-success-opacity-visible {
-    color: #00b074;
+    color: #34c759;
 }
 
 .gr-color-success-opacity-1 {
@@ -6889,7 +6889,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 /* ---------------------------
-  02.Utility -> { Flex } 
+  02.Utility -> { Flex }
 ------------------------------*/
 
 .flex-all-center {
@@ -6909,7 +6909,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 /* ---------------------------
-  02.Utility -> { Grid } 
+  02.Utility -> { Grid }
 ------------------------------*/
 
 @media (min-width: 576px) {
@@ -6949,7 +6949,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 /* ---------------------------
-  02.Utility -> { Shadows } 
+  02.Utility -> { Shadows }
 ------------------------------*/
 
 /*~~~~~ Normal Shadows ~~~~~*/
@@ -7003,7 +7003,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 /* ---------------------------
-  02.Utility -> { Size } 
+  02.Utility -> { Size }
 ------------------------------*/
 
 /*~~~~~ Circle Sizes ~~~~~*/
@@ -7665,7 +7665,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 /* ---------------------------
-  02.Utility -> { Borders } 
+  02.Utility -> { Borders }
 ------------------------------*/
 
 .rounded-xs {
@@ -7897,7 +7897,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape,
 }
 
 /* ---------------------------
-  02.Utility -> { Common } 
+  02.Utility -> { Common }
 ------------------------------*/
 
 span,
@@ -7965,7 +7965,7 @@ a {
 }
 
 /* ---------------------------
-  02.Utility -> { Tablet } 
+  02.Utility -> { Tablet }
 ------------------------------*/
 
 .table-striped tbody tr:nth-of-type(odd) {
@@ -7973,7 +7973,7 @@ a {
 }
 
 /* ---------------------------
-  02.Utility -> { Typography } 
+  02.Utility -> { Typography }
 ------------------------------*/
 
 p {
@@ -8100,7 +8100,7 @@ p {
 }
 
 /* ---------------------------
-  03.Theme Utility -> { Hovers } 
+  03.Theme Utility -> { Hovers }
 ------------------------------*/
 
 /*~~~~~~~~~~~~~~~~
@@ -8223,7 +8223,7 @@ a.hover-text-hitgray:hover {
 }
 
 /* ---------------------------
-  03.Theme Utility -> { Positioning } 
+  03.Theme Utility -> { Positioning }
 ------------------------------*/
 
 @media (min-width: 992px) {
@@ -8402,7 +8402,7 @@ a.hover-text-hitgray:hover {
 }
 
 /* ---------------------------
-  03.Theme Utility -> { Sizes } 
+  03.Theme Utility -> { Sizes }
 ------------------------------*/
 
 /* Theme Size Utilities */
@@ -8522,7 +8522,7 @@ a.hover-text-hitgray:hover {
 }
 
 /* --------------------------------
-  03.Theme Utility -> { Typograpy } 
+  03.Theme Utility -> { Typograpy }
 -----------------------------------*/
 
 .letter-spacing-np09 {
@@ -8538,7 +8538,7 @@ a.hover-text-hitgray:hover {
 }
 
 /* ---------------------------------
-  03.Theme Utility -> { Gradient } 
+  03.Theme Utility -> { Gradient }
 ------------------------------------*/
 
 .bg-gradient-1 {
@@ -8549,9 +8549,9 @@ a.hover-text-hitgray:hover {
     background-image: linear-gradient(180deg, #ffffff 0%, #f4f5f8 100%);
 }
 
-/* 
+/*
 ---------------------------------
--------> THEME CUSTOM STYLES 
+-------> THEME CUSTOM STYLES
 ---------------------------------
 */
 
