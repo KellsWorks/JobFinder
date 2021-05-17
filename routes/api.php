@@ -104,7 +104,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     });
     Route::get('/followedjobs', [App\Http\Controllers\JobsController::class, 'getFollowedJobs']);
     Route::get('/get/all', [App\Http\Controllers\NotificationsController::class, 'getUserNotifications']);
-
+    Route::get('/categories', [App\Http\Controllers\JobsController::class, 'getCategories']);
     Route::get('/get/saved-jobs', [App\Http\Controllers\JobsController::class, 'getSavedJobs']);
 
     Route::post('/save/job', [App\Http\Controllers\JobsController::class, 'saveJob']);

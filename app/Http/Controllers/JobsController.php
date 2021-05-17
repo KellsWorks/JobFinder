@@ -93,4 +93,12 @@ class JobsController extends Controller
         return response()->json($jobs, 200);
 
     }
+
+    public function getCategories(Request $request){
+
+        $category = JobsCategory::all();
+
+        return $category;
+
+    }
 }
