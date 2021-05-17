@@ -76,6 +76,13 @@ class JobsController extends Controller
             );
     }
 
+    public function getFollowedJobs(Request $request){
+        $id= auth()->user()->id;
+
+        $followedJobs = FollowedJobs::where('user_id', $id)->get();
+        return $followedJobs;
+    }
+
     public function getJobsByCategory(Request $request){
 
         $jobsCategory = JobsCategory::where('category', $request->category)
