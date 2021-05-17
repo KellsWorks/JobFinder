@@ -15,11 +15,11 @@ class PagesController extends Controller
         return view('errrors.404');
     }
 
-    public function job(Jobs $jobs){
+    public function job($id){
 
-        // dd($jobs->title);
+        $jobs  = Jobs::findOrFail($id);
 
-        return view('job', compact('jobs'));
+        return view('job', ['jobs'  => $jobs ]);
     }
 
     public function search_results(){

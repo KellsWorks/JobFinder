@@ -59,7 +59,7 @@ Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->nam
 */
 
 Route::get('/jobs', [\App\Http\Controllers\PagesController::class, 'jobs'])->name('jobs');
-Route::get('/job/{job:title}', [\App\Http\Controllers\PagesController::class, 'job'])->name('single-job');
+Route::get('/job/{id}', [\App\Http\Controllers\PagesController::class, 'job']);
 
 Route::post('/search-results', [\App\Http\Controllers\PagesController::class, 'search_results'])->name('search-results');
 /*

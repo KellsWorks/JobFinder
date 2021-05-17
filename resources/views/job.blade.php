@@ -24,12 +24,11 @@
                     <!-- back Button -->
                     <div class="col-xl-10 col-lg-11 mt-4 ml-xxl-32 ml-xl-15 dark-mode-texts">
                         <div class="mb-9">
-                            <a class="d-flex align-items-center ml-4" href="{{ route('index') }}"> <i
-              class="icon icon-small-left bg-white circle-40 mr-5 font-size-7 text-black font-weight-bold shadow-8">
-            </i><span class="text-uppercase font-size-3 font-weight-bold text-gray">Back to home</span></a>
+                            <a class="d-flex align-items-center ml-4" href="{{ route('index') }}">
+                                <ion-icon name="arrow-back-outline"></ion-icon><span class="text-uppercase font-size-3 font-weight-bold text-gray">Back to home</span></a>
                         </div>
                     </div>
-                    <!-- back Button End -->
+
                     <div class="col-xl-9 col-lg-11 mb-8 px-xxl-15 px-xl-0">
                         <div class="bg-white rounded-4 border border-mercury shadow-9">
                             <!-- Single Featured Job -->
@@ -39,14 +38,14 @@
                                         <!-- media start -->
                                         <div class="media align-items-center">
                                             <!-- media logo start -->
-                                            <div class="square-72 d-block mr-8">
-                                                <img src="./image/l2/png/featured-job-logo-1.png" alt="">
+                                            <div class="square-72 d-block mr-8 pt-4 ml-3 justify-content-center">
+                                                <img class="img-responsive mt-4 center" height="21" src="{{ asset('img/companies/'.$jobs->employer_logo)}}" alt="">
                                             </div>
                                             <!-- media logo end -->
                                             <!-- media texts start -->
                                             <div>
-                                                <h3 class="font-size-6 mb-0">Product Designer</h3>
-                                                <span class="font-size-3 text-gray line-height-2">AirBnb</span>
+                                                <h3 class="font-size-6 mb-0">{{ $jobs->title }}</h3>
+                                                <span class="font-size-3 text-gray line-height-2">{{ $jobs->employer }}</span>
                                             </div>
                                             <!-- media texts end -->
                                         </div>
@@ -55,7 +54,7 @@
                                     <div class="col-md-6 text-right pt-7 pt-md-0 mt-md-n1">
                                         <!-- media date start -->
                                         <div class="media justify-content-md-end">
-                                            <p class="font-size-4 text-gray mb-0">19 June 2020</p>
+                                            <p class="font-size-4 text-gray mb-0">{{ \Carbon\Carbon::parse($jobs->created_at)->diffForHumans() }}</p>
                                         </div>
                                         <!-- media date end -->
                                     </div>
@@ -66,7 +65,9 @@
                                         <div class="card-btn-group">
                                             <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="#">Apply to this job</a>
                                             <a class="btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mb-5 px-5" href="#">
-                        <i class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i> Save job</a>
+                                            <ion-icon name="albums-outline"></ion-icon></i>  Save job</a>
+                                            <a class="btn btn-outline-mercury text-red text-uppercase h-px-48 rounded-3 mb-5 px-5" href="#">
+                                                <span class="text-red mt-2"><ion-icon name="heart"></ion-icon></i> </span> 12,312</a>
                                         </div>
                                         <!-- card-btn-group end -->
                                     </div>
@@ -78,25 +79,25 @@
                                     <div class="col-md-4 mb-md-0 mb-6">
                                         <div class="media justify-content-md-start">
                                             <div class="image mr-5">
-                                                <img src="./image/svg/icon-dolor.svg" alt="">
+                                                <img src="{{ asset('assets/image/svg/icon-dolor.svg') }}" alt="">
                                             </div>
-                                            <p class="font-weight-semibold font-size-5 text-black-2 mb-0">80-90K PLN</p>
+                                            <p class="font-weight-semibold font-size-5 text-black-2 mb-0">{{ $jobs->salary }}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4 pr-lg-0 pl-lg-10 mb-md-0 mb-6">
                                         <div class="media justify-content-md-start">
                                             <div class="image mr-5">
-                                                <img src="./image/svg/icon-briefcase.svg" alt="">
+                                                <img src="{{ asset('assets/image/svg/icon-briefcase.svg') }}" alt="">
                                             </div>
-                                            <p class="font-weight-semibold font-size-5 text-black-2 mb-0">Full-Time</p>
+                                            <p class="font-weight-semibold font-size-5 text-black-2 mb-0">{{ $jobs->duration }}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4 pl-lg-0">
                                         <div class="media justify-content-md-start">
                                             <div class="image mr-5">
-                                                <img src="./image/svg/icon-location.svg" alt="">
+                                                <img src="{{ asset('assets/image/svg/icon-location.svg') }}" alt="">
                                             </div>
-                                            <p class="font-size-5 text-gray mb-0">777 Brockton Avenue, <br class="d-md-none d-lg-block d-block"> Abington MA 2351</p>
+                                            <p class="font-size-5 text-gray mb-0">{{ $jobs->location }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -160,28 +161,14 @@
                                     <div class="col-xl-11 col-md-12 pr-xxl-9 pr-xl-10 pr-lg-20">
                                         <div class="">
                                             <p class="mb-4 font-size-4 text-gray">Job Description</p>
-                                            <p class="font-size-4 text-black-2 mb-7">Gubagoo is a fast growing provider of messaging and commerce solutions for automotive dealers changing the future of how people find, buy and service their vehicles. </p>
+                                            <p class="font-size-4 text-black-2 mb-7">{{ $jobs->description }}</p>
                                         </div>
                                         <div class="">
                                             <span class="font-size-4 font-weight-semibold text-black-2 mb-7">Your Role:</span>
-                                            <p class="font-size-4 text-black-2 mb-7">We’re looking for a passionate individual to design beautiful and functional products for our customers at Gubagoo. We move very fast and you will be expected to contribute to a cross-functional product development
-                                                squad, that includes product managers and developers, to deliver the UX and UI for the team to bring to life. </p>
-                                            <p class="font-size-4 text-black-2 mb-7">We are serious about remote work. You can work for from anywhere. </p>
-                                            <span class="font-size-4 font-weight-semibold text-black-2 mb-7">What you will be doing:</span>
-                                            <ul class="list-unstyled">
-                                                <li class="d-block font-size-4 text-black-2 d-flex flex-row mt-2">
-                                                    <span class="d-inline-block mr-7">•</span>Contribute new controls or design improvements to our
-                                                </li>
-                                                <li class="d-block font-size-4 text-black-2 d-flex flex-row mt-1">
-                                                    <span class="d-inline-block mr-7">•</span>Take ownership of the successful delivery of features
-                                                </li>
-                                                <li class="d-block font-size-4 text-black-2 d-flex flex-row mt-1">
-                                                    <span class="d-inline-block mr-7">•</span>Help set and achieve quarterly goals
-                                                </li>
-                                                <li class="d-block font-size-4 text-black-2 d-flex flex-row mt-1">
-                                                    <span class="d-inline-block mr-7">•</span>Ship a TON of product improvements and features
-                                                </li>
-                                            </ul>
+                                            <p class="font-size-4 text-black-2 mb-7">
+                                                {{ $jobs->content }}
+                                            </p>
+
                                             <a class="btn btn-green text-uppercase btn-medium w-180 h-px-48 rounded-3 mr-4 mt-6" href="#">Apply to this job</a>
                                         </div>
                                     </div>

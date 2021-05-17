@@ -15,6 +15,8 @@ class Jobs extends Model
 
     use Likeable;
 
+    protected $fillable = ['title'];
+
     public function savedJobs()
     {
         return $this->hasOne(SavedJobs::class);
