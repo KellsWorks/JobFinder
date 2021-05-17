@@ -53,7 +53,7 @@
                                     <div class="col-md-6 text-right pt-7 pt-md-0 mt-md-n1">
 
                                         <div class="media justify-content-md-end">
-                                            <p class="font-size-4 text-gray mb-0">{{ \Carbon\Carbon::parse($jobs->created_at)->diffForHumans() }}</p>
+                                            <p class="d-flex font-size-2 text-green font-weight-bold">{{ \Carbon\Carbon::parse($jobs->created_at)->diffForHumans() }}</p>
                                         </div>
 
                                     </div>
@@ -64,7 +64,7 @@
                                         <div class="card-btn-group">
                                             <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="#">Apply to this job</a>
                                             <a class="btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mr-4 mb-5 px-5" href="#">
-                                            <ion-icon name="albums-outline"></ion-icon></i>  Save job</a>
+                                            Save job</a>
                                             <a id="like" onclick="liked()" class="btn btn-outline-mercury text-uppercase h-px-48 rounded-3 mb-5 px-5" href="javascript:">
                                                 <span class="text-red mt-2"><ion-icon name="heart"></ion-icon></i> </span>  {{ $likes }}</a>
                                         </div>
@@ -109,15 +109,16 @@
                                         <div class="tags">
                                             <p class="font-size-4 text-gray mb-0">Essential skills</p>
                                             <ul class="list-unstyled mr-n3 mb-0">
+
+                                                @forelse ($skills as $skill)
                                                 <li class="d-block font-size-4 text-black-2 mt-2">
-                                                    <span class="d-inline-block mr-2">•</span>Slack
+                                                    <span class="d-inline-block mr-2">•</span>{{ $skill->name }}
                                                 </li>
-                                                <li class="d-block font-size-4 text-black-2 mt-2">
-                                                    <span class="d-inline-block mr-2">•</span>Basic English
-                                                </li>
-                                                <li class="d-block font-size-4 text-black-2 mt-2">
-                                                    <span class="d-inline-block mr-2">•</span>Well Organized
-                                                </li>
+                                                @empty
+                                                <p class="text-red font-size-3 font-weight-bold">
+                                                    No essential skills available for this job
+                                                </p>
+                                                @endforelse
                                             </ul>
                                         </div>
                                     </div>
@@ -129,18 +130,36 @@
                                         <div class="tags">
                                             <p class="font-size-4 text-gray mb-3">Related tags</p>
                                             <ul class="d-flex list-unstyled flex-wrap pr-sm-25 pr-md-0">
-                                                @foreach ($tags as $item)
+                                                @forelse ($tags as $item)
                                                 <li class="bg-regent-opacity-15 mr-3 h-px-33 text-center flex-all-center rounded-3 px-5 font-size-3 text-black-2 mt-2">
                                                     {{ $item->tag }}
                                                 </li>
-                                                @endforeach
+                                                @empty
+                                                  <p class="text-red font-size-3 font-weight-bold">
+                                                   No tags available for this job
+                                                   </p>
+                                                @endforelse
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 pl-lg-0">
+                                    <div class="col-md-4 pr-lg-0 pl-lg-10 mb-lg-0 mb-8">
                                         <div class="">
                                             <span class="font-size-4 d-block mb-4 text-gray">Company size</span>
-                                            <h6 class="font-size-5 text-black-2 font-weight-semibold mb-0">11-50 employees</h6>
+                                            <h6 class="font-size-5 text-black-2 font-weight-semibold mb-9">11-50 employees</h6>
+                                        </div>
+                                        <div class="tags">
+                                            <p class="font-size-4 text-gray mb-3">Qualification</p>
+                                            <ul class="d-flex list-unstyled flex-wrap pr-sm-25 pr-md-0">
+                                                @forelse ($tags as $item)
+                                                <li class="bg-regent-opacity-15 mr-3 h-px-33 text-center flex-all-center rounded-3 px-5 font-size-3 text-black-2 mt-2">
+                                                    {{ $item->tag }}
+                                                </li>
+                                                @empty
+                                                  <p class="text-red font-size-3 font-weight-bold">
+                                                   No tags available for this job
+                                                   </p>
+                                                @endforelse
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>

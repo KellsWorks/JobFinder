@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Jobs;
 use Auth;
 use App\Models\JobLikes;
+use App\Models\JobSkills;
 use App\Models\JobTags;
 use Http;
 
@@ -22,10 +23,13 @@ class PagesController extends Controller
     public function job($id){
 
         $jobs  = Jobs::findOrFail($id);
+        $skills = JobSkills::where('job_id', $id)->get();
         $likes = JobLikes::where('jobs_id', $id)->count();
         $tags = JobTags::where('job_id', $id)->get();
 
-        return view('job', ['jobs'  => $jobs, 'likes' => $likes, 'tags' => $tags ]);
+        // dd($skills);
+
+        return view('job', ['jobs'  => $jobs, 'likes' => $likes, 'tags' => $tags, 'skills' => $skills ]);
     }
 
     public function likeJob($job_id){
