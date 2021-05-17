@@ -21,7 +21,7 @@
         <div class="jobDetails-section bg-default-1 pt-28 pt-lg-27 pb-xl-25 pb-12">
             <div class="container">
                 <div class="row justify-content-center">
-                    <!-- back Button -->
+
                     <div class="col-xl-10 col-lg-11 mt-4 ml-xxl-32 ml-xl-15 dark-mode-texts">
                         <div class="mb-9">
                             <a class="d-flex align-items-center ml-4" href="{{ route('index') }}">
@@ -31,37 +31,36 @@
 
                     <div class="col-xl-9 col-lg-11 mb-8 px-xxl-15 px-xl-0">
                         <div class="bg-white rounded-4 border border-mercury shadow-9">
-                            <!-- Single Featured Job -->
+
                             <div class="pt-9 pl-sm-9 pl-5 pr-sm-9 pr-5 pb-8 border-bottom border-width-1 border-default-color light-mode-texts">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <!-- media start -->
+
                                         <div class="media align-items-center">
-                                            <!-- media logo start -->
+
                                             <div class="square-72 d-block mr-8 pt-4 ml-3 justify-content-center">
                                                 <img class="img-responsive mt-4 center" height="21" src="{{ asset('img/companies/'.$jobs->employer_logo)}}" alt="">
                                             </div>
-                                            <!-- media logo end -->
-                                            <!-- media texts start -->
+
                                             <div>
                                                 <h3 class="font-size-6 mb-0">{{ $jobs->title }}</h3>
                                                 <span class="font-size-3 text-gray line-height-2">{{ $jobs->employer }}</span>
                                             </div>
-                                            <!-- media texts end -->
+
                                         </div>
-                                        <!-- media end -->
+
                                     </div>
                                     <div class="col-md-6 text-right pt-7 pt-md-0 mt-md-n1">
-                                        <!-- media date start -->
+
                                         <div class="media justify-content-md-end">
                                             <p class="font-size-4 text-gray mb-0">{{ \Carbon\Carbon::parse($jobs->created_at)->diffForHumans() }}</p>
                                         </div>
-                                        <!-- media date end -->
+
                                     </div>
                                 </div>
                                 <div class="row pt-9">
                                     <div class="col-12">
-                                        <!-- card-btn-group start -->
+
                                         <div class="card-btn-group">
                                             <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="#">Apply to this job</a>
                                             <a class="btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mb-5 px-5" href="#">
@@ -69,11 +68,11 @@
                                             <a class="btn btn-outline-mercury text-red text-uppercase h-px-48 rounded-3 mb-5 px-5" href="#">
                                                 <span class="text-red mt-2"><ion-icon name="heart"></ion-icon></i> </span> 12,312</a>
                                         </div>
-                                        <!-- card-btn-group end -->
+
                                     </div>
                                 </div>
                             </div>
-                            <!-- End Single Featured Job -->
+
                             <div class="job-details-content pt-8 pl-sm-9 pl-6 pr-sm-9 pr-6 pb-10 border-bottom border-width-1 border-default-color light-mode-texts">
                                 <div class="row mb-7">
                                     <div class="col-md-4 mb-md-0 mb-6">
@@ -161,11 +160,11 @@
                                     <div class="col-xl-11 col-md-12 pr-xxl-9 pr-xl-10 pr-lg-20">
                                         <div class="">
                                             <p class="mb-4 font-size-4 text-gray">Job Description</p>
-                                            <p class="font-size-4 text-black-2 mb-7">{{ $jobs->description }}</p>
+                                            <p class="font-size-4 text-black-2">{{ $jobs->description }}</p>
                                         </div>
                                         <div class="">
-                                            <span class="font-size-4 font-weight-semibold text-black-2 mb-7">Your Role:</span>
-                                            <p class="font-size-4 text-black-2 mb-7">
+
+                                            <p class="font-size-4 text-black-2 com-text">
                                                 {{ $jobs->content }}
                                             </p>
 
