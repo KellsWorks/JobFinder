@@ -66,7 +66,7 @@
                                             <a class="btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mb-5 px-5" href="#">
                                             <ion-icon name="albums-outline"></ion-icon></i>  Save job</a>
                                             <a class="btn btn-outline-mercury text-red text-uppercase h-px-48 rounded-3 mb-5 px-5" href="#">
-                                                <span class="text-red mt-2"><ion-icon name="heart"></ion-icon></i> </span> 12,312</a>
+                                                <span class="text-red mt-2"><ion-icon name="heart"></ion-icon></i> </span>  {{ $likes }}</a>
                                         </div>
 
                                     </div>
