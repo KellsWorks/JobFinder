@@ -96,7 +96,7 @@
                                             <div class="image mr-5">
                                                 <img src="{{ asset('assets/image/svg/icon-location.svg') }}" alt="">
                                             </div>
-                                            <p class="font-size-5 text-gray mb-0">{{ $jobs->location }}</p>
+                                            <p class="font-weight-semibold font-size-5 text-black-2 mb-0">{{ $jobs->location }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -148,15 +148,15 @@
                                             <h6 class="font-size-5 text-black-2 font-weight-semibold mb-9">11-50 employees</h6>
                                         </div>
                                         <div class="tags">
-                                            <p class="font-size-4 text-gray mb-3">Qualification</p>
+                                            <p class="font-size-4 text-gray mb-3">Qualifications</p>
                                             <ul class="d-flex list-unstyled flex-wrap pr-sm-25 pr-md-0">
-                                                @forelse ($tags as $item)
+                                                @forelse ($qualifications as $item)
                                                 <li class="bg-regent-opacity-15 mr-3 h-px-33 text-center flex-all-center rounded-3 px-5 font-size-3 text-black-2 mt-2">
-                                                    {{ $item->tag }}
+                                                    {{ $item->name }}
                                                 </li>
                                                 @empty
                                                   <p class="text-red font-size-3 font-weight-bold">
-                                                   No tags available for this job
+                                                   No qualifications available for this job
                                                    </p>
                                                 @endforelse
                                             </ul>

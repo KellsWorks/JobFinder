@@ -224,7 +224,17 @@ $('.counter').counterUp({
 function liked(){
 
     var element = document.getElementById("like");
+
     element.classList.toggle("liked");
 
-    console.log(parseInt(element.textContent)+1);
+    element.innerHTML = parseInt(element.textContent)+1;
+
+    element.onclick = () => {
+
+        element.innerHTML = parseInt(element.textContent)-1;
+        element.onclick = () => {
+            liked();
+        }
+
+    }
 }

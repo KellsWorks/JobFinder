@@ -8,6 +8,7 @@ use Auth;
 use App\Models\JobLikes;
 use App\Models\JobSkills;
 use App\Models\JobTags;
+use App\Models\JobsQualifications;
 use Http;
 
 class PagesController extends Controller
@@ -26,10 +27,10 @@ class PagesController extends Controller
         $skills = JobSkills::where('job_id', $id)->get();
         $likes = JobLikes::where('jobs_id', $id)->count();
         $tags = JobTags::where('job_id', $id)->get();
+        $qualifications = JobsQualifications::where('job_id', $id)->get();
 
-        // dd($skills);
 
-        return view('job', ['jobs'  => $jobs, 'likes' => $likes, 'tags' => $tags, 'skills' => $skills ]);
+        return view('job', ['jobs'  => $jobs, 'likes' => $likes, 'tags' => $tags, 'skills' => $skills, 'qualifications' => $qualifications ]);
     }
 
     public function likeJob($job_id){
