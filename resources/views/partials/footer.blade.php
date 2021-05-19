@@ -1,6 +1,8 @@
 <footer class="footer bg-ebony-clay dark-mode-texts">
     <div class="container">
 
+        @auth
+        @else
         <div class="pt-11 pt-lg-20 pb-13 pb-lg-20 border-bottom border-width-1 border-default-color-2">
             <div class="row justify-content-center ">
                 <div class="col-xl-7 col-lg-12" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
@@ -21,6 +23,8 @@
                 </div>
             </div>
         </div>
+        @endauth
+
     </div>
     <div class="container  pt-12 pt-lg-19 pb-5 pb-lg-19">
         <div class="row">
