@@ -1,4 +1,4 @@
-<header class="site-header site-header--menu-right dynamic-sticky-bg py-7 py-lg-0 site-header--absolute site-header--sticky">
+<header class="site-header bg-white site-header--menu-right dynamic-sticky-bg py-7 py-lg-0 site-header--absolute site-header--sticky">
     <div class="container">
         <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
 

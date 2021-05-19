@@ -17,7 +17,7 @@ $(document).ready(function() {
         });
     }
 
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      
+    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         Bootstrap Mobile Megamenu Support
     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
@@ -41,7 +41,7 @@ $(document).ready(function() {
         return false;
     });
 
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      
+    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
            Sticky Header
     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     window.onscroll = function() {
@@ -67,7 +67,7 @@ $(document).ready(function() {
         }
     }
 
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      
+    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
            Input Count Up Button
     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     $(".count-btn").on("click", function() {
@@ -90,7 +90,7 @@ $(document).ready(function() {
         $button.parent(".count-input-btns").parent().find("input").val(newVal);
     });
 
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      
+    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
            Prcing Dynamic Script
     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     $("[data-pricing-trigger]").on("click", function(e) {
@@ -104,7 +104,7 @@ $(document).ready(function() {
         }
     });
 
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      
+    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
            Smooth Scroll
     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
@@ -158,7 +158,7 @@ $('.product-view-mode a').on('click', function(e) {
 })
 
 
-/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
       Preloader Activation
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
@@ -218,3 +218,23 @@ $('.counter').counterUp({
     delay: 20,
     time: 2000
 });
+
+// Job Like
+
+function liked(){
+
+    var element = document.getElementById("like");
+
+    element.classList.toggle("liked");
+
+    element.innerHTML = parseInt(element.textContent)+1;
+
+    element.onclick = () => {
+
+        element.innerHTML = parseInt(element.textContent)-1;
+        element.onclick = () => {
+            liked();
+        }
+
+    }
+}
