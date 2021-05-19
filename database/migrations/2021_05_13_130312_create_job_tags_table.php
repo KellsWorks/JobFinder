@@ -15,8 +15,8 @@ class CreateJobTagsTable extends Migration
     {
         Schema::create('job_tags', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('job_id')->unsigned()->nullable();
-            $table->foreign('job_id')->references('id')->on('jobs');
+            $table->integer('jobs_id')->unsigned()->nullable();
+            $table->foreign('jobs_id')->references('id')->on('jobs');
             $table->string('tag');
             $table->timestamps();
         });

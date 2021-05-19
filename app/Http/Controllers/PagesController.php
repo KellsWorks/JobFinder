@@ -9,12 +9,21 @@ use App\Models\JobLikes;
 use App\Models\JobSkills;
 use App\Models\JobTags;
 use App\Models\JobsQualifications;
+use App\Models\Districts;
 use Http;
 
 class PagesController extends Controller
 {
     public function jobs(){
-        return view('jobs');
+
+        $jobs = Jobs::with('tags')->get();
+        $districts = Districts::all();
+
+        // foreach ($variable as $key => $value) {
+        //     # code...
+        // }
+
+        return view('jobs', ['jobs' => $jobs, 'districts' => $districts]);
     }
 
     public function error(){
@@ -26,7 +35,7 @@ class PagesController extends Controller
         $jobs  = Jobs::findOrFail($id);
         $skills = JobSkills::where('job_id', $id)->get();
         $likes = JobLikes::where('jobs_id', $id)->count();
-        $tags = JobTags::where('job_id', $id)->get();
+        $tags = JobTags::where('jobs_id', $id)->get();
         $qualifications = JobsQualifications::where('job_id', $id)->get();
 
 
