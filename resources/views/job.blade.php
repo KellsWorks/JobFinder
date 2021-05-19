@@ -24,7 +24,7 @@
 
                     <div class="col-xl-10 col-lg-11 mt-4 ml-xxl-32 ml-xl-15 dark-mode-texts">
                         <div class="mb-9">
-                            <a class="d-flex align-items-center ml-4" href="{{ route('index') }}">
+                            <a class="d-flex align-items-center ml-4" href="{{ url('/') }}">
                                 <ion-icon name="arrow-back-outline"></ion-icon><span class="text-uppercase font-size-3 font-weight-bold text-gray">Back to home</span></a>
                         </div>
                     </div>
