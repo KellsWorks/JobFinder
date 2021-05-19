@@ -106,6 +106,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/get/all', [App\Http\Controllers\NotificationsController::class, 'getUserNotifications']);
     Route::get('/categories', [App\Http\Controllers\JobsController::class, 'getCategories']);
     Route::get('/get/saved-jobs', [App\Http\Controllers\JobsController::class, 'getSavedJobs']);
+    Route::post('/activities/create', [App\Http\Controllers\ActivityController::class, 'create']);
 
     Route::post('/save/job', [App\Http\Controllers\JobsController::class, 'saveJob']);
 });
@@ -122,9 +123,6 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
 
 
 Route::prefix('activities')->group(function () {
-
-    Route::post('/create', [App\Http\Controllers\ActivityController::class, 'create']);
-
     Route::get('/get-all', [App\Http\Controllers\ActivityController::class, 'getAll']);
 
     Route::post('/delete-one', [App\Http\Controllers\ActivityController::class, 'deleteOne']);

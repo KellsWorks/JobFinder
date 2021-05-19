@@ -18,6 +18,7 @@ class ActivityController extends Controller
     }
 
     public function create(Request $request){
+        $id = auth()->user()->id;
 
         $activity = new Activity();
 
@@ -25,7 +26,7 @@ class ActivityController extends Controller
         $activity->content = $request->content;
         $activity->status = 'unread';
 
-        $user = User::findOrFail($request->user_id);
+        $user = User::findOrFail($id);
         $user->activity()->save($activity);
 
         return response()->json([

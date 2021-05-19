@@ -80,6 +80,7 @@ class JobsController extends Controller
         $id= auth()->user()->id;
 
         $followedJobs = FollowedJobs::where('user_id', $id)->get();
+
         return $followedJobs;
     }
 
@@ -91,14 +92,6 @@ class JobsController extends Controller
         $jobs = Jobs::find($jobsCategory);
 
         return response()->json($jobs, 200);
-
-    }
-
-    public function getCategories(Request $request){
-
-        $category = JobsCategory::all();
-
-        return $category;
 
     }
 }
