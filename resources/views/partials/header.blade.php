@@ -12,6 +12,7 @@
             <div class="collapse navbar-collapse" id="mobile-menu">
                 <div class="navbar-nav-wrapper">
                     <ul class="navbar-nav main-menu">
+
                         <li class="nav-item active">
                             <a class="nav-link" aria-expanded="false">Home</a>
                         </li>
