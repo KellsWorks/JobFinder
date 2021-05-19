@@ -227,14 +227,5 @@ function liked(){
 
     element.classList.toggle("liked");
 
-    element.innerHTML = parseInt(element.textContent)+1;
 
-    element.onclick = () => {
-
-        element.innerHTML = parseInt(element.textContent)-1;
-        element.onclick = () => {
-            liked();
-        }
-
-    }
 }

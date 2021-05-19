@@ -43,7 +43,7 @@
                                     <div class="filter-inputs">
                                         <div class="form-group position-relative">
                                             <input class="form-control focus-reset pl-13" type="text" id="keyword" placeholder="Job title">
-                                            <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6"><ion-icon name="search-outline"></ion-icon></i></span>
+                                            <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center text-green justify-content-center font-size-6"><ion-icon name="search-outline"></ion-icon></i></span>
                                         </div>
 
                                         <div class="form-group position-relative">
@@ -53,7 +53,7 @@
                                                   <option value="">{{ $district->name }}</option>
                                             @endforeach
                                             </select>
-                                            <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6"><ion-icon name="pin-outline"></ion-icon></span>
+                                            <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center text-green justify-content-center font-size-6"><ion-icon name="pin-outline"></ion-icon></span>
                                         </div>
 
                                     </div>
