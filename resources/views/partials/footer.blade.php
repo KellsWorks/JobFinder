@@ -82,7 +82,7 @@
                                 <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">About us</a></li>
                                 <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Contact us</a></li>
                                 <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Careers</a></li>
-                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Press</a></li>
+                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Newsletters</a></li>
                             </ul>
 
                         </div>

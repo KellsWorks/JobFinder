@@ -531,6 +531,20 @@
                 </div>
             </div>
         </section>
+{{--
+        <section class="bg-green call-to-act-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 pa-10">
+
+                        <h5 class="text-white mt-10">
+                            Subscribe to our newsletters to be updated of new jobs!
+                        </h5>
+
+                    </div>
+                </div>
+            </div>
+        </section> --}}
 
         @include('partials.footer')
 
@@ -548,9 +562,11 @@
               </div>
             </div>
           </div>
+
           @include('cookieConsent::index')
 
     </div>
+
     @include('scripts.js')
 </body>
 
