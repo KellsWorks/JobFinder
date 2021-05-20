@@ -16,12 +16,21 @@ class PagesController extends Controller
 {
     public function jobs(){
 
-        $jobs = Jobs::with('tags')->get();
+        $search = request()->query('query');
+
+        if($search){
+
+            $jobs = Jobs::where('title', 'LIKE', "%{$search}%")->simplePaginate(3);
+
+        }else{
+
+            $jobs = Jobs::with('tags')->get();
+
+        }
+
+
         $districts = Districts::all();
 
-        // foreach ($variable as $key => $value) {
-        //     # code...
-        // }
 
         return view('jobs', ['jobs' => $jobs, 'districts' => $districts]);
     }
@@ -53,5 +62,20 @@ class PagesController extends Controller
 
     public function search_results(){
         return view('search-results');
+    }
+
+    public function search(){
+
+        $search = request()->query('query');
+
+        if($search){
+
+            $jobs = Jobs::where('title', 'LIKE', "%{$search}%")->simplePaginate(3);
+
+        }else{
+
+        }
+
+
     }
 }

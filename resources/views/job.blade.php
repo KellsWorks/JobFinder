@@ -133,7 +133,7 @@
                                         <div class="media align-items-center">
 
                                             <div class="square-72 d-block mr-8 pt-4 ml-3 justify-content-center">
-                                                <img class="img-responsive mt-4 center" height="21" src="{{ asset('img/companies/'.$jobs->employer_logo)}}" alt="">
+                                                <img class="img-fluid mt-4 center" src="{{ asset('img/companies/'.$jobs->employer_logo)}}" alt="">
                                             </div>
 
                                             <div>

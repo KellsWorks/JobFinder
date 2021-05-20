@@ -117,7 +117,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-4 col-md-5 col-xs-8">
-                        <!-- Sidebar Start -->
+
                         <div class="widgets mb-11">
                             <h4 class="font-size-6 font-weight-semibold mb-6">Job Type</h4>
                             <ul class="list-unstyled filter-check-list">
@@ -175,16 +175,17 @@
                                 <li class="mb-2"><a href="#" class="toggle-item">Last week</a></li>
                             </ul>
                         </div>
-                        <!-- Sidebar End -->
+
                     </div>
-                    <!-- Main Body -->
+
                     <div class="col-12 col-xl-8 col-lg-8">
-                        <!-- form -->
-                        <form action="/" class="search-form">
+
+                        <form action="{{ route('job-search') }}" method="GET" class="search-form">
+
                             <div class="filter-search-form-2 search-1-adjustment bg-white rounded-sm shadow-7 pr-6 py-6 pl-6">
                                 <div class="filter-inputs">
                                     <div class="form-group position-relative w-lg-45 w-xl-40 w-xxl-45">
-                                        <input class="form-control focus-reset pl-13" type="text" id="keyword" placeholder="UI Designer">
+                                        <input class="form-control focus-reset pl-13" type="text" name="query" id="keyword" placeholder="Type here...">
                                         <span class="h-100 w-px-50 text-green pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
                                             <ion-icon name="search-outline"></ion-icon></i>
                                     </span>
@@ -209,7 +210,7 @@
                         <div class="pt-12">
                             <div class="d-flex align-items-center justify-content-between mb-6">
                                 <h5 class="font-size-4 font-weight-normal text-gray">
-                                    <span class="heading-default-color">Showing <b>{{ $jobs->count() }}</b></span> results for <span class="heading-default-color">all jobs</span>
+                                    <span class="heading-default-color">Showing <b>{{ $jobs->count() }}</b></span> results
                                 </h5>
                                 <div class="d-flex align-items-center result-view-type">
                                     <a class="heading-default-color pl-5 font-size-6 hover-text-hitgray active" href="./search-list-1.html">
@@ -242,8 +243,6 @@
                                     <div class="row pt-8">
                                         <div class="col-md-7">
                                             <ul class="d-flex list-unstyled mr-n3 flex-wrap">
-                                                {{-- {{ $rr = DB::select('select tag from job_tags where job_id = '.$job->id) }} --}}
-                                                {{-- {{ dd($job->tags) }} --}}
                                                 @foreach ($job->tags as $item)
                                                 <li>
                                                     <a class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2" href="#">{{ $item->tag }}</a>
@@ -269,19 +268,27 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- End Single Featured Job -->
                             </div>
                             @empty
+                            <div class="align-items-center">
+                                <p class="text-center font-size-4 text-black-2">
+                                    No search results for <span class="text-red">{{ request()->query('query') }}</span>
+                                </p>
+                                <p class="text-center">
+                                    <span>
+                                        <img src="{{ asset('img/Delivery _ order, account, transportation, subway, box, shopping.png') }}" alt="" class="img-fluid center">
+                                    </span>
+                                </p>
 
+                            </div>
                             @endforelse
 
                             <div class="text-center pt-5 pt-lg-13">
                                 <a class="text-green font-weight-bold text-uppercase font-size-3" href="#">
-                  Load More <i class="fas fa-sort-down ml-3"></i>
-                </a>
+                                Load More <i class="fas fa-sort-down ml-3"></i>
+                                </a>
                             </div>
                         </div>
-                        <!-- form end -->
                     </div>
                 </div>
             </div>
@@ -292,6 +299,7 @@
     </div>
 
     @include('scripts.js')
+
 </body>
 
 </html>

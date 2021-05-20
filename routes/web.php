@@ -72,6 +72,8 @@ Route::post('/search-results', [\App\Http\Controllers\PagesController::class, 's
 */
 
 Route::get('/404', [\App\Http\Controllers\PagesController::class, 'error'])->name('404');
+Route::get('/job-search', [\App\Http\Controllers\PagesController::class, 'jobs'])->name('job-search');
+
 
 
 /*
