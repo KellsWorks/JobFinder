@@ -224,12 +224,12 @@
                             @forelse ($jobs as $job)
                             <div class="mb-8">
 
-                                <div class="pt-9 px-xl-9 px-lg-7 px-7 pb-7 light-mode-texts bg-white rounded hover-shadow-3 ">
+                                <div class="pt-9 px-xl-9 px-lg-7 px-7 pb-7 light-mode-texts bg-white rounded hover-shadow-3 " >
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="media align-items-center">
                                                 <div class="square-72 d-block mr-8">
-                                                    <img height="60" width="80" src="{{ asset('img/companies/'.$job->employer_logo) }}" alt="">
+                                                    <img class="img-fluid" src="{{ asset('img/companies/'.$job->employer_logo) }}" alt="">
                                                 </div>
                                                 <div>
                                                     <h3 class="mb-0"><a class="font-size-6 heading-default-color" href="{{ url('/job/'.$job->id) }}">{{ $job->title }}</a></h3>

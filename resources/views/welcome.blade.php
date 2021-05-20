@@ -170,7 +170,7 @@
 
                     @foreach ($jobs as $job)
                     <div class="single-brand-logo mx-5 my-6" data-aos="fade-in" data-aos-duration="800" data-aos-once="true">
-                        <img src="img/companies/{{ $job->employer_logo }}" height="29" width="179" alt="">
+                        <img src="img/companies/{{ $job->employer_logo }}" class="img-fluid" alt="">
                     </div>
                     @endforeach
 

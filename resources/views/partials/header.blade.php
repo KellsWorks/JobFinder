@@ -60,11 +60,20 @@
 
             @auth
                 <div class=" ml-auto ml-lg-5 pl-2 d-none d-xs-flex align-items-center">
-                <div>
+                <div class="dropdown show-gr-dropdown">
                     <a href="#" class="px-3 ml-7 font-size-7 notification-block flex-y-center position-relative">
-                    <i class="fas fa-bell heading-default-color"></i>
+                        <ion-icon name="notifications-outline" size="large"></ion-icon>
                     <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>
-                </a>
+                    </a>
+                    <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>
+                            <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>
+                            <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#"  onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">Log out</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
                 </div>
                 <div>
                     <div class="dropdown show-gr-dropdown py-5">
@@ -72,7 +81,6 @@
                             <div class="circle-40">
                                 <img class="circle-40" height="40" src="../../../storage/profiles/avatar5.png" alt="">
                             </div>
-                            <i class="fas fa-chevron-down heading-default-color ml-6"></i>
                         </a>
                         <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>
@@ -87,7 +95,6 @@
                 </div>
             </div>
             @endauth
-
         </nav>
     </div>
 </header>
