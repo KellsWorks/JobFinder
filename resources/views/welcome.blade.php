@@ -38,16 +38,16 @@
                         <h1 class="font-size-11 mb-12 pr-md-30 pr-lg-0">Find the perfect job that you deserve.</h1>
                         <div class="">
 
-                            <form action="{{ url('search-results') }}" method="POST" class="search-form shadow-6">
+                            <form action="{{ route('job-search') }}" method="GET" class="search-form shadow-6">
                                 <div class="filter-search-form-1 bg-white rounded-sm shadow-4">
                                     <div class="filter-inputs">
                                         <div class="form-group position-relative">
-                                            <input class="form-control focus-reset pl-13" type="text" id="keyword" placeholder="Job title">
+                                            <input class="form-control focus-reset pl-13" name="query" type="text" id="keyword" placeholder="Job title">
                                             <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center text-green justify-content-center font-size-6"><ion-icon name="search-outline"></ion-icon></i></span>
                                         </div>
 
                                         <div class="form-group position-relative">
-                                            <select name="district" id="district" class="nice-select pl-13 h-100 arrow-3 font-size-4">
+                                            <select id="district" name="location" class="nice-select pl-13 h-100 arrow-3 font-size-4">
                                             <option value="" data-display="Location" class="text-uppercase">Location</option>
                                             @foreach ($districts as $district)
                                                   <option value="">{{ $district->name }}</option>
