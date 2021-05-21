@@ -249,7 +249,7 @@
                                                     <img class="img-fluid" src="{{ asset('img/companies/'.$job->employer_logo) }}" alt="">
                                                 </div>
                                                 <div>
-                                                    <h3 class="mb-0"><a class="font-size-6 heading-default-color" href="{{ url('/job/'.$job->id) }}">{{ $job->title }}</a></h3>
+                                                    <h3 class="mb-0"><a class="font-size-6 heading-default-color" href="{{ url('/job/'.$job->id) }}">{!! $job->title !!}</a></h3>
                                                     <a href="#" class="font-size-3 text-default-color line-height-2">{{ $job->employer }}</a>
                                                 </div>
                                             </div>
