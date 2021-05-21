@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Districts;
 use Illuminate\Http\Request;
 use App\Models\Jobs;
+use App\Models\JobsCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +19,14 @@ Route::get('/', function (Request $request) {
 
     $districts = Districts::all();
 
+    $categories = JobsCategory::with('icons')->get();
+
+
     Cookie::queue('name', $request->test, 1);
 
     $jobs = Jobs::all();
 
-    return view('welcome', compact('districts', 'jobs'));
+    return view('welcome', ['jobs' => $jobs, 'categories' => $categories, 'districts' => $districts]);
 })->name('home');
 
 /*

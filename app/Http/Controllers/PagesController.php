@@ -11,6 +11,7 @@ use App\Models\JobTags;
 use App\Models\JobsQualifications;
 use App\Models\Districts;
 use App\Models\SavedJobs;
+
 use Http;
 
 class PagesController extends Controller
