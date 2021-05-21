@@ -1,11 +1,17 @@
+{{-- Copyright (c) Nextgenerations Malawi --}}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta author="KellsWorks,RodgerCodes@NextgenerationsMalawi" name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>{{ env('APP_NAME') }}</title>
+
     <link rel="shortcut icon" href="{{ asset('icon.ico') }}" type="image/x-icon">
 
     @include('scripts.css')
@@ -26,7 +32,8 @@
                     <div class="col-xl-10 col-lg-11 mt-4 ml-xxl-32 ml-xl-15 dark-mode-texts">
                         <div class="mb-9">
                             <a class="d-flex align-items-center ml-4" href="javascript:history.back()">
-                                <ion-icon name="arrow-back-outline"></ion-icon><span class="text-uppercase font-size-3 font-weight-bold text-gray">Back</span></a>
+                                <ion-icon name="arrow-back-outline"></ion-icon><span class="text-uppercase font-size-3 font-weight-bold text-gray">Back</span>
+                            </a>
                         </div>
                     </div>
 
@@ -64,7 +71,11 @@
 
                                         <div class="card-btn-group">
                                             <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="mailto:{{ $jobs->employer_email }}">Apply to this job</a>
-                                            <a class="btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mr-4 mb-5 px-5" href="{{ url('/job/save/'.$jobs->id) }}">
+                                            <a class="btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mr-4 mb-5 px-5" @auth
+                                                href="{{ url('/job/save/'.$jobs->id) }}"
+                                            @else
+                                                href="javascript:"
+                                            @endauth>
                                                 Save job
                                             </a>
                                             <a id="like" onclick="liked()" class="text-red  btn btn-outline-mercury text-uppercase h-px-48 rounded-3 mb-5 px-5" @auth
@@ -91,7 +102,7 @@
                                     <div class="col-md-4 mb-md-0 mb-6">
                                         <div class="media justify-content-md-start">
                                             <div class="image mr-5">
-                                                <img src="{{ asset('assets/image/svg/icon-dolor.svg') }}" alt="">
+                                                <img src="{{ asset('assets/image/svg/icon-dolor.svg') }}" alt="money-icon">
                                             </div>
                                             <p class="font-weight-semibold font-size-5 text-black-2 mb-0">{{ $jobs->salary }}</p>
                                         </div>
@@ -99,7 +110,7 @@
                                     <div class="col-md-4 pr-lg-0 pl-lg-10 mb-md-0 mb-6">
                                         <div class="media justify-content-md-start">
                                             <div class="image mr-5">
-                                                <img src="{{ asset('assets/image/svg/icon-briefcase.svg') }}" alt="">
+                                                <img src="{{ asset('assets/image/svg/icon-briefcase.svg') }}" alt="duration-icon">
                                             </div>
                                             <p class="font-weight-semibold font-size-5 text-black-2 mb-0">{{ $jobs->duration }}</p>
                                         </div>
@@ -107,7 +118,7 @@
                                     <div class="col-md-4 pl-lg-0">
                                         <div class="media justify-content-md-start">
                                             <div class="image mr-5">
-                                                <img src="{{ asset('assets/image/svg/icon-location.svg') }}" alt="">
+                                                <img src="{{ asset('assets/image/svg/icon-location.svg') }}" alt="location-icon">
                                             </div>
                                             <p class="font-weight-semibold font-size-5 text-black-2 mb-0">{{ $jobs->location }}</p>
                                         </div>
@@ -207,6 +218,7 @@
     </div>
 
     @include('scripts.js')
+
 </body>
 
 </html>
