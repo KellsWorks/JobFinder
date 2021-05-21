@@ -110,3 +110,40 @@ h4.widget-title {
     font-size: 18px;
     font-weight: 600
 }
+
+.working-process {
+    text-align: center;
+    position: relative;
+    margin-top: 30px
+}
+
+.working-process h4 {
+    margin: 10px 0
+}
+
+.working-process p {
+    padding: 2px 15px;
+    line-height: 1.9
+}
+/*
+span.process-img {
+    width: 30px;
+    height: 30px;
+    margin: 15px auto 0;
+    position: relative;
+    display: inline-block
+}
+
+/* span.process-img img {
+    z-index: 1
+} */
+
+span.process-num {
+    position: absolute;
+    font-size: 60px;
+    font-weight: 600;
+    color: #bbc7e1;
+    /* left: -30px;
+    top: -10px; */
+    opacity: .2
+}

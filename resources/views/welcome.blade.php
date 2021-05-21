@@ -87,7 +87,7 @@
                         <!-- section-title start -->
                         <div class="section-title text-center pb-lg-15 pb-8 px-xxl-10">
                             <h2 class="mb-9 font-size-10">Quick career tips</h2>
-                            <p class="text-default-color font-size-5">Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate </p>
+                            <p class="text-default-color font-size-5">Read more about setting up a career/job</p>
                         </div>
                         <!-- section-title end -->
                     </div>
@@ -156,25 +156,41 @@
         </div>
         <!-- Blog area function end -->
 
-        <div class="bg-black-2 dark-mode-texts pt-13 pt-lg-24 pb-12 pb-lg-23">
+        <div class=" pt-13 pt-lg-24 pb-12 pb-lg-23">
             <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="section-title mb-9 text-center text-lg-left">
-                            <h5 class="font-size-5 font-weight-normal">Get hired in top companies</h5>
+
+                <section class="how-it-works">
+                    <div class="container">
+                        <div class="row" data-aos="fade-up">
+                            <div class="col-md-12">
+                                <div class="main-heading">
+                                    <p>Job finding Process</p>
+                                    <h2>How It <span>Works</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/step-1.png') }}" class="img-fluid" alt=""/><span class="process-num">01</span></span>
+                                    <h4>Create an Account</h4>
+                                    <p class="font-size-4">Create a <span class="text-green">Job</span> Finder account for free and get started.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/step-2.png') }}" class="img-fluid" alt=""/><span class="process-num">02</span></span>
+                                    <h4>Search Jobs</h4>
+                                    <p class="font-size-4">Search for job(s) of your choice. We'll quickly match you with the right jobs right at the spot.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/step-3.png') }}" class="img-fluid" alt=""/><span class="process-num">03</span></span>
+                                    <h4>Save & Apply</h4>
+                                    <p class="font-size-4">Follow up a job for more updates and apply if you are interested in the job with just click of buttons.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="row align-items-center justify-content-center justify-content-lg-between">
-
-                    @foreach ($jobs as $job)
-                    <div class="single-brand-logo mx-5 my-6" data-aos="fade-in" data-aos-duration="800" data-aos-once="true">
-                        <img src="img/companies/{{ $job->employer_logo }}" class="img-fluid" alt="">
-                    </div>
-                    @endforeach
-
-                </div>
+                </section>
 
             </div>
         </div>
