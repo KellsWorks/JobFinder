@@ -427,7 +427,7 @@
                 </div>
 
                 <div class="row justify-content-center">
-                    @foreach ($jobs as $job)
+                    @foreach ($jobs->take(3) as $job)
                     <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
 
                         <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">

@@ -25,7 +25,7 @@ class PagesController extends Controller
 
         }else{
 
-            $jobs = Jobs::with('tags')->get();
+            $jobs = Jobs::with('tags')->simplePaginate(3);
 
         }
 

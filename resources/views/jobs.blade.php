@@ -192,9 +192,7 @@
                             @endforelse
 
                             <div class="text-center pt-5 pt-lg-13">
-                                <a class="text-green font-weight-bold text-uppercase font-size-3" href="#">
-                                Load More <i class="fas fa-sort-down ml-3"></i>
-                                </a>
+                                {{ $jobs->links() }}
                             </div>
                         </div>
                     </div>
