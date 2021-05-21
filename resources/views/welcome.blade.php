@@ -185,7 +185,7 @@
                             <div class="col-md-4 col-sm-4">
                                 <div class="working-process"><span class="process-img"><img src="{{ asset('img/step-3.png') }}" class="img-fluid" alt="step-3-image"/><span class="process-num">03</span></span>
                                     <h4>Save & Apply</h4>
-                                    <p class="font-size-4">Follow up a job for more updates and apply if you are interested in the job with just click of buttons.</p>
+                                    <p class="font-size-4">Follow up a job for more updates and apply if you are interested in the job with just click of a button.</p>
                                 </div>
                             </div>
                         </div>
@@ -259,33 +259,19 @@
                                 </p>
                                 <div class="d-flex">
                                     <ul class="list-unstyled list-overlapped-icon max-width-130px">
+
+                                        @foreach ($jobs->take(3) as $job)
                                         <li class="ml-0">
-                                            <a href="" class="circle-34">
-                                            <img src="./assets/image/l1/png/smal-logo1.png" alt="" class="img" />
-                                        </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#">
-                                            <img src="./assets/image/l1/png/smal-logo2.png" alt="" class="img img2" />
-                                        </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#">
-                                            <img src="./assets/image/l1/png/smal-logo3.png" alt="" class="img img3" />
-                                        </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#">
-                                            <img src="./assets/image/l1/png/smal-logo4.png" alt="" class="img img4" />
-                                        </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#">
-                                            <img src="./assets/image/l1/png/smal-logo5.png" alt="" class="img img5" />
-                                        </a>
+                                            <a href="" class="circle-40">
+                                            <img class="circle-40 img" src="{{ asset('img/companies/'.$job->employer_logo) }}" alt="" />
+                                            </a>
                                         </li>
+                                        @endforeach
+
+
+
                                     </ul>
-                                    <p class="text-space-black font-size-4 mt-1">+14 Giants</p>
+
                                 </div>
                             </div>
 
@@ -300,18 +286,18 @@
                                 Help you to get the best job that fits you
                             </h2>
                             <p class="text-gray font-size-5 mb-10 mb-lg-16">
-                                Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approach
+                                We bring the job market right to your fingertips. Save job searching time now.
                             </p>
 
                             <ul class="list-unstyled pl-0">
                                 <li class="font-weight-semibold border-0 d-flex mb-7 heading-default-color">
-                                    <i class="fas fa-check font-size-4 text-green mr-6"></i>Bring to the table win-win survival
+                                    <i class="fas fa-check font-size-4 text-green mr-6"></i>More than 20+ jobs posted everyday
                                 </li>
                                 <li class="font-weight-semibold border-0 d-flex mb-7 heading-default-color">
-                                    <i class="fas fa-check font-size-4 text-green mr-6"></i>Capitalize on low hanging fruit to identify
+                                    <i class="fas fa-check font-size-4 text-green mr-6"></i>Our newsletters keeps you updated
                                 </li>
                                 <li class="font-weight-semibold border-0 d-flex mb-7 heading-default-color">
-                                    <i class="fas fa-check font-size-4 text-green mr-6"></i>But I must explain to you how all this
+                                    <i class="fas fa-check font-size-4 text-green mr-6"></i>We are on all platforms: Web, Android & iOS
                                 </li>
                             </ul>
 
