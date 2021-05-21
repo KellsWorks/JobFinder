@@ -227,5 +227,4 @@ function liked(){
 
     element.classList.toggle("liked");
 
-
 }
