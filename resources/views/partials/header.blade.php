@@ -14,7 +14,7 @@
                     <ul class="navbar-nav main-menu">
 
                         <li class="nav-item active">
-                            <a class="nav-link" aria-expanded="false">Home</a>
+                            <a href={{ url('/') }} class="nav-link" aria-expanded="false">Home</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('jobs') }}" class="nav-link">JOBS</a>
