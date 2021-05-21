@@ -171,19 +171,19 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4 col-sm-4">
-                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/step-1.png') }}" class="img-fluid" alt=""/><span class="process-num">01</span></span>
+                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/step-1.png') }}" class="img-fluid" alt="step-1-image"/><span class="process-num">01</span></span>
                                     <h4>Create an Account</h4>
                                     <p class="font-size-4">Create a <span class="text-green">Job</span> Finder account for free and get started.</p>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
-                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/step-2.png') }}" class="img-fluid" alt=""/><span class="process-num">02</span></span>
+                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/step-2.png') }}" class="img-fluid" alt="step-2-image"/><span class="process-num">02</span></span>
                                     <h4>Search Jobs</h4>
                                     <p class="font-size-4">Search for job(s) of your choice. We'll quickly match you with the right jobs right at the spot.</p>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
-                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/step-3.png') }}" class="img-fluid" alt=""/><span class="process-num">03</span></span>
+                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/step-3.png') }}" class="img-fluid" alt="step-3-image"/><span class="process-num">03</span></span>
                                     <h4>Save & Apply</h4>
                                     <p class="font-size-4">Follow up a job for more updates and apply if you are interested in the job with just click of buttons.</p>
                                 </div>
@@ -364,8 +364,8 @@
                             </ul>
                             <p class="mb-7 font-size-4 text-gray">{{ $job->description }}</p>
                             <div class="card-btn-group">
-                                <a class="btn btn-green text-uppercase btn-medium rounded-3" href="{{ url('job/'.$job->id) }}">Apply Now</a>
-                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><ion-icon name="bookmark-outline"></ion-icon> Save it</a>
+                                <a class="btn btn-green text-uppercase btn-medium rounded-3" href="{{ url('job/'.$job->id) }}">view</a>
+                                <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#">Save it</a>
                             </div>
                         </div>
 
@@ -379,9 +379,7 @@
         <section class="py-13 py-lg-30">
             <div class="container">
                 <div class="row justify-content-center">
-                    {{-- <div class="col-xl-6 col-lg-5 col-md-10 col-sm-11" data-aos="fade-right" data-aos-duration="800" data-aos-once="true"> --}}
-
-                        <div class="row py-5" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
+                   <div class="row py-5" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
                             <div class="col">
                                 <div class="card border-0">
                                     <div class="card-body text-center ">
@@ -389,32 +387,20 @@
                                         <p class="pl-0 ml-0 mb-5 font-size-4">Get daily updates on different malawian jobs posted here.</p>
                                         <div class="row text-center justify-content-center">
                                             <div class="col-auto">
-                                                <div class="input-group mb-5"><input type="text" class="form-control" placeholder="Enter your e-mail address" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                <form action="{{ route('newsletter') }}" method="POST">
+                                                    @csrf
+                                                <div class="input-group mb-5 font-size-4"><input  required type="email" name="newsletter_email" class="form-control" placeholder="Enter your e-mail address" aria-label="Email address" aria-describedby="button-addon2">
                                                     <div class="input-group-append"><button style="width: 100%" class="pt-7 pb-8 btn btn-primary text-uppercase font-size-3" type="submit" id="button-addon2"> <b>Submit</b></button></div>
                                                 </div>
+                                            </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    {{-- </div> --}}
                 </div>
         </section>
-{{--
-        <section class="bg-green call-to-act-wrap">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 pa-10">
-
-                        <h5 class="text-white mt-10">
-                            Subscribe to our newsletters to be updated of new jobs!
-                        </h5>
-
-                    </div>
-                </div>
-            </div>
-        </section> --}}
 
         @include('partials.footer')
 
@@ -434,10 +420,20 @@
           </div>
 
           @include('cookieConsent::index')
+          @include('includes.newsletter')
 
     </div>
 
     @include('scripts.js')
+
+        @if (session('newsletter'))
+        <script>
+            $( function() {
+              $( "#dialog" ).dialog();
+             } );
+        </script>
+        @endif
+
 </body>
 
 </html>

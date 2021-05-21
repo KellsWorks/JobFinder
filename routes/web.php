@@ -91,3 +91,15 @@ Route::get('/job-search', [\App\Http\Controllers\PagesController::class, 'jobs']
 */
 
 Route::get('admin/home', [\App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+
+
+/*
+|--------------------------------------------------------------------------
+| NEWSLETTER ROUTES
+|--------------------------------------------------------------------------
+|
+| Web routes for newsletters
+|
+*/
+
+Route::post('newsletter', [\App\Http\Controllers\NewsletterController::class, 'store'])->name('newsletter');
