@@ -227,5 +227,12 @@ function liked(){
 
     element.classList.toggle("liked");
 
-
 }
+
+
+//Alert
+$( document ).ready(function(){
+    $('#session-alert').fadeIn('slow', function(){
+       $('#session-alert').delay(3000).fadeOut();
+    });
+});

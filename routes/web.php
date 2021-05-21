@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Districts;
 use Illuminate\Http\Request;
 use App\Models\Jobs;
+use App\Models\JobsCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +19,14 @@ Route::get('/', function (Request $request) {
 
     $districts = Districts::all();
 
+    $categories = JobsCategory::with('icons')->get();
+
+
     Cookie::queue('name', $request->test, 1);
 
     $jobs = Jobs::all();
 
-    return view('welcome', compact('districts', 'jobs'));
+    return view('welcome', ['jobs' => $jobs, 'categories' => $categories, 'districts' => $districts]);
 })->name('home');
 
 /*
@@ -60,7 +64,8 @@ Auth::routes();
 
 Route::get('/jobs', [\App\Http\Controllers\PagesController::class, 'jobs'])->name('jobs');
 Route::get('/job/{id}', [\App\Http\Controllers\PagesController::class, 'job']);
-
+Route::get('/job/like/{id}', [\App\Http\Controllers\PagesController::class, 'likeJob']);
+Route::get('/job/save/{id}', [\App\Http\Controllers\PagesController::class, 'saveJob']);
 Route::post('/search-results', [\App\Http\Controllers\PagesController::class, 'search_results'])->name('search-results');
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +77,8 @@ Route::post('/search-results', [\App\Http\Controllers\PagesController::class, 's
 */
 
 Route::get('/404', [\App\Http\Controllers\PagesController::class, 'error'])->name('404');
+Route::get('/job-search', [\App\Http\Controllers\PagesController::class, 'jobs'])->name('job-search');
+
 
 
 /*

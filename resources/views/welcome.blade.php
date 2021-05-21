@@ -38,16 +38,16 @@
                         <h1 class="font-size-11 mb-12 pr-md-30 pr-lg-0">Find the perfect job that you deserve.</h1>
                         <div class="">
 
-                            <form action="{{ url('search-results') }}" method="POST" class="search-form shadow-6">
+                            <form action="{{ route('job-search') }}" method="GET" class="search-form shadow-6">
                                 <div class="filter-search-form-1 bg-white rounded-sm shadow-4">
                                     <div class="filter-inputs">
                                         <div class="form-group position-relative">
-                                            <input class="form-control focus-reset pl-13" type="text" id="keyword" placeholder="Job title">
+                                            <input class="form-control focus-reset pl-13" name="query" type="text" id="keyword" placeholder="Job title">
                                             <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center text-green justify-content-center font-size-6"><ion-icon name="search-outline"></ion-icon></i></span>
                                         </div>
 
                                         <div class="form-group position-relative">
-                                            <select name="district" id="district" class="nice-select pl-13 h-100 arrow-3 font-size-4">
+                                            <select id="district" name="location" class="nice-select pl-13 h-100 arrow-3 font-size-4">
                                             <option value="" data-display="Location" class="text-uppercase">Location</option>
                                             @foreach ($districts as $district)
                                                   <option value="">{{ $district->name }}</option>
@@ -71,7 +71,7 @@
 
                     <div class="col-lg-6 col-md-4 col-sm-6 col-xs-6 col-8 pos-abs-br z-index-n1 position-static position-md-absolute mx-auto ml-md-auto" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
                         <div class="align-items-center ml-xxl-23 ml-xl-12 ml-md-7">
-                            <img src="{{ asset('img/128-1282810_black-surprise-male-man-happy-black-man-png.png') }}" alt="" class="w-400" height="700">
+                            <img src="{{ asset('img/128-1282810_black-surprise-male-man-happy-black-man-png.png') }}" alt="" class="img-fluid">
                         </div>
                     </div>
 
@@ -87,7 +87,7 @@
                         <!-- section-title start -->
                         <div class="section-title text-center pb-lg-15 pb-8 px-xxl-10">
                             <h2 class="mb-9 font-size-10">Quick career tips</h2>
-                            <p class="text-default-color font-size-5">Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate </p>
+                            <p class="text-default-color font-size-5">Read more about setting up a career/job</p>
                         </div>
                         <!-- section-title end -->
                     </div>
@@ -156,25 +156,41 @@
         </div>
         <!-- Blog area function end -->
 
-        <div class="bg-black-2 dark-mode-texts pt-13 pt-lg-24 pb-12 pb-lg-23">
+        <div class=" pt-13 pt-lg-24 pb-12 pb-lg-23">
             <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="section-title mb-9 text-center text-lg-left">
-                            <h5 class="font-size-5 font-weight-normal">Get hired in top companies</h5>
+
+                <section class="how-it-works">
+                    <div class="container">
+                        <div class="row" data-aos="fade-up">
+                            <div class="col-md-12">
+                                <div class="main-heading">
+                                    <p>Job finding Process</p>
+                                    <h2>How It <span>Works</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/step-1.png') }}" class="img-fluid" alt=""/><span class="process-num">01</span></span>
+                                    <h4>Create an Account</h4>
+                                    <p class="font-size-4">Create a <span class="text-green">Job</span> Finder account for free and get started.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/step-2.png') }}" class="img-fluid" alt=""/><span class="process-num">02</span></span>
+                                    <h4>Search Jobs</h4>
+                                    <p class="font-size-4">Search for job(s) of your choice. We'll quickly match you with the right jobs right at the spot.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/step-3.png') }}" class="img-fluid" alt=""/><span class="process-num">03</span></span>
+                                    <h4>Save & Apply</h4>
+                                    <p class="font-size-4">Follow up a job for more updates and apply if you are interested in the job with just click of buttons.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="row align-items-center justify-content-center justify-content-lg-between">
-
-                    @foreach ($jobs as $job)
-                    <div class="single-brand-logo mx-5 my-6" data-aos="fade-in" data-aos-duration="800" data-aos-once="true">
-                        <img src="img/companies/{{ $job->employer_logo }}" height="29" width="179" alt="">
-                    </div>
-                    @endforeach
-
-                </div>
+                </section>
 
             </div>
         </div>
@@ -200,109 +216,24 @@
 
                 <div class="row justify-content-center">
 
+                    @foreach ($categories->take(8) as $category)
                     <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
                         <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-                            <div class="text-blue bg-blue-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                                <ion-icon name="business-outline"></ion-icon>
+                            @foreach ($category->icons as $item)
+                            <div class="text-blue bg-{{ $item->color }}-opacity-1 square-70 rounded-4 mb-7 font-size-7">
+
+                                <ion-icon name="{{ $item->icon }}" size="large"></ion-icon>
+
                             </div>
+                            @endforeach
 
                             <div class="">
-                                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Business Development</h5>
+                                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">{{ $category->category }}</h5>
                                 <p class="font-size-4 font-weight-normal text-gray"><span>415</span> Vacancy</p>
                             </div>
                         </a>
                     </div>
-
-                    <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                        <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-                            <div class="text-spray bg-spray-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                                <ion-icon name="people-outline"></ion-icon>
-                            </div>
-
-                            <div class="">
-                                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Customer Service</h5>
-                                <p class="font-size-4 font-weight-normal text-gray"><span>235</span> Vacancy</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                        <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-                            <div class="text-coral bg-coral-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                                <i class="fa fa-layer-group"></i>
-                            </div>
-
-                            <div class="">
-                                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Development</h5>
-                                <p class="font-size-4 font-weight-normal text-gray"><span>624</span> Vacancy</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                        <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-                            <div class="text-red bg-red-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                                <i class="fa fa-pen-nib"></i>
-                            </div>
-
-                            <div class="">
-                                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Design</h5>
-                                <p class="font-size-4 font-weight-normal text-gray"><span>174</span> Vacancy</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                        <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-                            <div class="text-orange bg-orange-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                                <i class="fa fa-rocket"></i>
-                            </div>
-
-                            <div class="">
-                                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Marketing &amp; Management</h5>
-                                <p class="font-size-4 font-weight-normal text-gray"><span>268</span> Vacancy</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                        <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-                            <div class="text-yellow bg-yellow-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                                <i class="fa fa-location-arrow"></i>
-                            </div>
-
-                            <div class="">
-                                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Sales &amp; Communication</h5>
-                                <p class="font-size-4 font-weight-normal text-gray"><span>156</span> Vacancy</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                        <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-                            <div class="text-turquoise bg-turquoise-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                                <i class="icon icon-sidebar-2"></i>
-                            </div>
-
-                            <div class="">
-                                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Project Management</h5>
-                                <p class="font-size-4 font-weight-normal text-gray"><span>162</span> Vacancy</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                        <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-                            <div class="text-green bg-green-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                                <i class="fa fa-user"></i>
-                            </div>
-
-                            <div class="">
-                                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Human Resource </h5>
-                                <p class="font-size-4 font-weight-normal text-gray"><span>84</span> Vacancy</p>
-                            </div>
-                        </a>
-                    </div>
+                    @endforeach
 
                 </div>
             </div>
@@ -411,7 +342,7 @@
                 </div>
 
                 <div class="row justify-content-center">
-                    @foreach ($jobs as $job)
+                    @foreach ($jobs->take(3) as $job)
                     <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
 
                         <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
@@ -448,89 +379,42 @@
         <section class="py-13 py-lg-30">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-xl-6 col-lg-5 col-md-10 col-sm-11" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
-                        <div class="position-relative pr-lg-20 pr-md-15 pr-9">
+                    {{-- <div class="col-xl-6 col-lg-5 col-md-10 col-sm-11" data-aos="fade-right" data-aos-duration="800" data-aos-once="true"> --}}
 
-                            <img src="./assets/image/l1/jpg/content-1-img2.jpg" alt="" class="w-100 rounded-4" />
-
-                            <div class="pos-abs-br mb-10 ">
-                                <div class="card bg-white shadow-2 border-0">
-                                    <div class="card-header bg-dodger-2 text-white text-center border-0">
-                                        Applicants List
-                                    </div>
-                                    <div class="card-body mb-n5">
-                                        <!-- media start -->
-                                        <div class="media mb-5 pr-9">
-                                            <!-- media img start -->
-                                            <div class="mr-3 mt-2">
-                                                <img src="./assets/image/l1/png/media-img-1.png" class="circle-40" alt="" />
+                        <div class="row py-5" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
+                            <div class="col">
+                                <div class="card border-0">
+                                    <div class="card-body text-center ">
+                                        <h2><b>Subscribe to our newsletters</b></h2>
+                                        <p class="pl-0 ml-0 mb-5 font-size-4">Get daily updates on different malawian jobs posted here.</p>
+                                        <div class="row text-center justify-content-center">
+                                            <div class="col-auto">
+                                                <div class="input-group mb-5"><input type="text" class="form-control" placeholder="Enter your e-mail address" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                    <div class="input-group-append"><button style="width: 100%" class="pt-7 pb-8 btn btn-primary text-uppercase font-size-3" type="submit" id="button-addon2"> <b>Submit</b></button></div>
+                                                </div>
                                             </div>
-                                            <!-- media img start -->
-                                            <!-- media body start -->
-                                            <div class="media-body pl-4">
-                                                <h6 class="mb-0 font-size-4 text-black-2">Davir Mark</h6>
-                                                <p class="mb-0 font-size-3 text-gray">Product Designer</p>
-                                            </div>
-                                            <!-- media body start -->
                                         </div>
-                                        <!-- media end -->
-                                        <!-- media start -->
-                                        <div class="media mb-5 pr-9">
-                                            <!-- media img start -->
-                                            <div class="mr-3 mt-2">
-                                                <img src="./assets/image/l1/png/media-img-2.png" class="circle-40" alt="" />
-                                            </div>
-                                            <!-- media img start -->
-                                            <!-- media body start -->
-                                            <div class="media-body pl-4">
-                                                <h6 class="mb-0 font-size-4 text-black-2">Asley Jonshon</h6>
-                                                <p class="mb-0 font-size-3 text-gray">Web Developer</p>
-                                            </div>
-                                            <!-- media body start -->
-                                        </div>
-                                        <!-- media end -->
-                                        <!-- media start -->
-                                        <div class="media mb-5 pr-9">
-                                            <!-- media img start -->
-                                            <div class="mr-3 mt-2">
-                                                <img src="./assets/image/l1/png/media-img-3.png" class="circle-40" alt="" />
-                                            </div>
-                                            <!-- media img start -->
-                                            <!-- media body start -->
-                                            <div class="media-body pl-4">
-                                                <h6 class="mb-0 font-size-4 text-black-2">Richar Henricks</h6>
-                                                <p class="mb-0 font-size-3 text-gray">UI Designer</p>
-                                            </div>
-                                            <!-- media body start -->
-                                        </div>
-                                        <!-- media end -->
                                     </div>
                                 </div>
                             </div>
-                            <!-- abs-content end -->
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-9 col-xs-10" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
-                        <!-- content-2 start -->
-                        <div class="content-2 pl-lg-10 pl-0 d-flex flex-column justify-content-center h-100 pt-lg-0 pt-11 pr-md-13 pr-xl-15 pr-xxl-25 pr-0">
-                            <!-- content-2 section title start -->
-                            <p class="text-dodger font-size-4 font-weight-semibold mb-8">
-                                Looking for an expert for your company?
-                            </p>
-                            <h2 class="font-size-9 mb-8">
-                                Get applications from the world best talents.
-                            </h2>
-                            <p class="text-default-color font-size-5 mb-12">
-                                Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps.
-                            </p>
-                            <!-- content-2 section title end -->
-                            <a class="btn btn-green btn-h-60 text-white w-180 rounded-5 text-uppercase" href="#">Post a Job</a>
-                        </div>
-                        <!-- content-2 end -->
+                    {{-- </div> --}}
+                </div>
+        </section>
+{{--
+        <section class="bg-green call-to-act-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 pa-10">
+
+                        <h5 class="text-white mt-10">
+                            Subscribe to our newsletters to be updated of new jobs!
+                        </h5>
+
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         @include('partials.footer')
 
@@ -548,9 +432,11 @@
               </div>
             </div>
           </div>
+
           @include('cookieConsent::index')
 
     </div>
+
     @include('scripts.js')
 </body>
 
