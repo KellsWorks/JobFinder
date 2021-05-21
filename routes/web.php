@@ -66,6 +66,7 @@ Route::get('/jobs', [\App\Http\Controllers\PagesController::class, 'jobs'])->nam
 Route::get('/job/{id}', [\App\Http\Controllers\PagesController::class, 'job']);
 Route::get('/job/like/{id}', [\App\Http\Controllers\PagesController::class, 'likeJob']);
 Route::get('/job/save/{id}', [\App\Http\Controllers\PagesController::class, 'saveJob']);
+Route::get('/job-search', [\App\Http\Controllers\PagesController::class, 'jobs'])->name('job-search');
 Route::post('/search-results', [\App\Http\Controllers\PagesController::class, 'search_results'])->name('search-results');
 /*
 |--------------------------------------------------------------------------
@@ -77,7 +78,7 @@ Route::post('/search-results', [\App\Http\Controllers\PagesController::class, 's
 */
 
 Route::get('/404', [\App\Http\Controllers\PagesController::class, 'error'])->name('404');
-Route::get('/job-search', [\App\Http\Controllers\PagesController::class, 'jobs'])->name('job-search');
+Route::get('/terms-and-conditions-privacy-policy', [\App\Http\Controllers\PagesController::class, 'policies'])->name('terms-and-conditions-privacy-policy');
 
 
 

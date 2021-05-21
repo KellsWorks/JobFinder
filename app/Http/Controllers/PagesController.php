@@ -117,4 +117,9 @@ class PagesController extends Controller
 
 
     }
+
+
+    public function policies(){
+        return view('includes.terms-and-conditions');
+    }
 }
