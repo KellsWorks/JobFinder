@@ -5,9 +5,7 @@
             <div class="brand-logo">
                 <a href="{{ route('home') }}">
                     <h3>
-                        <span class="text-green">JOB</span> FINDER <span>
-                            <img class="circle-40 img-fuild" src="{{ asset('img/flag-400.png') }}" alt="">
-                        </span>
+                        <span class="text-green">JOB</span> FINDER
                     </h3>
                 </a>
             </div>
