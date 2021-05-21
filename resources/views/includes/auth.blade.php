@@ -14,7 +14,7 @@
                                 Welcome Back
                             </h3>
                             <p class="mb-0 font-size-4 text-white">Log in to continue your account and explore new jobs.</p>
-                            <img class="mt-4" height="250" src="{{ asset('img/no-companies.png') }}" alt="">
+                            {{-- <img class="mt-4" height="250" src="{{ asset('img/no-companies.png') }}" alt=""> --}}
                         </div>
                         <div class="border-top border-default-color-2 mt-auto">
                             <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
@@ -106,7 +106,7 @@
                                 Create a free account today
                             </h3>
                             <p class="mb-0 font-size-4 text-white">Create your account to continue and explore new jobs.</p>
-                            <img class="mt-4" height="250" src="{{ asset('img/Startup, Success, technology, growth _  innovation, idea, thought, woman, statistics.png') }}" alt="">
+                            {{-- <img class="mt-4" height="250" src="{{ asset('img/Startup, Success, technology, growth _  innovation, idea, thought, woman, statistics.png') }}" alt=""> --}}
                         </div>
                         <div class="border-top border-default-color-2 mt-auto">
                             <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">

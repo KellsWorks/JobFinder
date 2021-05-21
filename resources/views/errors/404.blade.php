@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta author="KellsWorks,RodgerCodes@NextgenerationsMalawi" name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ env('ERROR_TITLE') }}</title>
+    <title> 404 - Error </title>
 
     <link rel="shortcut icon" href="{{ asset('icon.ico') }}" type="image/x-icon">
 
