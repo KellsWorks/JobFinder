@@ -146,8 +146,8 @@
                                     </div>
                                     <div class="col-md-6 text-right pt-7 pt-md-0 mt-md-n1">
 
-                                        <div class="media justify-content-md-end">
-                                            <p class="d-flex font-size-2 text-green font-weight-bold">{{ \Carbon\Carbon::parse($jobs->created_at)->diffForHumans() }}</p>
+                                        <div class="media justify-content-md-end align-items-center">
+                                            <p class="d-flex font-size-2 font-weight-bold"><i class="fa fa-clock mr-1"></i></span>{{ \Carbon\Carbon::parse($jobs->created_at)->diffForHumans() }}</p>
                                         </div>
 
                                     </div>
@@ -156,9 +156,10 @@
                                     <div class="col-12">
 
                                         <div class="card-btn-group">
-                                            <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="#">Apply to this job</a>
-                                            <a class="btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mr-4 mb-5 px-5" href="#">
-                                            Save job</a>
+                                            <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="mailto:{{ $jobs->employer_email }}">Apply to this job</a>
+                                            <a class="btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mr-4 mb-5 px-5" href="{{ url('/job/save/'.$jobs->id) }}">
+                                                Save job
+                                            </a>
                                             <a id="like" onclick="liked()" class="text-red  btn btn-outline-mercury text-uppercase h-px-48 rounded-3 mb-5 px-5" @auth
                                             href="{{ url('/job/like/'.$jobs->id) }}"
                                             @else
@@ -169,6 +170,13 @@
 
                                     </div>
                                 </div>
+
+                                @if (session('status'))
+                                <div class="alert alert-info" id="session-alert">
+                                    {{ session('status') }}
+                                  </div>
+                                @endif
+
                             </div>
 
                             <div class="job-details-content pt-8 pl-sm-9 pl-6 pr-sm-9 pr-6 pb-10 border-bottom border-width-1 border-default-color light-mode-texts">
@@ -275,7 +283,8 @@
                                                 {{ $jobs->content }}
                                             </p>
 
-                                            <a class="btn btn-green text-uppercase btn-medium w-180 h-px-48 rounded-3 mr-4 mt-6" href="#">Apply to this job</a>
+                                            <a class="btn btn-green text-uppercase btn-medium w-180 h-px-48 rounded-3 mr-4 mt-6" href="mailto:{{ $jobs->employer_email }}">Apply to this job</a>
+
                                         </div>
                                     </div>
                                 </div>

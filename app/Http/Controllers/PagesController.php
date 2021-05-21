@@ -10,6 +10,7 @@ use App\Models\JobSkills;
 use App\Models\JobTags;
 use App\Models\JobsQualifications;
 use App\Models\Districts;
+use App\Models\SavedJobs;
 use Http;
 
 class PagesController extends Controller
@@ -63,26 +64,37 @@ class PagesController extends Controller
             $job = Jobs::find($id);
             $job->jobLikes()->save($likedJob);
 
-            $jobs  = Jobs::findOrFail($id);
-            $skills = JobSkills::where('job_id', $id)->get();
-            $likes = JobLikes::where('jobs_id', $id)->count();
-            $tags = JobTags::where('jobs_id', $id)->get();
-            $qualifications = JobsQualifications::where('job_id', $id)->get();
-
-            return view('job', ['jobs'  => $jobs, 'likes' => $likes, 'tags' => $tags, 'skills' => $skills, 'qualifications' => $qualifications ]);
+            return redirect()->back()->with('status', 'You liked this job');
         }else{
-            $status =
-            "You already liked this job";
+
+            $jobLikeID = JobLikes::where('jobs_id', $id)->where('user_id', $user_id)->pluck('id')[0];
+
+            $jobLike = JobLikes::find($jobLikeID);
+            $jobLike->delete();
+
             $jobs  = Jobs::findOrFail($id);
             $skills = JobSkills::where('job_id', $id)->get();
             $likes = JobLikes::where('jobs_id', $id)->count();
             $tags = JobTags::where('jobs_id', $id)->get();
             $qualifications = JobsQualifications::where('job_id', $id)->get();
 
-            return view('job', ['jobs'  => $jobs, 'likes' => $likes, 'tags' => $tags, 'skills' => $skills, 'qualifications' => $qualifications, 'status' => $status ]);
+            return redirect()->back()->with('status', 'You disliked this job');
         }
 
 
+
+    }
+
+    public function saveJob($id){
+
+
+        $savedJob = new SavedJobs();
+        $savedJob->user_id = Auth::user()->id;
+
+        $job = Jobs::find($id);
+        $job->savedJobs()->save($savedJob);
+
+        return redirect()->back()->with('status', 'You have saved this job');
 
     }
 

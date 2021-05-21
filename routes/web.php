@@ -61,6 +61,7 @@ Auth::routes();
 Route::get('/jobs', [\App\Http\Controllers\PagesController::class, 'jobs'])->name('jobs');
 Route::get('/job/{id}', [\App\Http\Controllers\PagesController::class, 'job']);
 Route::get('/job/like/{id}', [\App\Http\Controllers\PagesController::class, 'likeJob']);
+Route::get('/job/save/{id}', [\App\Http\Controllers\PagesController::class, 'saveJob']);
 Route::post('/search-results', [\App\Http\Controllers\PagesController::class, 'search_results'])->name('search-results');
 /*
 |--------------------------------------------------------------------------
