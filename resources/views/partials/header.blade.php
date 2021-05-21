@@ -78,7 +78,7 @@
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                       </div>
                 </div>
-                <div>
+                <div class="nav-item">
                     <div class="dropdown show-gr-dropdown py-5">
                         <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="circle-40">
@@ -98,7 +98,7 @@
                 </div>
             </div>
             @endauth
-            <div class="form-input ml-3">
+            <div class="form-input ml-3 d-none d-lg-block">
                 <select class="form-control">
                     <option>English</option>
                     <option>Chichewa</option>

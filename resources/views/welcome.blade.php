@@ -379,88 +379,27 @@
         <section class="py-13 py-lg-30">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-xl-6 col-lg-5 col-md-10 col-sm-11" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
-                        <div class="position-relative pr-lg-20 pr-md-15 pr-9">
+                    {{-- <div class="col-xl-6 col-lg-5 col-md-10 col-sm-11" data-aos="fade-right" data-aos-duration="800" data-aos-once="true"> --}}
 
-                            <img src="./assets/image/l1/jpg/content-1-img2.jpg" alt="" class="w-100 rounded-4" />
-
-                            <div class="pos-abs-br mb-10 ">
-                                <div class="card bg-white shadow-2 border-0">
-                                    <div class="card-header bg-dodger-2 text-white text-center border-0">
-                                        Applicants List
-                                    </div>
-                                    <div class="card-body mb-n5">
-                                        <!-- media start -->
-                                        <div class="media mb-5 pr-9">
-                                            <!-- media img start -->
-                                            <div class="mr-3 mt-2">
-                                                <img src="./assets/image/l1/png/media-img-1.png" class="circle-40" alt="" />
+                        <div class="row py-5" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
+                            <div class="col">
+                                <div class="card border-0">
+                                    <div class="card-body text-center ">
+                                        <h2><b>Subscribe to our newsletters</b></h2>
+                                        <p class="pl-0 ml-0 mb-5 font-size-4">Get daily updates on different malawian jobs posted here.</p>
+                                        <div class="row text-center justify-content-center">
+                                            <div class="col-auto">
+                                                <div class="input-group mb-5"><input type="text" class="form-control" placeholder="Enter your e-mail address" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                    <div class="input-group-append"><button style="width: 100%" class="pt-7 pb-8 btn btn-primary text-uppercase font-size-3" type="submit" id="button-addon2"> <b>Submit</b></button></div>
+                                                </div>
                                             </div>
-                                            <!-- media img start -->
-                                            <!-- media body start -->
-                                            <div class="media-body pl-4">
-                                                <h6 class="mb-0 font-size-4 text-black-2">Davir Mark</h6>
-                                                <p class="mb-0 font-size-3 text-gray">Product Designer</p>
-                                            </div>
-                                            <!-- media body start -->
                                         </div>
-                                        <!-- media end -->
-                                        <!-- media start -->
-                                        <div class="media mb-5 pr-9">
-                                            <!-- media img start -->
-                                            <div class="mr-3 mt-2">
-                                                <img src="./assets/image/l1/png/media-img-2.png" class="circle-40" alt="" />
-                                            </div>
-                                            <!-- media img start -->
-                                            <!-- media body start -->
-                                            <div class="media-body pl-4">
-                                                <h6 class="mb-0 font-size-4 text-black-2">Asley Jonshon</h6>
-                                                <p class="mb-0 font-size-3 text-gray">Web Developer</p>
-                                            </div>
-                                            <!-- media body start -->
-                                        </div>
-                                        <!-- media end -->
-                                        <!-- media start -->
-                                        <div class="media mb-5 pr-9">
-                                            <!-- media img start -->
-                                            <div class="mr-3 mt-2">
-                                                <img src="./assets/image/l1/png/media-img-3.png" class="circle-40" alt="" />
-                                            </div>
-                                            <!-- media img start -->
-                                            <!-- media body start -->
-                                            <div class="media-body pl-4">
-                                                <h6 class="mb-0 font-size-4 text-black-2">Richar Henricks</h6>
-                                                <p class="mb-0 font-size-3 text-gray">UI Designer</p>
-                                            </div>
-                                            <!-- media body start -->
-                                        </div>
-                                        <!-- media end -->
                                     </div>
                                 </div>
                             </div>
-                            <!-- abs-content end -->
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-9 col-xs-10" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
-                        <!-- content-2 start -->
-                        <div class="content-2 pl-lg-10 pl-0 d-flex flex-column justify-content-center h-100 pt-lg-0 pt-11 pr-md-13 pr-xl-15 pr-xxl-25 pr-0">
-                            <!-- content-2 section title start -->
-                            <p class="text-dodger font-size-4 font-weight-semibold mb-8">
-                                Looking for an expert for your company?
-                            </p>
-                            <h2 class="font-size-9 mb-8">
-                                Get applications from the world best talents.
-                            </h2>
-                            <p class="text-default-color font-size-5 mb-12">
-                                Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps.
-                            </p>
-                            <!-- content-2 section title end -->
-                            <a class="btn btn-green btn-h-60 text-white w-180 rounded-5 text-uppercase" href="#">Post a Job</a>
-                        </div>
-                        <!-- content-2 end -->
-                    </div>
+                    {{-- </div> --}}
                 </div>
-            </div>
         </section>
 {{--
         <section class="bg-green call-to-act-wrap">
