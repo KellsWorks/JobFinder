@@ -47,8 +47,8 @@
                             <div class="bg-white shadow-9 rounded-4">
                                 <div class="px-5 py-11 text-center border-bottom border-mercury">
                                     <a class="mb-4" href="#"><img class="circle-54" src="../../../storage/profiles/avatar5.png" alt=""></a>
-                                    <h4 class="mb-0"><a class="text-black-2 font-size-6 font-weight-semibold" href="#">David Henricks</a></h4>
-                                    <p class="mb-8"><a class="text-gray font-size-4" href="#">Product Designer</a></p>
+                                    <h4 class="mb-0"><a class="text-black-2 font-size-6 mb-4 font-weight-semibold" href="#">{{ Auth::user()->name }}</a></h4>
+
                                     <div class="icon-link d-flex align-items-center justify-content-center flex-wrap">
                                         <a class="text-smoke circle-32 bg-concrete mr-5 hover-bg-green" href="#"><i class="fab fa-linkedin-in"></i></a>
                                         <a class="text-smoke circle-32 bg-concrete mr-5 hover-bg-green" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -93,7 +93,7 @@
                                     <a class="active text-uppercase font-size-3 font-weight-bold text-default-color py-3" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Activity</a>
                                 </li>
                                 <li class="tab-menu-items nav-item pr-12">
-                                    <a class="text-uppercase font-size-3 font-weight-bold text-default-color py-3" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Contact</a>
+                                    <a class="text-uppercase font-size-3 font-weight-bold text-default-color py-3" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Saved jobs</a>
                                 </li>
                             </ul>
 
@@ -264,7 +264,8 @@
 
                             <div class="bg-white shadow-9 rounded-4">
 
-                                <h4 class="font-size-6 font-weight-semibold ml-4 mt-4"><span><ion-icon name="notifications-outline" size="medium"></ion-icon></span> Notifications</h4>
+                                <h4 class="font-size-4 font-weight-semibold ml-4 mt-4">NOTIFICATIONS</h4>
+
                             <ul class="list-unstyled">
 
                                 <li class="border-bottom">
