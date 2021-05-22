@@ -37,11 +37,11 @@ class ActivityController extends Controller
 
     public function getAll(Request $request){
 
-        $activities = Activity::where('user_id', $request->user_id)->get();
+        $id = auth()->user()->id;
 
-        return response()->json([
-            'activities' => $activities
-        ], 200);
+        $activities = Activity::where('user_id', $id)->get();
+
+        return $activities;
     }
 
     public function deleteOne(Request $request){
