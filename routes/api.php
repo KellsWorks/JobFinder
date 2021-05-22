@@ -95,6 +95,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/me', function(){
       return auth()->user();
     });
+    Route::post('/jobs/follow', [App\Http\Controllers\JobsController::class, 'followJobs']);
     Route::post('/jobs/job/like', [App\Http\Controllers\JobsController::class, 'likeJob']);
     Route::get('/followedjobs', [App\Http\Controllers\JobsController::class, 'getFollowedJobs']);
     Route::get('/get/all', [App\Http\Controllers\NotificationsController::class, 'getUserNotifications']);
