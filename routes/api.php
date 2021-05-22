@@ -71,8 +71,6 @@ Route::prefix('jobs')->group(function () {
 
     Route::get('/get/saved-jobs', [App\Http\Controllers\JobsController::class, 'getSavedJobs']);
 
-    Route::post('/job/like', [App\Http\Controllers\JobsController::class, 'likeJob']);
-
     Route::post('/job/dislike', [App\Http\Controllers\JobLikesController::class, 'dislike']);
 
 });
@@ -97,6 +95,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/me', function(){
       return auth()->user();
     });
+    Route::post('/jobs/job/like', [App\Http\Controllers\JobsController::class, 'likeJob']);
     Route::get('/followedjobs', [App\Http\Controllers\JobsController::class, 'getFollowedJobs']);
     Route::get('/get/all', [App\Http\Controllers\NotificationsController::class, 'getUserNotifications']);
     Route::get('/categories', [App\Http\Controllers\JobsController::class, 'getCategories']);

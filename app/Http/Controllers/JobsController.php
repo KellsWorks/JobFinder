@@ -22,8 +22,9 @@ class JobsController extends Controller
     }
 
     public function likeJob(Request $request){
+        $id = auth()->user->id;
         $likedJob = new JobLikes();
-        $likedJob->user_id = $request->user_id;
+        $likedJob->user_id = $id;
 
         $job = Jobs::find($request->id);
         $job->jobLikes()->save($likedJob);
@@ -64,19 +65,12 @@ class JobsController extends Controller
 
     public function getSavedJobs(Request $request){
 
-       $id = auth()->user()->id;
-        $savedJobs = SavedJobs::where('user_id', $id)->pluck("id");
+        $id = auth()->user()->id;
+        $savedJobs = SavedJobs::where('user_id', $id)->pluck("jobs_id");
 
         $saved = Jobs::find($savedJobs);
 
-        return(
-            $this->success(
-                [
-                    "savedJobs" => $saved
-                ],
-                "Your saved jobs"
-            )
-            );
+        return $saved;
     }
 
     public function getFollowedJobs(Request $request){
