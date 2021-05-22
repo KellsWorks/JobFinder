@@ -70,7 +70,7 @@
                           <div class="row">
                             <span class="circle-40 bg-green text-center">
                                 <i class="text-white fa fa-bell"></i>
-                                </span> <span class="text-center mt-2 ml-3">Job likes</span>
+                            </span> <span class="text-center mt-2 ml-3">Job likes</span>
                           </div>
                         </a>
 
@@ -86,8 +86,8 @@
                             </div>
                         </a>
                         <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>
-                            <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>
+                            <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">Settings </a>
+                            <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="{{ route('profile') }}">Profile</a>
                             <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#"  onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">Log out</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

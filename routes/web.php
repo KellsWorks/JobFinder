@@ -104,3 +104,14 @@ Route::get('admin/home', [\App\Http\Controllers\HomeController::class, 'adminHom
 */
 
 Route::post('newsletter', [\App\Http\Controllers\NewsletterController::class, 'store'])->name('newsletter');
+
+/*
+|--------------------------------------------------------------------------
+| PROFILE ROUTES
+|--------------------------------------------------------------------------
+|
+| Web routes for user profile
+|
+*/
+
+Route::get('profile', [\App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
