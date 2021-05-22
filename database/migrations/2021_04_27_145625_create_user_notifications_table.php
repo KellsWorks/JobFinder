@@ -20,6 +20,7 @@ class CreateUserNotificationsTable extends Migration
             $table->string('title');
             $table->string('category');
             $table->string('content');
+            $table->string('status')->default('unread');
             $table->timestamps();
         });
     }

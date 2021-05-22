@@ -227,14 +227,12 @@ function liked(){
 
     element.classList.toggle("liked");
 
-    element.innerHTML = parseInt(element.textContent)+1;
-
-    element.onclick = () => {
-
-        element.innerHTML = parseInt(element.textContent)-1;
-        element.onclick = () => {
-            liked();
-        }
-
-    }
 }
+
+
+//Alert
+$( document ).ready(function(){
+    $('#session-alert').fadeIn('slow', function(){
+       $('#session-alert').delay(3000).fadeOut();
+    });
+});

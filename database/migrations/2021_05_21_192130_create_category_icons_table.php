@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJobTagsTable extends Migration
+class CreateCategoryIconsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateJobTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('job_tags', function (Blueprint $table) {
+        Schema::create('category_icons', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('jobs_id')->unsigned()->nullable();
-            $table->foreign('jobs_id')->references('id')->on('jobs');
-            $table->string('tag');
+            $table->integer('jobs_category_id')->unsigned()->nullable();
+            $table->foreign('jobs_category_id')->references('id')->on('jobs_categories');
+            $table->string('icon');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateJobTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('job_tags');
+        Schema::dropIfExists('category_icons');
     }
 }

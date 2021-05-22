@@ -3,7 +3,7 @@
         <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
 
             <div class="brand-logo">
-                <a href="{{ route('index') }}">
+                <a href="{{ route('home') }}">
                     <h3>
                         <span class="text-green">JOB</span> FINDER
                     </h3>
@@ -12,8 +12,9 @@
             <div class="collapse navbar-collapse" id="mobile-menu">
                 <div class="navbar-nav-wrapper">
                     <ul class="navbar-nav main-menu">
+
                         <li class="nav-item active">
-                            <a class="nav-link" aria-expanded="false">Home</a>
+                            <a href={{ url('/') }} class="nav-link" aria-expanded="false">Home</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('jobs') }}" class="nav-link">JOBS</a>
@@ -32,9 +33,7 @@
                 @if(Route::has('login'))
                 <div class="absolute top-0 right-0 mt-4 mr-4 space-x-4 sm:mt-6 sm:mr-6 sm:space-x-6">
                 @auth
-                <a class="btn btn-primary text-uppercase font-size-3 ml-6" href="{{ route('home') }}">
-                    User home
-                </a>
+
                 @else
                 <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset" href="javacript:" data-toggle="modal" data-target="#login">
                     {{ __('Login') }}
@@ -57,6 +56,54 @@
             </span>
             </button>
 
+            @auth
+                <div class=" ml-auto ml-lg-5 pl-2 d-none d-xs-flex align-items-center">
+                <div class="dropdown show-gr-dropdown">
+                    <a href="#" role="button" class="px-3 ml-7 font-size-7 notification-block flex-y-center position-relative" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <ion-icon name="notifications-outline" size="large"></ion-icon>
+                    <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>
+                    </a>
+                    <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-800 bg-default" aria-labelledby="dropdownMenuLink">
+                        <span class="dropdown-item dropdown-header">15 Notifications</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                          <div class="row">
+                            <span class="circle-40 bg-green text-center">
+                                <i class="text-white fa fa-bell"></i>
+                                </span> <span class="text-center mt-2 ml-3">Job likes</span>
+                          </div>
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                      </div>
+                </div>
+                <div class="nav-item">
+                    <div class="dropdown show-gr-dropdown py-5">
+                        <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="circle-40">
+                                <img class="circle-40" height="40" src="../../../storage/profiles/avatar5.png" alt="">
+                            </div>
+                        </a>
+                        <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>
+                            <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>
+                            <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#"  onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">Log out</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endauth
+            <div class="form-input ml-3 d-none d-lg-block">
+                <select class="form-control">
+                    <option>English</option>
+                    <option>Chichewa</option>
+                  </select>
+            </div>
         </nav>
     </div>
 </header>

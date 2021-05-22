@@ -1,7 +1,5 @@
 {{-- Blade imports --}}
 
-@include('includes.terms-and-conditions')
-
 {{-- Sign in Modal dialog --}}
 
 <div class="modal fade form-modal" id="login" tabindex="-1" aria-hidden="true">
@@ -16,7 +14,7 @@
                                 Welcome Back
                             </h3>
                             <p class="mb-0 font-size-4 text-white">Log in to continue your account and explore new jobs.</p>
-                            <img class="mt-4" height="250" src="{{ asset('img/no-companies.png') }}" alt="">
+                            {{-- <img class="mt-4" height="250" src="{{ asset('img/no-companies.png') }}" alt=""> --}}
                         </div>
                         <div class="border-top border-default-color-2 mt-auto">
                             <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
@@ -98,7 +96,7 @@
 
 <div class="modal fade form-modal" id="signup" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog max-width-px-840 position-relative">
-        <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-n6 mr-lg-n6 focus-reset shadow-10" data-dismiss="modal"><i class="fas fa-times"></i></button>
+        <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-n6 mr-lg-n6 focus-reset shadow-10" data-dismiss="modal"><ion-icon name="close-outline"></ion-icon></button>
         <div class="login-modal-main bg-white rounded-8 overflow-hidden">
             <div class="row no-gutters">
                 <div class="col-lg-5 col-md-6">
@@ -108,7 +106,7 @@
                                 Create a free account today
                             </h3>
                             <p class="mb-0 font-size-4 text-white">Create your account to continue and explore new jobs.</p>
-                            <img class="mt-4" height="250" src="{{ asset('img/Startup, Success, technology, growth _  innovation, idea, thought, woman, statistics.png') }}" alt="">
+                            {{-- <img class="mt-4" height="250" src="{{ asset('img/Startup, Success, technology, growth _  innovation, idea, thought, woman, statistics.png') }}" alt=""> --}}
                         </div>
                         <div class="border-top border-default-color-2 mt-auto">
                             <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
@@ -183,7 +181,7 @@
                                 <label for="terms-check2" class="gr-check-input d-flex  mr-3">
                                 <input class="d-none" type="checkbox" id="terms-check2">
                                 <span class="checkbox mr-5"></span>
-                                <span class="font-size-3 mb-0 line-height-reset d-block">Agree to the <a href="javascript:" class="text-primary" data-toggle="modal" data-target="#terms" data-dismiss="#singup">Terms & Conditions</a></span>
+                                <span class="font-size-3 mb-0 line-height-reset d-block">Agree to the <a href="{{ route('terms-and-conditions-privacy-policy') }}" class="text-primary">Terms & Conditions</a></span>
                                 </label>
 
                                 @if (Route::has('password.request'))

@@ -1,6 +1,8 @@
 <footer class="footer bg-ebony-clay dark-mode-texts">
     <div class="container">
 
+        @auth
+        @else
         <div class="pt-11 pt-lg-20 pb-13 pb-lg-20 border-bottom border-width-1 border-default-color-2">
             <div class="row justify-content-center ">
                 <div class="col-xl-7 col-lg-12" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
@@ -21,18 +23,41 @@
                 </div>
             </div>
         </div>
+        @endauth
+
     </div>
-    <div class="container  pt-12 pt-lg-19 pb-10 pb-lg-19">
+    <div class="container  pt-12 pt-lg-19 pb-5 pb-lg-19">
         <div class="row">
             <div class="col-lg-4 col-sm-6 mb-lg-0 mb-9">
 
                 <h3><span class="text-green">JOB</span> FINDER</h3>
 
                 <div class="mb-11">
-                    <p>Download the mobile app for both iOS & Android</p>
-                    <div class="media align-items-center">
-                        <img src="{{ asset('img/google-play-badge.png') }}" height="70" width="150" alt="" srcset="">
-                        <img src="{{ asset('img/223-2231228_app-store-apple-transprent-download-on-apple-store.png') }}" height="50" width="150" alt="" srcset="">
+                    <p>Malawi's #1 trusted job portal</p>
+                    <div class="footer-widget">
+                        <h4 class="widget-title">Download Apps</h4>
+                        <a href="#" class="other-store-link">
+                            <div class="other-store-app">
+                                <div class="os-app-icon">
+                                    <ion-icon name="logo-google-playstore"></ion-icon>
+                                </div>
+                                <div class="os-app-caps">
+                                    Google Play
+                                    <span>Get It Now</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="other-store-link">
+                            <div class="other-store-app">
+                                <div class="os-app-icon">
+                                    <ion-icon name="logo-apple"></ion-icon>
+                                </div>
+                                <div class="os-app-caps">
+                                    App Store
+                                    <span>Now it Available</span>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
@@ -57,7 +82,7 @@
                                 <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">About us</a></li>
                                 <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Contact us</a></li>
                                 <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Careers</a></li>
-                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Press</a></li>
+                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Newsletters</a></li>
                             </ul>
 
                         </div>

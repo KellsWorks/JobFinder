@@ -17,6 +17,12 @@ ion-icon {
     color: black;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+*{
+    font-family: 'Poppins';
+}
+
 #like.liked{
     color: red;
 }
@@ -36,4 +42,108 @@ ion-icon {
         filter: blur(0.5px);
         -webkit-filter: blur(0.5px);
     }
+}
+
+.footer-widget {
+    padding: 0 0
+}
+
+h4.widget-title {
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 17px
+}
+
+.footer-widget ul {
+    padding: 0;
+    margin: 0
+}
+
+.footer-widget ul li {
+    list-style: none;
+    margin-top: 15px;
+    display: block
+}
+
+.footer-widget ul li a {
+    color: #626a70
+}
+
+.other-store-link {
+    width: auto;
+    margin-bottom: 20px;
+    display: inline-block
+}
+
+.other-store-link:last-child {
+    margin-bottom: 0
+}
+
+.other-store-app {
+    width: 250px;
+    height: 70px;
+    border: 1px solid #00b074;
+    border-radius: 4px;
+    padding: 0 14px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    color: #fff
+}
+
+.os-app-caps span {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: #859f94
+}
+
+.os-app-icon {
+    margin-right: 13px
+}
+
+.os-app-icon i {
+    font-size: 32px
+}
+
+.os-app-caps {
+    font-size: 18px;
+    font-weight: 600
+}
+
+.working-process {
+    text-align: center;
+    position: relative;
+    margin-top: 30px
+}
+
+.working-process h4 {
+    margin: 10px 0
+}
+
+.working-process p {
+    padding: 2px 15px;
+    line-height: 1.9
+}
+/*
+span.process-img {
+    width: 30px;
+    height: 30px;
+    margin: 15px auto 0;
+    position: relative;
+    display: inline-block
+}
+
+/* span.process-img img {
+    z-index: 1
+} */
+
+span.process-num {
+    position: absolute;
+    font-size: 60px;
+    font-weight: 600;
+    color: #bbc7e1;
+    /* left: -30px;
+    top: -10px; */
+    opacity: .2
 }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\SavedJobs;
 use App\Models\FollowedJobs;
 use App\Models\JobLikes;
+use App\Models\JobTags;
 use Overtrue\LaravelLike\Traits\Likeable;
 
 class Jobs extends Model
@@ -30,5 +31,8 @@ class Jobs extends Model
     public function jobLikes()
     {
         return $this->hasOne(JobLikes::class);
+    }
+    public function tags(){
+        return $this->hasMany(JobTags::class);
     }
 }

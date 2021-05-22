@@ -1,11 +1,17 @@
+{{-- Copyright (c) Nextgenerations Malawi --}}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta author="KellsWorks,RodgerCodes@NextgenerationsMalawi" name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>{{ env('APP_NAME') }}</title>
+
     <link rel="shortcut icon" href="{{ asset('icon.ico') }}" type="image/x-icon">
 
     @include('scripts.css')
@@ -16,6 +22,7 @@
     <div class="site-wrapper overflow-hidden ">
 
         @include('partials.header')
+
         @include('includes.auth')
 
         <div class="jobDetails-section bg-default-1 pt-28 pt-lg-27 pb-xl-25 pb-12">
@@ -24,8 +31,9 @@
 
                     <div class="col-xl-10 col-lg-11 mt-4 ml-xxl-32 ml-xl-15 dark-mode-texts">
                         <div class="mb-9">
-                            <a class="d-flex align-items-center ml-4" href="{{ route('index') }}">
-                                <ion-icon name="arrow-back-outline"></ion-icon><span class="text-uppercase font-size-3 font-weight-bold text-gray">Back to home</span></a>
+                            <a class="d-flex align-items-center ml-4" href="javascript:history.back()">
+                                <ion-icon name="arrow-back-outline"></ion-icon><span class="text-uppercase font-size-3 font-weight-bold text-gray">Back</span>
+                            </a>
                         </div>
                     </div>
 
@@ -39,7 +47,7 @@
                                         <div class="media align-items-center">
 
                                             <div class="square-72 d-block mr-8 pt-4 ml-3 justify-content-center">
-                                                <img class="img-responsive mt-4 center" height="21" src="{{ asset('img/companies/'.$jobs->employer_logo)}}" alt="">
+                                                <img class="img-fluid mt-4 center" src="{{ asset('img/companies/'.$jobs->employer_logo)}}" alt="">
                                             </div>
 
                                             <div>
@@ -52,8 +60,8 @@
                                     </div>
                                     <div class="col-md-6 text-right pt-7 pt-md-0 mt-md-n1">
 
-                                        <div class="media justify-content-md-end">
-                                            <p class="d-flex font-size-2 text-green font-weight-bold">{{ \Carbon\Carbon::parse($jobs->created_at)->diffForHumans() }}</p>
+                                        <div class="media justify-content-md-end align-items-center">
+                                            <p class="d-flex font-size-2 font-weight-bold"><i class="fa fa-history mr-1"></i></span>{{ \Carbon\Carbon::parse($jobs->created_at)->diffForHumans() }}</p>
                                         </div>
 
                                     </div>
@@ -62,15 +70,31 @@
                                     <div class="col-12">
 
                                         <div class="card-btn-group">
-                                            <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="#">Apply to this job</a>
-                                            <a class="btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mr-4 mb-5 px-5" href="#">
-                                            Save job</a>
-                                            <a id="like" onclick="liked()" class="btn btn-outline-mercury text-uppercase h-px-48 rounded-3 mb-5 px-5" href="javascript:">
-                                                <span class="text-red mt-2"><ion-icon name="heart"></ion-icon></i> </span>  {{ $likes }}</a>
+                                            <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="mailto:{{ $jobs->employer_email }}">Apply to this job</a>
+                                            <a class="btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mr-4 mb-5 px-5" @auth
+                                                href="{{ url('/job/save/'.$jobs->id) }}"
+                                            @else
+                                                href="javascript:"
+                                            @endauth>
+                                                Save job
+                                            </a>
+                                            <a id="like" onclick="liked()" class="text-red  btn btn-outline-mercury text-uppercase h-px-48 rounded-3 mb-5 px-5" @auth
+                                            href="{{ url('/job/like/'.$jobs->id) }}"
+                                            @else
+                                            href="javascript:"
+                                            @endauth>
+                                                <span class="mt-2"><ion-icon name="heart"></ion-icon></i> </span>  {{ $likes }}</a>
                                         </div>
 
                                     </div>
                                 </div>
+
+                                @if (session('status'))
+                                <div class="alert alert-info" id="session-alert">
+                                    {{ session('status') }}
+                                  </div>
+                                @endif
+
                             </div>
 
                             <div class="job-details-content pt-8 pl-sm-9 pl-6 pr-sm-9 pr-6 pb-10 border-bottom border-width-1 border-default-color light-mode-texts">
@@ -78,7 +102,7 @@
                                     <div class="col-md-4 mb-md-0 mb-6">
                                         <div class="media justify-content-md-start">
                                             <div class="image mr-5">
-                                                <img src="{{ asset('assets/image/svg/icon-dolor.svg') }}" alt="">
+                                                <img src="{{ asset('assets/image/svg/icon-dolor.svg') }}" alt="money-icon">
                                             </div>
                                             <p class="font-weight-semibold font-size-5 text-black-2 mb-0">{{ $jobs->salary }}</p>
                                         </div>
@@ -86,7 +110,7 @@
                                     <div class="col-md-4 pr-lg-0 pl-lg-10 mb-md-0 mb-6">
                                         <div class="media justify-content-md-start">
                                             <div class="image mr-5">
-                                                <img src="{{ asset('assets/image/svg/icon-briefcase.svg') }}" alt="">
+                                                <img src="{{ asset('assets/image/svg/icon-briefcase.svg') }}" alt="duration-icon">
                                             </div>
                                             <p class="font-weight-semibold font-size-5 text-black-2 mb-0">{{ $jobs->duration }}</p>
                                         </div>
@@ -94,7 +118,7 @@
                                     <div class="col-md-4 pl-lg-0">
                                         <div class="media justify-content-md-start">
                                             <div class="image mr-5">
-                                                <img src="{{ asset('assets/image/svg/icon-location.svg') }}" alt="">
+                                                <img src="{{ asset('assets/image/svg/icon-location.svg') }}" alt="location-icon">
                                             </div>
                                             <p class="font-weight-semibold font-size-5 text-black-2 mb-0">{{ $jobs->location }}</p>
                                         </div>
@@ -177,7 +201,8 @@
                                                 {{ $jobs->content }}
                                             </p>
 
-                                            <a class="btn btn-green text-uppercase btn-medium w-180 h-px-48 rounded-3 mr-4 mt-6" href="#">Apply to this job</a>
+                                            <a class="btn btn-green text-uppercase btn-medium w-180 h-px-48 rounded-3 mr-4 mt-6" href="mailto:{{ $jobs->employer_email }}">Apply to this job</a>
+
                                         </div>
                                     </div>
                                 </div>
@@ -193,6 +218,7 @@
     </div>
 
     @include('scripts.js')
+
 </body>
 
 </html>
