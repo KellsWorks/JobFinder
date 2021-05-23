@@ -20,9 +20,20 @@
                             <a href="{{ route('jobs') }}" class="nav-link">JOBS</a>
                         </li>
 
+                        @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('profile') }}">Profile</a>
+                        </li>
+                        @else
+                        <li class="nav-item d-none">
+                            <a class="nav-link" href="#footer">Log in</a>
+                        </li>
+                        @endauth
+
                         <li class="nav-item">
                             <a class="nav-link" href="#">Support</a>
                         </li>
+
                     </ul>
                 </div>
                 <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true" aria-label="Toggle navigation">

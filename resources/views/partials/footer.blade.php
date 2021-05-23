@@ -1,4 +1,4 @@
-<footer class="footer bg-ebony-clay dark-mode-texts">
+<footer class="footer bg-ebony-clay dark-mode-texts" id="footer">
     <div class="container">
 
         @auth
