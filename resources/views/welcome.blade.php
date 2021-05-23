@@ -57,7 +57,7 @@
 
                                         <div class="form-group position-relative">
                                             <select id="district" name="location" class="nice-select pl-13 h-100 arrow-3 font-size-4">
-                                            <option value="" data-display="Location" class="text-uppercase">Location</option>
+                                            <option value="" data-display="{{ __('messages.location') }}" class="text-uppercase">{{ __('messages.location') }}</option>
                                                 @foreach ($districts as $district)
                                                     <option value="">{{ $district->name }}</option>
                                                 @endforeach
@@ -68,13 +68,13 @@
                                     </div>
 
                                     <div class="button-block">
-                                        <button class="btn btn-primary line-height-reset h-100 btn-submit w-100 text-uppercase">Search</button>
+                                        <button class="btn btn-primary line-height-reset h-100 btn-submit w-100 text-uppercase">{{ __('messages.search') }}</button>
                                     </div>
 
                                 </div>
                             </form>
 
-                            <p class="heading-default-color font-size-3 pt-7"><span class="text-smoke">Search keywords e.g.</span> Sales and marketer, Nurse, Accountant, Electrician etc.</p>
+                            <p class="heading-default-color font-size-3 pt-7"><span class="text-smoke">{{ __('messages.search_head') }}</span>{{ __('messages.search_note') }}</p>
                         </div>
                     </div>
 
