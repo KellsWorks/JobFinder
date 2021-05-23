@@ -230,10 +230,10 @@
                                 </h5>
                                 <div class="d-flex align-items-center result-view-type">
                                     <a class="heading-default-color pl-5 font-size-6 hover-text-hitgray active disabled" href="#">
-                                        <i class="fa fa-list-ul"></i>
+                                        <ion-icon name="list-outline"></ion-icon>
                                     </a>
-                                                        <a class="heading-default-color pl-5 font-size-6 hover-text-hitgray" href="#">
-                                        <i class="fa fa-th-large"></i>
+                                    <a class="heading-default-color pl-5 font-size-6 hover-text-hitgray" href="#">
+                                        <ion-icon name="grid-outline"></ion-icon>
                                     </a>
                                 </div>
                             </div>

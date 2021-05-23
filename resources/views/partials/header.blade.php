@@ -109,12 +109,18 @@
                 </div>
             </div>
             @endauth
-            <div class="form-input ml-3 d-none d-lg-block">
-                <select class="form-control">
-                    <option>English</option>
-                    <option>Chichewa</option>
-                  </select>
-            </div>
+            <div class="nav-item dropdown ml-3 d-none d-lg-block">
+                <a class="nav-link dropdown-toggle" href="#" id="navBarDropdownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span><span class="flag-icon flag-icon-gr"></span></span>  {{ Config::get('language')[App::getLocale()]['display'] }}
+                </a>
+                    <div class="dropdown-menu" aria-labelledby="navBarDropdownLink">
+                        @foreach (Config::get('language') as $lang => $language)
+                        <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">
+                            <span>{{ $language['display'] }}</span>
+                        </a>
+                        @endforeach
+                    </div>
+
         </nav>
     </div>
 </header>

@@ -44,23 +44,23 @@
 
                 <div class="row position-relative align-items-center">
                     <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-12 pt-lg-13 pb-lg-33 pb-xl-34 pb-md-33 pb-10" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
-                        <h1 class="font-size-11 mb-12 pr-md-30 pr-lg-0">Find the perfect job that you deserve.</h1>
+                        <h1 class="font-size-11 mb-12 pr-md-30 pr-lg-0">{{ __('messages.info_banner') }}</h1>
                         <div class="">
 
                             <form action="{{ route('job-search') }}" method="GET" class="search-form shadow-6">
                                 <div class="filter-search-form-1 bg-white rounded-sm shadow-4">
                                     <div class="filter-inputs">
                                         <div class="form-group position-relative">
-                                            <input class="form-control focus-reset pl-13" name="query" type="text" id="keyword" placeholder="Job title">
+                                            <input class="form-control focus-reset pl-13" name="query" type="text" id="keyword" placeholder="{{ __('messages.job_title') }}">
                                             <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center text-green justify-content-center font-size-6"><ion-icon name="search-outline"></ion-icon></i></span>
                                         </div>
 
                                         <div class="form-group position-relative">
                                             <select id="district" name="location" class="nice-select pl-13 h-100 arrow-3 font-size-4">
                                             <option value="" data-display="Location" class="text-uppercase">Location</option>
-                                            @foreach ($districts as $district)
-                                                  <option value="">{{ $district->name }}</option>
-                                            @endforeach
+                                                @foreach ($districts as $district)
+                                                    <option value="">{{ $district->name }}</option>
+                                                @endforeach
                                             </select>
                                             <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center text-green justify-content-center font-size-6"><ion-icon name="pin-outline"></ion-icon></span>
                                         </div>
@@ -156,7 +156,6 @@
                 </div>
             </div>
         </div>
-        <!-- Blog area function end -->
 
         <div class=" pt-13 pt-lg-24 pb-12 pb-lg-23">
             <div class="container">
@@ -340,13 +339,13 @@
                             <a href="#" class="font-size-3 d-block mb-0 text-gray">{{ $job->employer }}</a>
                             <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">{{ $job->title }}</a></h2>
                             <ul class="list-unstyled mb-1 card-tag-list">
-                                <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
+                                <li><a href="" class="bg-regent-opacity-15 text-gray font-size-3 rounded-3">
                                 <ion-icon name="pin-outline" size="small"></ion-icon>{{ $job->location }}
                             </a></li>
-                                            <li><a href="" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
+                                <li><a href="" class="bg-regent-opacity-15 text-gray font-size-3 rounded-3">
                                 <i class="fa fa-briefcase mr-2 font-weight-bold"></i>{{ $job->duration }}
                             </a></li>
-                                            <li><a href="" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
+                                <li><a href="" class="bg-regent-opacity-15 text-gray font-size-3 rounded-3">
                                 <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i>{{ $job->salary }}
                             </a></li>
                             </ul>

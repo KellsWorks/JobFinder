@@ -115,3 +115,14 @@ Route::post('newsletter', [\App\Http\Controllers\NewsletterController::class, 's
 */
 
 Route::get('profile', [\App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+
+/*
+|--------------------------------------------------------------------------
+| LANGUAGES ROUTES
+|--------------------------------------------------------------------------
+|
+| Route for changing app language
+|
+*/
+
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => '\App\Http\Controllers\LanguageController@switchLang']);
