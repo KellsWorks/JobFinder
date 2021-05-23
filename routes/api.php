@@ -66,7 +66,7 @@ Route::prefix('app')->group(function () {
 
 
 Route::prefix('jobs')->group(function () {
-    Route::post('/follow', [App\Http\Controllers\JobsController::class, 'followJobs']);
+    Route::post('/follow', [App\Http\Controllers\JobsController::class, 'followJob']);
 
     Route::get('/get/all', [App\Http\Controllers\JobsController::class, 'getJobs']);
 
@@ -101,6 +101,9 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/get/all', [App\Http\Controllers\NotificationsController::class, 'getUserNotifications']);
     Route::get('/categories', [App\Http\Controllers\JobsController::class, 'getCategories']);
     Route::get('/get/saved-jobs', [App\Http\Controllers\JobsController::class, 'getSavedJobs']);
+    Route::get('/get/saved', [App\Http\Controllers\JobsController::class, 'getSavedJob']);
+    Route::get('/get-all', [App\Http\Controllers\ActivityController::class, 'getAll']);
+
     Route::post('/activities/create', [App\Http\Controllers\ActivityController::class, 'create']);
     Route::get('/activities/get-all', [App\Http\Controllers\ActivityController::class, 'getAll']);
 
@@ -119,7 +122,6 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
 
 
 Route::prefix('activities')->group(function () {
-    Route::get('/get-all', [App\Http\Controllers\ActivityController::class, 'getAll']);
 
     Route::post('/delete-one', [App\Http\Controllers\ActivityController::class, 'deleteOne']);
 

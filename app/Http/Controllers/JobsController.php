@@ -9,6 +9,8 @@ use App\Traits\ApiResponser;
 use App\Models\SavedJobs;
 use App\Models\JobLikes;
 use App\Models\FollowedJobs;
+use App\Models\UserNotifications;
+
 
 class JobsController extends Controller
 {
@@ -43,6 +45,13 @@ class JobsController extends Controller
         $job = Jobs::find($request->id);
         $job->savedJobs()->save($savedJob);
 
+        $notification = new UserNotifications();
+        $notification->user_id = $id;
+        $notification->title = $job->title;
+        $notification->category = 'Job likes';
+        $notification->content = 'You have liked the '.$job->title.' job';
+        $notification->save();
+
         return(
             $this->success("","Job saved successfully!")
         );
@@ -57,9 +66,24 @@ class JobsController extends Controller
         $job = Jobs::find($request->id);
         $job->followedJobs()->save($savedJob);
 
+        $notification = new UserNotifications();
+        $notification->user_id = $request->user_id;
+        $notification->title = $job->title;
+        $notification->category = 'Job likes';
+        $notification->content = 'You have liked the '.$job->title.' job';
+        $notification->save();
+
         return(
             $this->success("","Job followed successfully!")
         );
+
+    }
+
+    public function getSavedJob(Request $request){
+        $id = auth()->user()->id;
+        $savedJobs = SavedJobs::where('user_id', $id)->get();
+    
+        return $savedJobs;
 
     }
 
