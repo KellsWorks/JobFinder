@@ -229,10 +229,10 @@
                                     <span class="heading-default-color">Showing <b>{{ $jobs->count() }}</b></span> results
                                 </h5>
                                 <div class="d-flex align-items-center result-view-type">
-                                    <a class="heading-default-color pl-5 font-size-6 hover-text-hitgray active" href="./search-list-1.html">
+                                    <a class="heading-default-color pl-5 font-size-6 hover-text-hitgray active disabled" href="#">
                                         <i class="fa fa-list-ul"></i>
                                     </a>
-                                                        <a class="heading-default-color pl-5 font-size-6 hover-text-hitgray" href="./search-grid.html">
+                                                        <a class="heading-default-color pl-5 font-size-6 hover-text-hitgray" href="#">
                                         <i class="fa fa-th-large"></i>
                                     </a>
                                 </div>

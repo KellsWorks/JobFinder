@@ -108,10 +108,10 @@
                             <p class="widget-title font-size-4 text-gray mb-md-8 mb-7">Services</p>
 
                             <ul class="widget-links pl-0 list-unstyled list-hover-primary">
-                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Digital Marketing</a></li>
-                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">SEO for Business</a></li>
-                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Avasta Dash</a></li>
-                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">UI Design</a></li>
+                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="#">CV Writing</a></li>
+                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="#">Application Letters</a></li>
+                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="#">Research Development</a></li>
+                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="#">Business Plan</a></li>
                             </ul>
 
                         </div>
@@ -122,9 +122,9 @@
                             <p class="widget-title font-size-4 text-gray mb-md-8 mb-7">Legal</p>
 
                             <ul class="widget-links pl-0 list-unstyled list-hover-primary">
-                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Privacy Policy</a></li>
-                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Terms & Conditions</a></li>
-                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Return Policy</a></li>
+                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="{{ route('terms-and-conditions-privacy-policy') }}">Privacy Policy</a></li>
+                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="{{ route('terms-and-conditions-privacy-policy') }}">Terms & Conditions</a></li>
+                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="{{ route('terms-and-conditions-privacy-policy') }}">Return Policy</a></li>
                             </ul>
                         </div>
                     </div>
