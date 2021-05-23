@@ -50,21 +50,12 @@ class JobsController extends Controller
     }
 
     public function followJob(Request $request){
-      
-        $id = auth()->user()->id;
 
         $savedJob = new FollowedJobs();
-        $savedJob->user_id = $id;
+        $savedJob->user_id = $request->user_id;
 
         $job = Jobs::find($request->id);
         $job->followedJobs()->save($savedJob);
-
-        $notification = new UserNotifications();
-        $notification->user_id = $id;
-        $notification->title = $job->title;
-        $notification->category = 'Job likes';
-        $notification->content = 'You have liked the '.$job->title.' job';
-        $notification->save();
 
         return(
             $this->success("","Job followed successfully!")
