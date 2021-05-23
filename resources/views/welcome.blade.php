@@ -26,13 +26,22 @@
 
         @include('includes.auth')
 
+
         <div class="bg-gradient-1 pt-26 pt-md-32 pt-lg-33 pt-xl-35 position-relative z-index-1 overflow-hidden">
 
             <div class="pos-abs-tr w-50 z-index-n2">
                 <img src="{{ asset('assets/image/patterns/hero-pattern.png') }}" alt="" class="gr-opacity-1">
             </div>
 
+
             <div class="container">
+
+                @if (session('auth-error'))
+                <div class="alert alert-danger" id="session-alert">
+                    {{ session('auth-error') }}
+                    </div>
+                @endif
+
                 <div class="row position-relative align-items-center">
                     <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-12 pt-lg-13 pb-lg-33 pb-xl-34 pb-md-33 pb-10" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
                         <h1 class="font-size-11 mb-12 pr-md-30 pr-lg-0">Find the perfect job that you deserve.</h1>
@@ -79,78 +88,71 @@
             </div>
         </div>
 
-        <!-- Blog area function start -->
         <div class="pt-11 pt-lg-24 pb-11 pb-lg-24">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-8 col-md-10" data-aos="fade-in" data-aos-duration="1000" data-aos-once="true">
-                        <!-- section-title start -->
+
                         <div class="section-title text-center pb-lg-15 pb-8 px-xxl-10">
                             <h2 class="mb-9 font-size-10">Quick career tips</h2>
                             <p class="text-default-color font-size-5">Read more about setting up a career/job</p>
                         </div>
-                        <!-- section-title end -->
+
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <!-- single blog start -->
+
                     <div class="col-xl-4 col-md-6 mb-xl-0 mb-13" data-aos="fade-right" data-aos-duration="500" data-aos-once="true">
-                        <!-- card start -->
+
                         <div class="card bg-transparent border-0">
-                            <!-- card img start -->
+
                             <img src="{{ asset('assets/image/l1/png/blog-img1.png') }}" class="card-img-top" alt="...">
-                            <!-- card img end -->
-                            <!-- card-body start -->
+
                             <div class="card-body pt-11 px-0 pb-0">
-                                <a href="#" class="badge badge-dodger text-uppercase font-size-3 font-weight-bold px-4 py-1">CV Writing</a>
+                                <a href="#" class="badge badge-allports text-uppercase font-size-3 font-weight-bold px-4 py-1">CV Writing</a>
                                 <h4><a class="card-title font-size-7 mt-8 mb-6 heading-default-color" href="#">How to make a perfect CV that attracts the attention </a></h4>
                                 <p class="card-text mb-9 font-size-4">Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base.</p>
 
                             </div>
-                            <!-- card-body end -->
+
                         </div>
-                        <!-- card end -->
+
                     </div>
-                    <!-- single blog end -->
-                    <!-- single blog start -->
+
                     <div class="col-xl-4 col-md-6 mb-xl-0 mb-13" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
-                        <!-- card start -->
+
                         <div class="card bg-transparent border-0">
-                            <!-- card img start -->
+
                             <a href="#"><img src="{{ asset('assets/image/l1/png/blog-img2.png') }}" class="card-img-top" alt="..."></a>
-                            <!-- card img end -->
-                            <!-- card-body start -->
+
                             <div class="card-body pt-11 px-0 pb-0">
-                                <a href="#" class="badge badge-dodger text-uppercase font-size-3 font-weight-bold px-4 py-1">Marketing</a>
+                                <a href="#" class="badge badge-allports text-uppercase font-size-3 font-weight-bold px-4 py-1">Marketing</a>
                                 <h4><a class="card-title font-size-7 mt-8 mb-6 heading-default-color" href="#">Out bound marketing to get the job you want within 72 days</a></h4>
                                 <p class="card-text mb-9 font-size-4">Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base.</p>
 
                             </div>
-                            <!-- card-body end -->
+
                         </div>
-                        <!-- card end -->
+
                     </div>
-                    <!-- single blog end -->
-                    <!-- single blog start -->
+
                     <div class="col-xl-4 col-md-6" data-aos="fade-left" data-aos-duration="500" data-aos-once="true">
-                        <!-- card start -->
+
                         <div class="card bg-transparent border-0">
-                            <!-- card img start -->
+
                             <a href="#"><img src="{{ asset('assets/image/l1/png/blog-img3.png') }}" class="card-img-top" alt="..."></a>
-                            <!-- card img end -->
-                            <!-- card-body start -->
+
                             <div class="card-body pt-11 px-0 pb-0">
-                                <a href="#" class="badge badge-dodger text-uppercase font-size-3 font-weight-bold px-4 py-1">Social media</a>
+                                <a href="#" class="badge badge-allports text-uppercase font-size-3 font-weight-bold px-4 py-1">Social media</a>
                                 <h4><a class="card-title font-size-7 mt-8 mb-6 heading-default-color" href="#">Your social media accounts will be your new CV</a></h4>
                                 <p class="card-text mb-9 font-size-4">Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster,</p>
 
-                                <!-- media end -->
                             </div>
-                            <!-- card-body end -->
+
                         </div>
-                        <!-- card end -->
+
                     </div>
-                    <!-- single blog end -->
+
                 </div>
             </div>
         </div>

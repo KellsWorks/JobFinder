@@ -203,3 +203,16 @@
     </div>
 </div>
 {{-- End of sign up Modal dialog --}}
+@if (session('login-error'))
+<div id="dialog" title="Log in error">
+    <p class="font-size-3">{{ session('login-error') }}</p>
+</div>
+{{-- <script>
+    $(function() {
+        $('#login').modal({
+            show: true
+        });
+    });
+</script>
+@endif --}}
+@endif
