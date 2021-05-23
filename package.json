@@ -28,6 +28,7 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
+        "flag-icon-css": "^3.5.0",
         "tailwindcss": "^2.1.2"
     }
 }

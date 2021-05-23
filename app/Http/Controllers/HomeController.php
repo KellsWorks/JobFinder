@@ -43,4 +43,8 @@ class HomeController extends Controller
     {
         return view('jobs');
     }
+
+    public function profile(){
+        return view('user.profile');
+    }
 }
