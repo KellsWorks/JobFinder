@@ -90,6 +90,8 @@ class JobsController extends Controller
 
     public function followJob(Request $request){
 
+        if(FollowedJobs::where('user_id', $request->user_id)->where('jobs_id', $request->id)->count() < 1){
+           
         $savedJob = new FollowedJobs();
         $savedJob->user_id = $request->user_id;
 
@@ -103,9 +105,17 @@ class JobsController extends Controller
         $notification->content = 'You have liked the '.$job->title.' job';
         $notification->save();
 
-        return(
-            $this->success("","Job followed successfully!")
-        );
+        return response()->json([
+           'success' => true,
+           'message' => 'You have Followed the Job'
+        ]);
+
+        } else {
+            return response()->json([
+                'success' => true,
+                'message' => 'You have already followed the Job'
+            ]);
+        }
 
     }
 
