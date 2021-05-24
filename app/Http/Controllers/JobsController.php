@@ -24,16 +24,33 @@ class JobsController extends Controller
     }
 
     public function likeJob(Request $request){
-        $id = auth()->user->id;
-        $likedJob = new JobLikes();
-        $likedJob->user_id = $id;
 
-        $job = Jobs::find($request->id);
-        $job->jobLikes()->save($likedJob);
+        if(JobLikes::where('jobs_id', $request->id)->where('user_id', $request->user_id)->count() < 1){
+            $likedJob = new JobLikes();
+            $likedJob->user_id = $request->user_id;
 
-        return(
-            $this->success("","Job liked successfully!")
-        );
+            $job = Jobs::find($request->id);
+            $job->jobLikes()->save($likedJob);
+
+            $notification = new UserNotifications();
+            $notification->user_id = $id;
+            $notification->title = $job->title;
+            $notification->category = 'Job likes';
+            $notification->content = 'You have liked the '.$job->title.' job';
+            $notification->save();
+    
+            return response()->json([
+               'success' => true,
+               'message' => 'You have successfully liked a job'
+            ]);
+        } else {
+            return response()->json([
+                'success'=>false,
+               'message' => 'You have already liked the job'
+            ]);
+        }
+
+       
 
     }
 
