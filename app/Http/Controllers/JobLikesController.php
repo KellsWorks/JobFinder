@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Jobs;
+use App\Models\JobLikes;
 use App\Traits\ApiResponser;
 use App\Models\UserNotifications;
 
@@ -34,15 +35,13 @@ class JobLikesController extends Controller
 
     public function dislike(Request $request){
 
-        $user = User::findOrFail($request->user_id);
-        $job = Jobs::findOrFail($request->job_id);
-
-        $user->unlike($job);
-        $likes = $job->likers()->count();
+        $jobs =JobLikes::where('user_id', $request->user_id)->where('jobs_id', $request->job_id)->pluck('jobs_id');
+        $res = Jobs::find($jobs);
+        $job = JobLikes::where('user_id', $request->user_id)->where('jobs_id', $request->job_id)->delete();
 
         $notification = new UserNotifications();
         $notification->user_id = $request->user_id;
-        $notification->title = $job->title;
+        $notification->title = $res->title;
         $notification->category = 'Job likes';
         $notification->content = 'You have disliked the '.$job->title.' job';
         $notification->save();

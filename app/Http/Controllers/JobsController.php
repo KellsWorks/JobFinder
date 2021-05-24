@@ -33,7 +33,7 @@ class JobsController extends Controller
             $job->jobLikes()->save($likedJob);
 
             $notification = new UserNotifications();
-            $notification->user_id = $id;
+            $notification->user_id = $request->user_id;
             $notification->title = $job->title;
             $notification->category = 'Job likes';
             $notification->content = 'You have liked the '.$job->title.' job';
@@ -43,6 +43,7 @@ class JobsController extends Controller
                'success' => true,
                'message' => 'You have successfully liked a job'
             ]);
+
         } else {
             return response()->json([
                 'success'=>false,
@@ -55,23 +56,35 @@ class JobsController extends Controller
     }
 
     public function saveJob(Request $request){
+
         $id = auth()->user()->id;
-        $savedJob = new SavedJobs();
-        $savedJob->user_id = $id;
 
-        $job = Jobs::find($request->id);
-        $job->savedJobs()->save($savedJob);
-
-        $notification = new UserNotifications();
-        $notification->user_id = $id;
-        $notification->title = $job->title;
-        $notification->category = 'Job likes';
-        $notification->content = 'You have liked the '.$job->title.' job';
-        $notification->save();
-
-        return(
-            $this->success("","Job saved successfully!")
-        );
+        if(SavedJobs::where('user_id', $id)->where('jobs_id', $request->id)->count() < 1){
+            $savedJob = new SavedJobs();
+            $savedJob->user_id = $id;
+    
+            $job = Jobs::find($request->id);
+            $job->savedJobs()->save($savedJob);
+    
+            $notification = new UserNotifications();
+            $notification->user_id = $id;
+            $notification->title = $job->title;
+            $notification->category = 'Job likes';
+            $notification->content = 'You have liked the '.$job->title.' job';
+            $notification->save();
+    
+            return response()->json([
+                'success' => true,
+                'message' => 'You have successfully saved The job'
+            ]);
+        } else {
+            return response()->json([
+                  'success' => false,
+                  'message' => 'You have already saved the Job'
+            ]);
+        }
+       
+        
 
     }
 
