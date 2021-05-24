@@ -229,11 +229,11 @@
                                     <span class="heading-default-color">Showing <b>{{ $jobs->count() }}</b></span> results
                                 </h5>
                                 <div class="d-flex align-items-center result-view-type">
-                                    <a class="heading-default-color pl-5 font-size-6 hover-text-hitgray active" href="./search-list-1.html">
-                                        <i class="fa fa-list-ul"></i>
+                                    <a class="heading-default-color pl-5 font-size-6 hover-text-hitgray active disabled" href="#">
+                                        <ion-icon name="list-outline"></ion-icon>
                                     </a>
-                                                        <a class="heading-default-color pl-5 font-size-6 hover-text-hitgray" href="./search-grid.html">
-                                        <i class="fa fa-th-large"></i>
+                                    <a class="heading-default-color pl-5 font-size-6 hover-text-hitgray" href="#">
+                                        <ion-icon name="grid-outline"></ion-icon>
                                     </a>
                                 </div>
                             </div>

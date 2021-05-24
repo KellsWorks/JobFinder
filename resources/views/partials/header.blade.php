@@ -20,9 +20,20 @@
                             <a href="{{ route('jobs') }}" class="nav-link">JOBS</a>
                         </li>
 
+                        @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('profile') }}">Profile</a>
+                        </li>
+                        @else
+                        <li class="nav-item d-none">
+                            <a class="nav-link" href="#footer">Log in</a>
+                        </li>
+                        @endauth
+
                         <li class="nav-item">
                             <a class="nav-link" href="#">Support</a>
                         </li>
+
                     </ul>
                 </div>
                 <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true" aria-label="Toggle navigation">
@@ -70,7 +81,7 @@
                           <div class="row">
                             <span class="circle-40 bg-green text-center">
                                 <i class="text-white fa fa-bell"></i>
-                                </span> <span class="text-center mt-2 ml-3">Job likes</span>
+                            </span> <span class="text-center mt-2 ml-3">Job likes</span>
                           </div>
                         </a>
 
@@ -86,8 +97,8 @@
                             </div>
                         </a>
                         <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>
-                            <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>
+                            <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">Settings </a>
+                            <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="{{ route('profile') }}">Profile</a>
                             <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#"  onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">Log out</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -98,12 +109,18 @@
                 </div>
             </div>
             @endauth
-            <div class="form-input ml-3 d-none d-lg-block">
-                <select class="form-control">
-                    <option>English</option>
-                    <option>Chichewa</option>
-                  </select>
-            </div>
+            <div class="nav-item dropdown ml-3 d-none d-lg-block">
+                <a class="nav-link dropdown-toggle" href="#" id="navBarDropdownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span><span class="flag-icon flag-icon-gr"></span></span>  {{ Config::get('language')[App::getLocale()]['display'] }}
+                </a>
+                    <div class="dropdown-menu" aria-labelledby="navBarDropdownLink">
+                        @foreach (Config::get('language') as $lang => $language)
+                        <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">
+                            <span>{{ $language['display'] }}</span>
+                        </a>
+                        @endforeach
+                    </div>
+
         </nav>
     </div>
 </header>
