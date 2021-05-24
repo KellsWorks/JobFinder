@@ -426,8 +426,9 @@
           <img src="image/logo-main-black.png" alt="">
         </a>
             </div>
+            @include('admin.includes.new-job')
             <div class="my-15 px-11">
-                <a href="#" class="btn btn-primary btn-xl w-100 text-uppercase"><span class="mr-5 d-inline-block">+</span>Post a new job</a>
+                <a href="#" class="btn btn-primary btn-xl w-100 text-uppercase" href="javacript:" data-toggle="modal" data-target="#new-job"><span class="mr-5 d-inline-block">+</span>Post a new job</a>
             </div>
             <ul class="list-unstyled dashboard-layout-sidebar">
                 <li class="active"><a href="./dashboard-main.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="icon icon-layout-11 mr-7"></i>Dashboard</a></li>
