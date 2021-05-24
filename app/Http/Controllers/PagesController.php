@@ -26,7 +26,9 @@ class PagesController extends Controller
 
         }else{
 
-            $jobs = Jobs::with('tags')->simplePaginate(3);
+            $jobs = Jobs::with('tags')
+                        ->orderBy('id','desc')
+                        ->simplePaginate(3);
 
         }
 
