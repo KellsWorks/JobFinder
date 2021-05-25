@@ -67,7 +67,7 @@ Route::prefix('app')->group(function () {
 
 Route::prefix('jobs')->group(function () {
     Route::post('/follow', [App\Http\Controllers\JobsController::class, 'followJob']);
-
+     Route::get('/filter', [App\Http\Controllers\JobsController::class, 'getJobsByCategory']);
     Route::get('/get/all', [App\Http\Controllers\JobsController::class, 'getJobs']);
     Route::post('/job/like', [App\Http\Controllers\JobsController::class, 'likeJob']);
     Route::get('/get/saved-jobs', [App\Http\Controllers\JobsController::class, 'getSavedJobs']);
