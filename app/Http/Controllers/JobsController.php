@@ -147,10 +147,10 @@ class JobsController extends Controller
 
     public function getJobsByCategory(Request $request){
 
-        $jobsCategory = JobsCategory::where('category', $request->category)
+        $jobsCategory = JobsCategory::where('category', $request->query('category'))
                       ->pluck('id');
 
-        $jobs = Jobs::find($jobsCategory);
+        $jobs = Jobs::where('jobs_category_id' , $jobsCategory)->get();
 
         return response()->json($jobs, 200);
 
