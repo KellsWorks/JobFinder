@@ -15,4 +15,8 @@ class AdminController extends Controller
     public function settings(){
         return view('admin.settings');
     }
+
+    public function newJob(Request $request){
+        return view('admin.includes.new-job');
+    }
 }

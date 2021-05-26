@@ -97,6 +97,7 @@ Route::get('admin/posted-jobs', [\App\Http\Controllers\AdminController::class, '
 Route::get('admin/users', [\App\Http\Controllers\AdminController::class, 'siteUsers'])->name('admin.site-users');
 Route::get('admin/settings', [\App\Http\Controllers\AdminController::class, 'settings'])->name('admin.settings');
 
+Route::get('admin/new-job', [\App\Http\Controllers\AdminController::class, 'newJob'])->name('admin.new-job');
 
 
 /*

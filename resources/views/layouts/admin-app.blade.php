@@ -23,8 +23,9 @@
                     <div class="brand-logo">
                         <a href="{{ url('/') }}">
 
-                            <img height="40" src="{{ asset('icon.png') }}" alt="" class="light-version-logo default-logo">
-
+                            <h3>
+                                <span class="text-green">JOB</span> FINDER <span class="text-green">ADMIN</span>
+                            </h3>
                         </a>
                     </div>
                     <div class="collapse navbar-collapse" id="mobile-menu">
@@ -80,7 +81,7 @@
             </div>
 
             <div class="my-15 px-11">
-                <a href="#" class="btn btn-primary btn-xl w-100 text-uppercase" href="javacript:" data-toggle="modal" data-target="#new-job"><span class="mr-5 d-inline-block">+</span>Post a new job</a>
+                <a class="btn btn-primary btn-xl w-100 text-uppercase" href="{{ route('admin.new-job') }}"><span class="mr-5 d-inline-block">+</span>Post a new job</a>
             </div>
             <ul class="list-unstyled dashboard-layout-sidebar">
                 @yield('menu')
