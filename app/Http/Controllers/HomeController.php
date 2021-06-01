@@ -50,7 +50,7 @@ class HomeController extends Controller
 
         $jobs = Jobs::find(SavedJobs::where('user_id', Auth::user()->id)->pluck('id'));
 
-        // dd($j);
+        // dd(SavedJobs::where('user_id', Auth::user()->id)->pluck('id'));
 
         return view('user.profile', compact('jobs'));
     }
