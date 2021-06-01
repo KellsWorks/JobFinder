@@ -24,7 +24,7 @@ Route::get('/', function (Request $request) {
 
     Cookie::queue('name', $request->test, 1);
 
-    $jobs = Jobs::all();
+    $jobs = Jobs::latest()->limit(5)->get();
 
     return view('welcome', ['jobs' => $jobs, 'categories' => $categories, 'districts' => $districts]);
 })->name('home');

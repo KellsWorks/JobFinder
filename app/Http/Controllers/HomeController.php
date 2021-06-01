@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Jobs;
+use Auth;
+use App\Models\SavedJobs;
 
 class HomeController extends Controller
 {
@@ -45,6 +47,11 @@ class HomeController extends Controller
     }
 
     public function profile(){
-        return view('user.profile');
+
+        $jobs = Jobs::find(SavedJobs::where('user_id', Auth::user()->id)->pluck('id'));
+
+        // dd($j);
+
+        return view('user.profile', compact('jobs'));
     }
 }
