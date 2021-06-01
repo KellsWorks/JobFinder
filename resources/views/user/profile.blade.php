@@ -227,30 +227,65 @@
                                 </div>
                                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                     <!-- Excerpt Start -->
-                                    <div class="pr-xl-11 p-5 pl-xs-12 pt-9 pb-11">
-                                        <form action="/">
-                                            <div class="row">
-                                                <div class="col-12 mb-7">
-                                                    <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Your Name</label>
-                                                    <input id="name3" type="text" class="form-control" placeholder="Jhon Doe">
+                                    <div class="pr-xl-11 p-5 pl-xs-12 pt-9 pb-11 shadow">
+                                        @forelse ($jobs as $job)
+                                        <div class="mb-8">
+
+                                            <div class="pt-9 px-xl-9 px-lg-7 px-7 pb-7 light-mode-texts bg-white rounded hover-shadow-3 " >
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="media align-items-center">
+                                                            <div class="square-72 d-block mr-8">
+                                                                <img class="img-fluid" src="{{ asset('img/companies/'.$job->employer_logo) }}" alt="">
+                                                            </div>
+                                                            <div>
+                                                                <h3 class="mb-0"><a class="font-size-6 heading-default-color" href="{{ url('/job/'.$job->id) }}">{!! $job->title !!}</a></h3>
+                                                                <a href="#" class="font-size-3 text-default-color line-height-2">{{ $job->employer }}</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
-                                                <div class="col-lg-6 mb-7">
-                                                    <label for="email3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">E-mail</label>
-                                                    <input id="email3" type="email" class="form-control" placeholder="example@gmail.com">
-                                                </div>
-                                                <div class="col-lg-6 mb-7">
-                                                    <label for="subject3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Subject</label>
-                                                    <input id="subject3" type="text" class="form-control" placeholder="Special contract">
-                                                </div>
-                                                <div class="col-lg-12 mb-7">
-                                                    <label for="message3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Message</label>
-                                                    <textarea name="message" id="message3" placeholder="Type your message" class="form-control h-px-144"></textarea>
-                                                </div>
-                                                <div class="col-lg-12 pt-4">
-                                                    <button class="btn btn-primary text-uppercase w-100 h-px-48">Send Now</button>
+                                                <div class="row pt-8">
+                                                    <div class="col-md-7">
+                                                        <ul class="d-flex list-unstyled mr-n3 flex-wrap">
+                                                            <li>
+                                                                <a class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-red-2 mt-2" href="#">{{ $job->closing_date }}</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <ul class="d-flex list-unstyled mr-n3 flex-wrap mr-n8 justify-content-md-end">
+                                                            <li class="mt-2 mr-4 font-size-small text-black-2 d-flex">
+                                                                <span class="mr-4" style="margin-top: -2px"><img src="{{ asset('assets/image/svg/icon-loaction-pin-black.svg') }}" alt=""></span>
+                                                                <span class="font-weight-semibold">{{ $job->location }}</span>
+                                                            </li>
+                                                            <li class="mt-2 mr-4 font-size-small text-black-2 d-flex">
+                                                                <span class="mr-4" style="margin-top: -2px"><img src="{{ asset('assets/image/svg/icon-suitecase.svg') }}" alt=""></span>
+                                                                <span class="font-weight-semibold">{{ $job->duration }}</span>
+                                                            </li>
+                                                            <li class="mt-2 mr-4 font-size-small text-black-2 d-flex">
+                                                                <span class="mr-4" style="margin-top: -2px"><img src="{{ asset('assets/image/svg/icon-clock.svg') }}" alt=""></span>
+                                                                <span class="font-weight-semibold">{{ \Carbon\Carbon::parse($job->updated_at)->diffForHumans() }}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
+                                        @empty
+                                        <div class="align-items-center">
+                                            <p class="text-center font-size-4 text-black-2">
+                                                No search results for <span class="text-red">{{ request()->query('query') }}</span>
+                                            </p>
+                                            <p class="text-center">
+                                                <span>
+                                                    <img src="{{ asset('img/Delivery _ order, account, transportation, subway, box, shopping.png') }}" alt="" class="img-fluid center">
+                                                </span>
+                                            </p>
+
+                                        </div>
+                                        @endforelse
                                     </div>
 
                                 </div>

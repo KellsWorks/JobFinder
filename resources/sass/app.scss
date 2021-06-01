@@ -1,8 +1,14 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// Flag icons
+@import '~flag-icon-css/sass/flag-icon';
 
-// Variables
-@import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+.js-cookie-consent{
+    position: absolute;
+    bottom: 0px;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    z-index: 9999;
+    background-color: burlywood;
+    border: 0px;
+}

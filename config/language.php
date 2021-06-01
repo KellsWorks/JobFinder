@@ -2,10 +2,10 @@
 return[
     'en' => [
         'display' => 'English',
-        'icon' => 'flag-uk.png'
+        'flag-icon' => 'us'
     ],
     'ch' => [
         'display' => 'Chichewa',
-        'icon' => 'flag-mw.png'
+        'flag-icon' => 'mw'
     ],
 ];

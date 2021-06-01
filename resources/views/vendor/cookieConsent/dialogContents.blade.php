@@ -8,4 +8,6 @@
         {{ trans('cookieConsent::texts.agree') }}
     </button>
 
+    <i class="fa fa-close"></i>
+
 </div>
