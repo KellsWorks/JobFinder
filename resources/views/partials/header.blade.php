@@ -72,18 +72,29 @@
                 <div class="dropdown show-gr-dropdown">
                     <a href="#" role="button" class="px-3 ml-7 font-size-7 notification-block flex-y-center position-relative" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <ion-icon name="notifications-outline" size="large"></ion-icon>
-                    <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>
+                    <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">{{ $notifications->count() }}</span>
                     </a>
                     <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-800 bg-default" aria-labelledby="dropdownMenuLink">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
+                        <span class="dropdown-item dropdown-header">{{ $notifications->count() }} Notifications</span>
                         <div class="dropdown-divider"></div>
+
+                        @forelse ($notifications as $notification)
                         <a href="#" class="dropdown-item">
-                          <div class="row">
-                            <span class="circle-40 bg-green text-center">
-                                <i class="text-white fa fa-bell"></i>
-                            </span> <span class="text-center mt-2 ml-3">Job likes</span>
-                          </div>
-                        </a>
+                            <div class="row">
+                              <span class="circle-40 bg-green text-center">
+                                  <i class="text-white fa fa-bell"></i>
+                              </span> <span class="text-center mt-2 ml-3">{{ $notification->title }}</span>
+                            </div>
+                          </a>
+                        @empty
+                        <a href="#" class="dropdown-item">
+                            <div class="row">
+                              <span class="circle-40 bg-green text-center">
+                                  <i class="text-white fa fa-bell"></i>
+                              </span> <span class="text-center mt-2 ml-3">Job likes</span>
+                            </div>
+                          </a>
+                        @endforelse
 
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>

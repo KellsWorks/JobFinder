@@ -5,6 +5,7 @@ use App\Models\Districts;
 use Illuminate\Http\Request;
 use App\Models\Jobs;
 use App\Models\JobsCategory;
+use App\Models\UserNotifications;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,18 @@ Route::get('/', function (Request $request) {
 
     $jobs = Jobs::all();
 
-    return view('welcome', ['jobs' => $jobs, 'categories' => $categories, 'districts' => $districts]);
+    if(Auth::check() == "true"){
+
+        $notifications = UserNotifications::where('user_id', Auth::user()->id)->get();
+
+        return view('welcome', ['jobs' => $jobs, 'categories' => $categories, 'districts' => $districts, 'notifications' => $notifications]);
+
+    }else{
+
+        return view('welcome', ['jobs' => $jobs, 'categories' => $categories, 'districts' => $districts]);
+
+    }
+
 })->name('home');
 
 /*
@@ -70,14 +82,13 @@ Route::get('/job-search', [\App\Http\Controllers\PagesController::class, 'jobs']
 Route::post('/search-results', [\App\Http\Controllers\PagesController::class, 'search_results'])->name('search-results');
 /*
 |--------------------------------------------------------------------------
-| ERROR ROUTES
+| TERMS AND CONDITIONS ROUTES
 |--------------------------------------------------------------------------
 |
-| Trial routes for unpublished errors
+| Terms, Service, Rights, Copyrights
 |
 */
 
-Route::get('/404', [\App\Http\Controllers\PagesController::class, 'error'])->name('404');
 Route::get('/terms-and-conditions-privacy-policy', [\App\Http\Controllers\PagesController::class, 'policies'])->name('terms-and-conditions-privacy-policy');
 
 

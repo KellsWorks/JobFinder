@@ -74,22 +74,33 @@
                     </button>
 
                     @auth
-                        <div class=" ml-auto ml-lg-5 pl-2 d-none d-xs-flex align-items-center">
+                    <div class=" ml-auto ml-lg-5 pl-2 d-none d-xs-flex align-items-center">
                         <div class="dropdown show-gr-dropdown">
                             <a href="#" role="button" class="px-3 ml-7 font-size-7 notification-block flex-y-center position-relative" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <ion-icon name="notifications-outline" size="large"></ion-icon>
-                            <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>
+                            <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">{{ $notifications->count() }}</span>
                             </a>
                             <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-800 bg-default" aria-labelledby="dropdownMenuLink">
-                                <span class="dropdown-item dropdown-header">15 Notifications</span>
+                                <span class="dropdown-item dropdown-header">{{ $notifications->count() }} Notifications</span>
                                 <div class="dropdown-divider"></div>
+
+                                @forelse ($notifications as $notification)
                                 <a href="#" class="dropdown-item">
-                                  <div class="row">
-                                    <span class="circle-40 bg-green text-center">
-                                        <i class="text-white fa fa-bell"></i>
-                                        </span> <span class="text-center mt-2 ml-3">Job likes</span>
-                                  </div>
-                                </a>
+                                    <div class="row">
+                                      <span class="circle-40 bg-green text-center">
+                                          <i class="text-white fa fa-bell"></i>
+                                      </span> <span class="text-center mt-2 ml-3">{{ $notification->title }}</span>
+                                    </div>
+                                  </a>
+                                @empty
+                                <a href="#" class="dropdown-item">
+                                    <div class="row">
+                                      <span class="circle-40 bg-green text-center">
+                                          <i class="text-white fa fa-bell"></i>
+                                      </span> <span class="text-center mt-2 ml-3">Job likes</span>
+                                    </div>
+                                  </a>
+                                @endforelse
 
                                 <div class="dropdown-divider"></div>
                                 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
@@ -103,8 +114,8 @@
                                     </div>
                                 </a>
                                 <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>
-                                    <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>
+                                    <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#!settings">Settings </a>
+                                    <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="{{ route('profile') }}">Profile</a>
                                     <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#"  onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">Log out</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -115,12 +126,17 @@
                         </div>
                     </div>
                     @endauth
-                    <div class="form-input ml-3 d-none d-lg-block">
-                        <select class="form-control">
-                            <option>English</option>
-                            <option>Chichewa</option>
-                          </select>
-                    </div>
+                    <div class="nav-item dropdown ml-3 d-none d-lg-block">
+                        <a class="nav-link text-gray dropdown-toggle" href="#" id="navBarDropdownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="mr-2 flag-icon flag-icon-{{ Config::get('language')[App::getLocale()]['flag-icon'] }}"></span>{{ Config::get('language')[App::getLocale()]['display'] }}
+                        </a>
+                            <div class="dropdown-menu" aria-labelledby="navBarDropdownLink">
+                                @foreach (Config::get('language') as $lang => $language)
+                                <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">
+                                    <span class="flag-icon flag-icon-{{ $language['flag-icon'] }} mr-2"></span>{{ $language['display'] }}
+                                </a>
+                                @endforeach
+                            </div>
                 </nav>
             </div>
         </header>

@@ -11,6 +11,7 @@ use App\Models\JobTags;
 use App\Models\JobsQualifications;
 use App\Models\Districts;
 use App\Models\SavedJobs;
+use App\Models\UserNotifications;
 
 use Http;
 
@@ -20,26 +21,33 @@ class PagesController extends Controller
 
         $search = request()->query('query');
 
-        if($search){
+            if($search){
 
-            $jobs = Jobs::where('title', 'LIKE', "%{$search}%")->simplePaginate(3);
+                $jobs = Jobs::where('title', 'LIKE', "%{$search}%")->simplePaginate(3);
 
-        }else{
+            }else{
 
             $jobs = Jobs::with('tags')->simplePaginate(3);
 
+            }
+
+
+            $districts = Districts::all();
+
+        if(Auth::check() == "true"){
+
+            $notifications = UserNotifications::where('user_id', Auth::user()->id)->get();
+
+            return view('jobs', ['jobs' => $jobs, 'districts' => $districts, 'notifications' => $notifications]);
+
+        }else{
+
+            return view('jobs', ['jobs' => $jobs, 'districts' => $districts]);
+
         }
 
-
-        $districts = Districts::all();
-
-
-        return view('jobs', ['jobs' => $jobs, 'districts' => $districts]);
     }
 
-    public function error(){
-        return view('errrors.404');
-    }
 
     public function job($id){
 
@@ -49,8 +57,19 @@ class PagesController extends Controller
         $tags = JobTags::where('jobs_id', $id)->get();
         $qualifications = JobsQualifications::where('job_id', $id)->get();
 
+        if(Auth::check() == "true"){
 
-        return view('job', ['jobs'  => $jobs, 'likes' => $likes, 'tags' => $tags, 'skills' => $skills, 'qualifications' => $qualifications ]);
+            $notifications = UserNotifications::where('user_id', Auth::user()->id)->get();
+
+            return view('job', ['jobs'  => $jobs, 'likes' => $likes, 'tags' => $tags, 'skills' => $skills, 'qualifications' => $qualifications, 'notifications' => $notifications ]);
+
+
+        }else{
+
+            return view('job', ['jobs'  => $jobs, 'likes' => $likes, 'tags' => $tags, 'skills' => $skills, 'qualifications' => $qualifications ]);
+
+
+        }
     }
 
     public function likeJob($id){
@@ -64,6 +83,13 @@ class PagesController extends Controller
 
             $job = Jobs::find($id);
             $job->jobLikes()->save($likedJob);
+
+            $notification = new UserNotifications();
+            $notification->user_id = Auth::user()->id;
+            $notification->title = "Job Likes";
+            $notification->category = "Jobs";
+            $notification->content = "You have recently liked a job";
+            $notification->save();
 
             return redirect()->back()->with('status', 'You liked this job');
         }else{
@@ -79,6 +105,13 @@ class PagesController extends Controller
             $tags = JobTags::where('jobs_id', $id)->get();
             $qualifications = JobsQualifications::where('job_id', $id)->get();
 
+            $notification = new UserNotifications();
+            $notification->user_id = Auth::user()->id;
+            $notification->title = "Job Likes";
+            $notification->category = "Jobs";
+            $notification->content = "You have recently disliked a job";
+            $notification->save();
+
             return redirect()->back()->with('status', 'You disliked this job');
         }
 
@@ -88,14 +121,29 @@ class PagesController extends Controller
 
     public function saveJob($id){
 
+        $user_id = Auth::user()->id;
 
-        $savedJob = new SavedJobs();
-        $savedJob->user_id = Auth::user()->id;
+        if(SavedJobs::where('jobs_id', $id)->where('user_id', $user_id)->count() < 1){
 
-        $job = Jobs::find($id);
-        $job->savedJobs()->save($savedJob);
+            $savedJob = new SavedJobs();
+            $savedJob->user_id = Auth::user()->id;
 
-        return redirect()->back()->with('status', 'You have saved this job');
+            $job = Jobs::find($id);
+            $job->savedJobs()->save($savedJob);
+
+            $notification = new UserNotifications();
+            $notification->user_id = Auth::user()->id;
+            $notification->title = "Job Saved";
+            $notification->category = "Jobs";
+            $notification->content = "You have recently saved a job";
+            $notification->save();
+
+            return redirect()->back()->with('status', 'You have saved this job');
+        }
+        else{
+            return redirect()->back()->with('status', 'You have already saved this job job');
+        }
+
 
     }
 
