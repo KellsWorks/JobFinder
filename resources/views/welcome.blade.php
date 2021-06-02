@@ -260,7 +260,7 @@
                                 </span>
 
                                 <p class="text-black-2 text-4 font-weight-bold mb-7">
-                                    <span class="font-weight-normal">Found</span> {{ count($jobs)-1 }}+ Jobs
+                                    <span class="font-weight-normal">Found</span> {{ $jobs->count()-1 }}+ Jobs
                                 </p>
                                 <div class="d-flex">
                                     <ul class="list-unstyled list-overlapped-icon max-width-130px">

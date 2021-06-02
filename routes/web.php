@@ -25,7 +25,7 @@ Route::get('/', function (Request $request) {
 
     Cookie::queue('name', $request->test, 1);
 
-    $jobs = Jobs::latest()->limit(5)->get();
+    $jobs = Jobs::latest()->get();
 
     if(Auth::check() == "true"){
 
