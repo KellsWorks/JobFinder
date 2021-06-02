@@ -20,9 +20,13 @@
 </head>
 
 <body>
+
+
     <div class="site-wrapper overflow-hidden ">
 
         @include('partials.header')
+
+        @include('cookieConsent::index')
 
         @include('includes.auth')
 
@@ -30,7 +34,7 @@
         <div class="bg-gradient-1 pt-26 pt-md-32 pt-lg-33 pt-xl-35 position-relative z-index-1 overflow-hidden">
 
             <div class="pos-abs-tr w-50 z-index-n2">
-                <img src="{{ asset('assets/image/patterns/hero-pattern.png') }}" alt="" class="gr-opacity-1">
+                <img src="{{ asset('assets/image/patterns/hero-pattern.png') }}" alt="hero-pattern" class="gr-opacity-1">
             </div>
 
 
@@ -406,7 +410,6 @@
             </div>
           </div>
 
-          @include('cookieConsent::index')
           @include('includes.newsletter')
 
     </div>

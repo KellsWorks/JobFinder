@@ -25,7 +25,7 @@ Route::get('/', function (Request $request) {
 
     Cookie::queue('name', $request->test, 1);
 
-    $jobs = Jobs::all();
+    $jobs = Jobs::latest()->limit(5)->get();
 
     if(Auth::check() == "true"){
 
@@ -103,6 +103,12 @@ Route::get('/terms-and-conditions-privacy-policy', [\App\Http\Controllers\PagesC
 */
 
 Route::get('admin/home', [\App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+Route::get('admin/posted-jobs', [\App\Http\Controllers\AdminController::class, 'postedJobs'])->name('admin.posted-jobs');
+
+Route::get('admin/users', [\App\Http\Controllers\AdminController::class, 'siteUsers'])->name('admin.site-users');
+Route::get('admin/settings', [\App\Http\Controllers\AdminController::class, 'settings'])->name('admin.settings');
+
+Route::get('admin/new-job', [\App\Http\Controllers\AdminController::class, 'newJob'])->name('admin.new-job');
 
 
 /*
