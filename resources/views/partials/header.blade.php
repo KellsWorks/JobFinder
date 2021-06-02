@@ -21,13 +21,24 @@
                         </li>
 
                         @auth
-                        <li class="nav-item">
+                        <li class="nav-item d-lg-none">
                             <a class="nav-link" href="{{ route('profile') }}">Profile</a>
                         </li>
+
+                        <li class="nav-item d-lg-none">
+                            <a class="nav-link" href="#" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">Log out</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
+
                         @else
-                        <li class="nav-item d-none">
+
+                        <li class="nav-item d-lg-none">
                             <a class="nav-link" href="#footer">Log in</a>
                         </li>
+
                         @endauth
 
                         <li class="nav-item">
