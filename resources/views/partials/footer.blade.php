@@ -76,13 +76,13 @@
                     <div class="col-lg-3 col-md-6 col-sm-3 col-xs-6">
                         <div class="footer-widget widget2 mb-md-0 mb-13">
 
-                            <p class="widget-title font-size-4 text-gray mb-md-8 mb-7">Company</p>
+                            <p class="widget-title font-size-6 font-weight-bold text-gray mb-md-8 mb-7">Company</p>
 
                             <ul class="widget-links pl-0 list-unstyled list-hover-primary">
-                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">About us</a></li>
-                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Contact us</a></li>
-                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Careers</a></li>
-                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Newsletters</a></li>
+                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="#">About us</a></li>
+                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="{{ route('support') }}">Contact us</a></li>
+                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="#">Careers</a></li>
+                                <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="#newsletters">Newsletters</a></li>
                             </ul>
 
                         </div>
@@ -90,7 +90,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-3 col-xs-6">
                         <div class="footer-widget widget3 mb-sm-0 mb-13">
 
-                            <p class="widget-title font-size-4 text-gray mb-md-8 mb-7">Product</p>
+                            <p class="widget-title font-size-6 font-weight-bold  text-gray mb-md-8 mb-7">Products</p>
 
                             <ul class="widget-links pl-0 list-unstyled list-hover-primary">
                                 <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="">Features </a></li>
@@ -105,7 +105,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-3 col-xs-6">
                         <div class="footer-widget widget4 mb-sm-0 mb-13">
 
-                            <p class="widget-title font-size-4 text-gray mb-md-8 mb-7">Services</p>
+                            <p class="widget-title font-size-6 font-weight-bold  text-gray mb-md-8 mb-7">Services</p>
 
                             <ul class="widget-links pl-0 list-unstyled list-hover-primary">
                                 <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="#">CV Writing</a></li>
@@ -119,7 +119,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-3 col-xs-6">
                         <div class="footer-widget widget4">
 
-                            <p class="widget-title font-size-4 text-gray mb-md-8 mb-7">Legal</p>
+                            <p class="widget-title font-size-6 font-weight-bold  text-gray mb-md-8 mb-7">Legal</p>
 
                             <ul class="widget-links pl-0 list-unstyled list-hover-primary">
                                 <li class="mb-6"><a class="heading-default-color font-size-4 font-weight-normal" href="{{ route('terms-and-conditions-privacy-policy') }}">Privacy Policy</a></li>
