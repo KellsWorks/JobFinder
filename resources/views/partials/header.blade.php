@@ -5,7 +5,10 @@
             <div class="brand-logo">
                 <a href="{{ route('home') }}">
                     <h3>
-                        <span class="text-green">JOB</span> FINDER
+                        <span class="text-green">
+                            {{ __('messages.job') }}
+                        </span>
+                            {{ __('messages.finder') }}
                     </h3>
                 </a>
             </div>
@@ -14,10 +17,14 @@
                     <ul class="navbar-nav main-menu">
 
                         <li class="nav-item active">
-                            <a href={{ url('/') }} class="nav-link" aria-expanded="false">Home</a>
+                            <a href={{ url('/') }} class="nav-link" aria-expanded="false">
+                                {{ __('messages.home') }}
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('jobs') }}" class="nav-link">JOBS</a>
+                            <a href="{{ route('jobs') }}" class="nav-link">
+                                {{ __('messages.jobs') }}
+                            </a>
                         </li>
 
                         @auth
@@ -42,7 +49,9 @@
                         @endauth
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Support</a>
+                            <a class="nav-link" href="#">
+                                {{ __('messages.support') }}
+                            </a>
                         </li>
 
                     </ul>
@@ -58,11 +67,11 @@
 
                 @else
                 <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset" href="javacript:" data-toggle="modal" data-target="#login">
-                    {{ __('Login') }}
+                    {{ __('messages.login') }}
                 </a>
                 @if (Route::has('register'))
                 <a class="btn btn-primary text-uppercase font-size-3" href="javacript:" data-toggle="modal" data-target="#signup">
-                    {{ __('Register') }}
+                    {{ __('messages.register') }}
                 </a>
                 @endif
             @endauth
@@ -86,7 +95,7 @@
                     <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">{{ $notifications->count() }}</span>
                     </a>
                     <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-800 bg-default" aria-labelledby="dropdownMenuLink">
-                        <span class="dropdown-item dropdown-header">{{ $notifications->count() }} Notifications</span>
+                        <span class="dropdown-item dropdown-header">{{ $notifications->count() }} Notifications </span>
                         <div class="dropdown-divider"></div>
 
                         @forelse ($notifications as $notification)

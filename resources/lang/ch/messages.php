@@ -6,5 +6,10 @@ return [
     'search' => 'Fufuzani',
     'location' => 'Boma',
     'search_head' => 'Fufuzani mawu monga ',
-    'search_note' => ' namwino, phunzitsi, amasili ndi ena otero'
+    'search_note' => ' namwino, phunzitsi, amasili ndi ena otero',
+    'job' => 'POPEZERA',
+    'finder' => 'NTCHITO',
+    'login' => 'Lowani',
+    'register' => 'Lembesani',
+    'notifications' => 'Chiziwiso'
 ];
