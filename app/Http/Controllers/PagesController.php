@@ -24,13 +24,15 @@ class PagesController extends Controller
         $search = request()->query('query');
         $location = $request->get('location');
 
-            if($search && $location){
+            if($search){
 
                 $jobs = Jobs::where('title', 'LIKE', "%{$search}%")
                               ->where('location', 'LIKE', "%{$location}")
                               ->simplePaginate(3);
 
-            }else{
+            }
+            else
+            {
 
             $jobs = Jobs::with('tags')
                         ->orderBy('id','desc')
@@ -39,7 +41,7 @@ class PagesController extends Controller
             }
 
 
-            $districts = Districts::all();
+            $districts = Districts::orderBy('name','asc')->get();
 
         if(Auth::check() == "true"){
 

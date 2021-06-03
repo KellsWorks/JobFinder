@@ -17,15 +17,19 @@
                     <ul class="navbar-nav main-menu">
 
                         <li @if (Request::path() == "/")
-                            class="active nav-item"
-                        @else
-                            class="nav-item"
-                        @endif >
+                                class="active nav-item"
+                            @else
+                                class="nav-item"
+                            @endif >
                             <a href={{ url('/') }} class="nav-link" aria-expanded="false">
                                 {{ __('messages.home') }}
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li @if (Request::path() == "jobs" || Request::path() == "explore-by-category")
+                                class="active nav-item"
+                            @else
+                                class="nav-item"
+                            @endif>
                             <a href="{{ route('jobs') }}" class="nav-link">
                                 {{ __('messages.jobs') }}
                             </a>

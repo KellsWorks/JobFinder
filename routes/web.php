@@ -18,7 +18,7 @@ use App\Models\UserNotifications;
 
 Route::get('/', function (Request $request) {
 
-    $districts = Districts::all();
+    $districts = Districts::orderBy('name','asc')->get();
 
     $categories = JobsCategory::with('icons')->with('jobs')->get();
 
