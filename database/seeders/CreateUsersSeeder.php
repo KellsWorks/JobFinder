@@ -18,14 +18,14 @@ class CreateUsersSeeder extends Seeder
             [
                'name'=>'Admin',
                'email'=>'admin@jobfindermw.com',
-                'is_admin'=>'1',
-               'password'=> bcrypt('123456'),
+               'is_admin'=>'1',
+               'password'=> bcrypt('admin!!@jb2021#1#n3x+63n!!'),
             ],
             [
                'name'=>'User',
                'email'=>'user@jobfindermw.com',
-                'is_admin'=>'0',
-               'password'=> bcrypt('123456'),
+               'is_admin'=>'0',
+               'password'=> bcrypt('user!!@jb2021#1#n3x+63n!!'),
             ],
         ];
 
