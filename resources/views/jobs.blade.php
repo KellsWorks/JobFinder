@@ -224,7 +224,7 @@
                                     </div>
 
                                     <div class="form-group position-relative w-lg-55 w-xl-60 w-xxl-55">
-                                        <select name="country" id="country" class="nice-select font-size-4 pl-13 h-100 arrow-3">
+                                        <select name="location" id="location" class="nice-select font-size-4 pl-13 h-100 arrow-3">
                                         <option data-display="City, district">City or district</option>
                                         @foreach ($districts as $district)
                                             <option value="">{{ $district->name }}</option>

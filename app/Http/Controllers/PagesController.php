@@ -18,13 +18,16 @@ use Http;
 
 class PagesController extends Controller
 {
-    public function jobs(){
+    public function jobs(Request $request){
 
         $search = request()->query('query');
+        $location = $request->location;
 
             if($search){
 
-                $jobs = Jobs::where('title', 'LIKE', "%{$search}%")->simplePaginate(3);
+                $jobs = Jobs::where('title', 'LIKE', "%{$search}%")
+                              ->where('location', 'LIKE', "%{$location}")
+                              ->simplePaginate(3);
 
             }else{
 
