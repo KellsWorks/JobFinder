@@ -60,11 +60,11 @@
                                         </div>
 
                                         <div class="form-group position-relative">
-                                            <select id="district" name="location" class="nice-select pl-13 h-100 arrow-3 font-size-4">
-                                            <option value="" data-display="{{ __('messages.location') }}" class="text-uppercase">{{ __('messages.location') }}</option>
-                                                @foreach ($districts as $district)
-                                                    <option value="">{{ $district->name }}</option>
-                                                @endforeach
+                                            <select name="location" id="location" class="nice-select font-size-4 pl-13 h-100 arrow-3">
+                                            <option  data-display="City, district">City or district</option>
+                                            @foreach ($districts as $district)
+                                                <option value="{{ $district->name }}">{{ $district->name }}</option>
+                                            @endforeach
                                             </select>
                                             <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center text-green justify-content-center font-size-6"><ion-icon name="pin-outline"></ion-icon></span>
                                         </div>

@@ -13,6 +13,7 @@ use App\Models\Districts;
 use App\Models\SavedJobs;
 use App\Models\UserNotifications;
 use App\Models\JobsCategory;
+use App\Models\Support;
 
 use Http;
 
@@ -197,5 +198,22 @@ class PagesController extends Controller
             return view('jobs', ['jobs' => $jobs, 'districts' => $districts]);
 
         }
+    }
+
+    public function support(){
+
+        return view('support');
+    }
+
+    public function supportMessage(Request $request){
+
+        $message = new Support;
+        $message->name = $request->name;
+        $message->email_address = $request->email_address;
+        $message->phone_number = $request->phone_number;
+        $message->message = $request->message;
+        $message->save();
+
+        return redirect('support')->with('status', 'Your message has been sent successfully. Thank you!');
     }
 }

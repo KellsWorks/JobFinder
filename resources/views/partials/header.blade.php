@@ -16,7 +16,11 @@
                 <div class="navbar-nav-wrapper">
                     <ul class="navbar-nav main-menu">
 
-                        <li class="nav-item active">
+                        <li @if (Request::path() == "/")
+                            class="active nav-item"
+                        @else
+                            class="nav-item"
+                        @endif >
                             <a href={{ url('/') }} class="nav-link" aria-expanded="false">
                                 {{ __('messages.home') }}
                             </a>
@@ -28,6 +32,7 @@
                         </li>
 
                         @auth
+
                         <li class="nav-item d-lg-none">
                             <a class="nav-link" href="{{ route('profile') }}">Profile</a>
                         </li>
@@ -48,8 +53,12 @@
 
                         @endauth
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
+                        <li @if (Request::path() == "support")
+                            class="active nav-item"
+                        @else
+                            class="nav-item"
+                        @endif >
+                            <a class="nav-link" href="{{ route('support') }}">
                                 {{ __('messages.support') }}
                             </a>
                         </li>

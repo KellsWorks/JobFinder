@@ -144,3 +144,15 @@ Route::get('profile', [\App\Http\Controllers\HomeController::class, 'profile'])-
 */
 
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => '\App\Http\Controllers\LanguageController@switchLang']);
+
+/*
+|--------------------------------------------------------------------------
+| SUPPORT ROUTES
+|--------------------------------------------------------------------------
+|
+| Web routes for support nav link
+|
+*/
+
+Route::get('support', [\App\Http\Controllers\PagesController::class, 'support'])->name('support');
+Route::post('support-message', [\App\Http\Controllers\PagesController::class, 'supportMessage'])->name('support-message');
