@@ -213,7 +213,7 @@
 
                     <div class="col-12 col-lg-6">
                         <div class="text-center text-lg-right">
-                            <a class="btn btn-outline-green text-uppercase" href="{{ url('jobs') }}">Explore All</a>
+                            <a class="btn btn-outline-green text-uppercase" href="{{ route('jobs') }}">Explore All</a>
                         </div>
                     </div>
 
@@ -223,7 +223,7 @@
 
                     @foreach ($categories->take(8) as $category)
                     <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                        <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
+                        <a href="{{ url('explore-by-category/'.$category->id) }}" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
                             @foreach ($category->icons as $item)
                             <div class="text-blue bg-{{ $item->color }}-opacity-1 square-70 rounded-4 mb-7 font-size-7">
 
@@ -234,7 +234,7 @@
 
                             <div class="">
                                 <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">{{ $category->category }}</h5>
-                                <p class="font-size-4 font-weight-normal text-gray"><span>415</span> Vacancy</p>
+                                <p class="font-size-4 font-weight-normal text-gray"><span>{{ $category->jobs->count() }}</span> Vacancy</p>
                             </div>
                         </a>
                     </div>

@@ -20,7 +20,7 @@ Route::get('/', function (Request $request) {
 
     $districts = Districts::all();
 
-    $categories = JobsCategory::with('icons')->get();
+    $categories = JobsCategory::with('icons')->with('jobs')->get();
 
 
     Cookie::queue('name', $request->test, 1);
@@ -80,6 +80,7 @@ Route::get('/job/like/{id}', [\App\Http\Controllers\PagesController::class, 'lik
 Route::get('/job/save/{id}', [\App\Http\Controllers\PagesController::class, 'saveJob']);
 Route::get('/job-search', [\App\Http\Controllers\PagesController::class, 'jobs'])->name('job-search');
 Route::post('/search-results', [\App\Http\Controllers\PagesController::class, 'search_results'])->name('search-results');
+Route::get('/explore-by-category/{id}', [\App\Http\Controllers\PagesController::class, 'exploreByCategory'])->name('explore-by-category');
 /*
 |--------------------------------------------------------------------------
 | TERMS AND CONDITIONS ROUTES

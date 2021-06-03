@@ -14,7 +14,7 @@ class JobsCategory extends Model
     protected $fillable = ['category'];
 
     public function jobs(){
-        return $this->hasOne(Jobs::class);
+        return $this->hasMany(Jobs::class);
     }
 
     public function icons(){

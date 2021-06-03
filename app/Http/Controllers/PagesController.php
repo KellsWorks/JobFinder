@@ -12,6 +12,7 @@ use App\Models\JobsQualifications;
 use App\Models\Districts;
 use App\Models\SavedJobs;
 use App\Models\UserNotifications;
+use App\Models\JobsCategory;
 
 use Http;
 
@@ -173,4 +174,25 @@ class PagesController extends Controller
         return view('includes.terms-and-conditions');
     }
 
+    public function exploreByCategory($id){
+
+        $jobs = Jobs::where('jobs_category_id', $id)
+                     ->with('tags')
+                     ->orderBy('id','desc')->simplePaginate(3);
+
+        $districts = Districts::all();
+
+
+        if(Auth::check() == "true"){
+
+            $notifications = UserNotifications::where('user_id', Auth::user()->id)->get();
+
+            return view('jobs', ['jobs' => $jobs, 'districts' => $districts, 'notifications' => $notifications]);
+
+        }else{
+
+            return view('jobs', ['jobs' => $jobs, 'districts' => $districts]);
+
+        }
+    }
 }
