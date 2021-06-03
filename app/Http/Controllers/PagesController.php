@@ -21,9 +21,9 @@ class PagesController extends Controller
     public function jobs(Request $request){
 
         $search = request()->query('query');
-        $location = $request->location;
+        $location = $request->get('location');
 
-            if($search){
+            if($search && $location){
 
                 $jobs = Jobs::where('title', 'LIKE', "%{$search}%")
                               ->where('location', 'LIKE', "%{$location}")

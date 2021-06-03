@@ -225,9 +225,9 @@
 
                                     <div class="form-group position-relative w-lg-55 w-xl-60 w-xxl-55">
                                         <select name="location" id="location" class="nice-select font-size-4 pl-13 h-100 arrow-3">
-                                        <option data-display="City, district">City or district</option>
+                                        <option  data-display="City, district">City or district</option>
                                         @foreach ($districts as $district)
-                                            <option value="">{{ $district->name }}</option>
+                                            <option value="{{ $district->name }}">{{ $district->name }}</option>
                                         @endforeach
                                         </select>
                                         <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center text-green justify-content-center font-size-6"><ion-icon name="pin-outline"></ion-icon></span>
