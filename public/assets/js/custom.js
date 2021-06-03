@@ -134,10 +134,10 @@ $(function() {
         max: 180,
         values: [100, 130],
         slide: function(event, ui) {
-            $("#amount").val("$" + ui.values[0] + " - " + ui.values[1] + "K");
+            $("#amount").val("MK" + ui.values[0] + " - " + ui.values[1] + "K");
         }
     });
-    $("#amount").val("$" + $(".pm-range-slider").slider("values", 0) +
+    $("#amount").val("MK" + $(".pm-range-slider").slider("values", 0) +
         " - " + $(".pm-range-slider").slider("values", 1) + "K");
 });
 
