@@ -104,142 +104,13 @@
 
                             <ul class="nav border-bottom border-mercury pl-12" id="myTab" role="tablist">
                                 <li class="tab-menu-items nav-item pr-12">
-                                    <a class="active text-uppercase font-size-3 font-weight-bold text-default-color py-3" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Activity</a>
-                                </li>
-                                <li class="tab-menu-items nav-item pr-12">
-                                    <a class="text-uppercase font-size-3 font-weight-bold text-default-color py-3" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Saved jobs</a>
+                                    <a class="active text-uppercase font-size-3 font-weight-bold text-default-color py-3" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Saved jobs</a>
                                 </li>
                             </ul>
 
                             <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-                                    <div class="pr-xl-0 pr-xxl-14 p-5 px-xs-12 pt-7 pb-5">
-                                        <h4 class="font-size-6 mb-7 mt-5 text-black-2 font-weight-semibold">About</h4>
-                                        <p class="font-size-4 mb-8">A talented professional with an academic background in IT and proven commercial development experience as C++ developer since 1999. Has a sound knowledge of the software development life cycle. Was involved in more
-                                            than 140 software development outsourcing projects.</p>
-                                        <p class="font-size-4 mb-8">Programming Languages: C/C++, .NET C++, Python, Bash, Shell, PERL, Regular expressions, Python, Active-script.</p>
-                                    </div>
-
-                                    <div class="border-top pr-xl-0 pr-xxl-14 p-5 pl-xs-12 pt-7 pb-5">
-                                        <h4 class="font-size-6 mb-7 mt-5 text-black-2 font-weight-semibold">Skills</h4>
-                                        <ul class="list-unstyled d-flex align-items-center flex-wrap">
-                                            <li>
-                                                <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#">Agile</a>
-                                            </li>
-                                            <li>
-                                                <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#">Wireframing</a>
-                                            </li>
-                                            <li>
-                                                <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#">Prototyping</a>
-                                            </li>
-                                            <li>
-                                                <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#">Information</a>
-                                            </li>
-                                            <li>
-                                                <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#">Waterfall Model</a>
-                                            </li>
-                                            <li>
-                                                <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#">New Layout</a>
-                                            </li>
-                                            <li>
-                                                <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#">Browsing</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- Skills End -->
-                                    <!-- Card Section Start -->
-                                    <div class="border-top p-5 pl-xs-12 pt-7 pb-5">
-                                        <h4 class="font-size-6 mb-7 mt-5 text-black-2 font-weight-semibold">Work Exprerience</h4>
-                                        <!-- Single Card -->
-                                        <div class="w-100">
-                                            <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
-                                                <div class="square-72 d-block mr-8 mb-7 mb-sm-0">
-                                                    <img src="./image/l2/png/featured-job-logo-1.png" alt="">
-                                                </div>
-                                                <div class="w-100 mt-n2">
-                                                    <h3 class="mb-0">
-                                                        <a class="font-size-6 text-black-2 font-weight-semibold" href="#">Lead Product Designer</a>
-                                                    </h3>
-                                                    <a href="#" class="font-size-4 text-default-color line-height-2">Airabnb</a>
-                                                    <div class="d-flex align-items-center justify-content-md-between flex-wrap">
-                                                        <a href="" class="font-size-4 text-gray mr-5">Jun 2017 - April 2020- 3 years</a>
-                                                        <a href="" class="font-size-3 text-gray">
-                              <span class="mr-4" style="margin-top: -2px"><img src="./image/svg/icon-loaction-pin-black.svg" alt=""></span>New York, USA</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single Card End -->
-                                        <!-- Single Card -->
-                                        <div class="w-100">
-                                            <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
-                                                <div class="square-72 d-block mr-8 mb-7 mb-sm-0">
-                                                    <img src="./image/l1/png/feature-brand-1.png" alt="">
-                                                </div>
-                                                <div class="w-100 mt-n2">
-                                                    <h3 class="mb-0">
-                                                        <a class="font-size-6 text-black-2 font-weight-semibold" href="#">Senior UI/UX Designer</a>
-                                                    </h3>
-                                                    <a href="#" class="font-size-4 text-default-color line-height-2">Google Inc</a>
-                                                    <div class="d-flex align-items-center justify-content-md-between flex-wrap">
-                                                        <a href="" class="font-size-3 text-gray mr-5">Jun 2017 - April 2020- 3 years</a>
-                                                        <a href="" class="font-size-3 text-gray">
-                              <span class="mr-4" style="margin-top: -2px"><img src="./image/svg/icon-loaction-pin-black.svg" alt=""></span>New York, USA</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single Card End -->
-                                    </div>
-                                    <!-- Card Section End -->
-                                    <!-- Card Section Start -->
-                                    <div class="border-top p-5 pl-xs-12 pt-7 pb-5">
-                                        <h4 class="font-size-6 mb-7 mt-5 text-black-2 font-weight-semibold">Education</h4>
-                                        <!-- Single Card -->
-                                        <div class="w-100">
-                                            <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
-                                                <div class="square-72 d-block mr-8 mb-7 mb-sm-0">
-                                                    <img src="./image/svg/harvard.svg" alt="">
-                                                </div>
-                                                <div class="w-100 mt-n2">
-                                                    <h3 class="mb-0">
-                                                        <a class="font-size-6 text-black-2" href="#">Masters in Art Design</a>
-                                                    </h3>
-                                                    <a href="#" class="font-size-4 text-default-color line-height-2">Harvard University</a>
-                                                    <div class="d-flex align-items-center justify-content-md-between flex-wrap">
-                                                        <a href="" class="font-size-3 text-gray mr-5">Jun 2017 - April 2020- 3 years</a>
-                                                        <a href="" class="font-size-3 text-gray">
-                              <span class="mr-4" style="margin-top: -2px"><img src="./image/svg/icon-loaction-pin-black.svg" alt=""></span>Brylin, USA</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single Card End -->
-                                        <!-- Single Card -->
-                                        <div class="w-100">
-                                            <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
-                                                <div class="square-72 d-block mr-8 mb-7 mb-sm-0">
-                                                    <img src="./image/svg/mit.svg" alt="">
-                                                </div>
-                                                <div class="w-100 mt-n2">
-                                                    <h3 class="mb-0">
-                                                        <a class="font-size-6 text-black-2" href="#">Bachelor in Software Engineering </a>
-                                                    </h3>
-                                                    <a href="#" class="font-size-4 text-default-color line-height-2">Manipal Institute of Technology</a>
-                                                    <div class="d-flex align-items-center justify-content-md-between flex-wrap">
-                                                        <a href="" class="font-size-3 text-gray mr-5">Fed 2012 - April 2016 - 4 years</a>
-                                                        <a href="" class="font-size-3 text-gray">
-                                                    <span class="mr-4" style="margin-top: -2px"><img src="./image/svg/icon-loaction-pin-black.svg" alt=""></span>New York, USA</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single Card End -->
-                                    </div>
-                                    <!-- Card Section End -->
-                                </div>
-                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
                                     <div class="pr-xl-11 p-5 pl-xs-12 pt-9 pb-11 shadow">
                                         @forelse ($jobs as $job)
@@ -293,7 +164,7 @@
                                         @empty
                                         <div class="align-items-center">
                                             <p class="text-center font-size-4 text-black-2">
-                                                No search results for <span class="text-red">{{ request()->query('query') }}</span>
+                                                You have no saved jobs!
                                             </p>
                                             <p class="text-center">
                                                 <span>
@@ -350,6 +221,14 @@
                                 </li>
                                 @empty
 
+                                <li>
+                                    <div class="mt-3 ml-3 mr-3 mbt-3">
+                                        <p class="text-red">
+                                            You have 0 notifications
+                                        </p>
+                                        <img class="img-fluid" src="{{ asset('img/no_notifications.png') }}" alt="">
+                                    </div>
+                                </li>
                                 @endforelse
 
 

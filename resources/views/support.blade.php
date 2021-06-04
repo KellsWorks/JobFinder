@@ -29,7 +29,7 @@
 
         <div class="container contact-form">
             <div class="contact-image">
-                <img src="{{ asset('icon.png') }}" class="img-fluid" height="200" width="200" alt="rocket_contact"/>
+                <img src="{{ asset('icon.png') }}" class="img-fluid" height="200" width="200" alt="job-finder-icon"/>
             </div>
 
             @if (session('status'))
@@ -41,7 +41,8 @@
             <form method="POST" action="{{ route('support-message') }}">
                 @csrf
 
-                <h3>Drop us a message</h3>
+                <h3 class="mt-2 mb-2">Drop us a message</h3>
+
                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -54,7 +55,6 @@
                             <input type="text" required name="phone_number" class="form-control" placeholder="Your Phone number *" value="" />
                         </div>
                         <div class="form-group">
-                            {{-- <input type="submit" name="btnSubmit" class="btn btn-primary" value="SEND MESSAGE" /> --}}
                             <button class="btn btn-primary" type="submit"><span class="mr-2 ml-2 mt-1"><ion-icon name="send-outline"></ion-icon></span> SEND MESSAGE </button>
                         </div>
                     </div>

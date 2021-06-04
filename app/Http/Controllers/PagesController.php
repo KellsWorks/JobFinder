@@ -14,6 +14,7 @@ use App\Models\SavedJobs;
 use App\Models\UserNotifications;
 use App\Models\JobsCategory;
 use App\Models\Support;
+use App\Models\Profiles;
 
 use Http;
 
@@ -46,8 +47,9 @@ class PagesController extends Controller
         if(Auth::check() == "true"){
 
             $notifications = UserNotifications::where('user_id', Auth::user()->id)->get();
+            $profiles = Profiles::where('user_id', Auth::user()->id)->get();
 
-            return view('jobs', ['jobs' => $jobs, 'districts' => $districts, 'notifications' => $notifications]);
+            return view('jobs', ['jobs' => $jobs, 'districts' => $districts, 'notifications' => $notifications, 'profiles' => $profiles]);
 
         }else{
 
@@ -69,14 +71,16 @@ class PagesController extends Controller
         if(Auth::check() == "true"){
 
             $notifications = UserNotifications::where('user_id', Auth::user()->id)->get();
+            $profiles = Profiles::where('user_id', Auth::user()->id)->get();
 
-            return view('job', ['jobs'  => $jobs, 'likes' => $likes, 'tags' => $tags, 'skills' => $skills, 'qualifications' => $qualifications, 'notifications' => $notifications ]);
+            // dd($profiles);
+
+            return view('job', ['jobs'  => $jobs, 'likes' => $likes, 'tags' => $tags, 'skills' => $skills, 'qualifications' => $qualifications, 'notifications' => $notifications, 'profiles' =>$profiles ]);
 
 
         }else{
 
             return view('job', ['jobs'  => $jobs, 'likes' => $likes, 'tags' => $tags, 'skills' => $skills, 'qualifications' => $qualifications ]);
-
 
         }
     }
@@ -192,8 +196,10 @@ class PagesController extends Controller
         if(Auth::check() == "true"){
 
             $notifications = UserNotifications::where('user_id', Auth::user()->id)->get();
+            $profiles = Profiles::where('user_id', Auth::user()->id)->get();
 
-            return view('jobs', ['jobs' => $jobs, 'districts' => $districts, 'notifications' => $notifications]);
+
+            return view('jobs', ['jobs' => $jobs, 'districts' => $districts, 'notifications' => $notifications, 'profiles' => $profiles]);
 
         }else{
 
@@ -204,7 +210,19 @@ class PagesController extends Controller
 
     public function support(){
 
-        return view('support');
+        if(Auth::check() == "true"){
+
+            $notifications = UserNotifications::where('user_id', Auth::user()->id)->get();
+            $profiles = Profiles::where('user_id', Auth::user()->id)->get();
+
+            return view('support', ['notifications' => $notifications, 'profiles' => $profiles]);
+
+        }else{
+
+            return view('support');
+
+        }
+
     }
 
     public function supportMessage(Request $request){

@@ -61,7 +61,7 @@
 
                                         <div class="form-group position-relative">
                                             <select name="location" id="location" class="nice-select font-size-4 pl-13 h-100 arrow-3">
-                                            <option  data-display="City, district">City or district</option>
+                                            <option  data-display="{{ __('messages.city_district') }}">City or district</option>
                                             @foreach ($districts as $district)
                                                 <option value="{{ $district->name }}">{{ $district->name }}</option>
                                             @endforeach

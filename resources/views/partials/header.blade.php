@@ -120,13 +120,9 @@
                             </div>
                           </a>
                         @empty
-                        <a href="#" class="dropdown-item">
-                            <div class="row">
-                              <span class="circle-40 bg-green text-center">
-                                  <i class="text-white fa fa-bell"></i>
-                              </span> <span class="text-center mt-2 ml-3">Job likes</span>
-                            </div>
-                          </a>
+                        <p class="mr-3 ml-3 font-weight-bold text-red font-size-3">
+                            You have no notifications
+                        </p>
                         @endforelse
 
                         <div class="dropdown-divider"></div>
@@ -138,7 +134,7 @@
                         <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="circle-40">
                                 @foreach ($profiles as $profile)
-                                    <img class="circle-40" height="40" src="storage/profiles/{{ $profile->avatar }}" alt="user-avatar">
+                                    <img class="circle-40" height="40" src="{{ asset('storage/profiles/'.$profile->avatar) }}" alt="user-avatar">
                                 @endforeach
                             </div>
                         </a>
