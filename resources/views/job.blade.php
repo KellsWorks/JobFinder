@@ -61,7 +61,7 @@
                                     <div class="col-md-6 text-right pt-7 pt-md-0 mt-md-n1">
 
                                         <div class="media justify-content-md-end align-items-center">
-                                            <p class="d-flex font-size-2 font-weight-bold"><i class="fa fa-history mr-1"></i></span>{{ \Carbon\Carbon::parse($jobs->created_at)->diffForHumans() }}</p>
+                                            <p class="d-flex font-size-2 font-weight-bold"><i class="fa fa-clock mr-1"></i></span>{{ \Carbon\Carbon::parse($jobs->created_at)->diffForHumans() }}</p>
                                         </div>
 
                                     </div>
