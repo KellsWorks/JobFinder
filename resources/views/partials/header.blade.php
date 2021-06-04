@@ -137,7 +137,9 @@
                     <div class="dropdown show-gr-dropdown py-5">
                         <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="circle-40">
-                                <img class="circle-40" height="40" src="../../../storage/profiles/avatar5.png" alt="">
+                                @foreach ($profiles as $profile)
+                                    <img class="circle-40" height="40" src="storage/profiles/{{ $profile->avatar }}" alt="user-avatar">
+                                @endforeach
                             </div>
                         </a>
                         <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">

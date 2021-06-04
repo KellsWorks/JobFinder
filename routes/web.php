@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Jobs;
 use App\Models\JobsCategory;
 use App\Models\UserNotifications;
+use App\Models\Profiles;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,8 +31,9 @@ Route::get('/', function (Request $request) {
     if(Auth::check() == "true"){
 
         $notifications = UserNotifications::where('user_id', Auth::user()->id)->get();
+        $profile = Profiles::where('user_id', Auth::user()->id)->get();
 
-        return view('welcome', ['jobs' => $jobs, 'categories' => $categories, 'districts' => $districts, 'notifications' => $notifications]);
+        return view('welcome', ['jobs' => $jobs, 'categories' => $categories, 'districts' => $districts, 'notifications' => $notifications, 'profiles' => $profile]);
 
     }else{
 
@@ -62,7 +64,9 @@ Auth::routes();
 |
 */
 
-// Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('change-photo', [\App\Http\Controllers\HomeController::class, 'change_picture'])->name('change-photo');
+
+Route::get('profile', [\App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
 
 
 /*
@@ -122,17 +126,6 @@ Route::get('admin/new-job', [\App\Http\Controllers\AdminController::class, 'newJ
 */
 
 Route::post('newsletter', [\App\Http\Controllers\NewsletterController::class, 'store'])->name('newsletter');
-
-/*
-|--------------------------------------------------------------------------
-| PROFILE ROUTES
-|--------------------------------------------------------------------------
-|
-| Web routes for user profile
-|
-*/
-
-Route::get('profile', [\App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
 
 /*
 |--------------------------------------------------------------------------

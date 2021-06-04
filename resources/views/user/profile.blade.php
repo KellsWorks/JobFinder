@@ -29,6 +29,12 @@
         <div class="bg-default-2 pt-22 pt-lg-25 pb-13 pb-xxl-32">
             <div class="container">
 
+                @if (session('status'))
+                    <div class="alert alert-info" id="session-alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
+
                 <div class="row justify-content-center">
                     <div class="col-12 dark-mode-texts">
                         <div class="mb-9">
@@ -46,7 +52,13 @@
 
                             <div class="bg-white shadow-9 rounded-4">
                                 <div class="px-5 py-11 text-center border-bottom border-mercury">
-                                    <a class="mb-4" href="#"><img class="circle-54" src="../../../storage/profiles/avatar5.png" alt=""></a>
+
+                                    @include('includes.change-profile-photo')
+
+                                    @foreach ($profiles as $profile)
+                                        <a class="mb-4" href="javacript:" data-toggle="modal" data-target="#profile_photo"><img class="circle-54" src="storage/profiles/{{ $profile->avatar }}" alt=""></a>
+                                    @endforeach
+
                                     <h4 class="mb-0"><a class="text-black-2 font-size-6 mb-4 font-weight-semibold" href="#">{{ Auth::user()->name }}</a></h4>
 
                                     <div class="icon-link d-flex align-items-center justify-content-center flex-wrap">
@@ -216,7 +228,7 @@
                                                     <div class="d-flex align-items-center justify-content-md-between flex-wrap">
                                                         <a href="" class="font-size-3 text-gray mr-5">Fed 2012 - April 2016 - 4 years</a>
                                                         <a href="" class="font-size-3 text-gray">
-                              <span class="mr-4" style="margin-top: -2px"><img src="./image/svg/icon-loaction-pin-black.svg" alt=""></span>New York, USA</a>
+                                                    <span class="mr-4" style="margin-top: -2px"><img src="./image/svg/icon-loaction-pin-black.svg" alt=""></span>New York, USA</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -226,7 +238,7 @@
                                     <!-- Card Section End -->
                                 </div>
                                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                    <!-- Excerpt Start -->
+
                                     <div class="pr-xl-11 p-5 pl-xs-12 pt-9 pb-11 shadow">
                                         @forelse ($jobs as $job)
                                         <div class="mb-8">
