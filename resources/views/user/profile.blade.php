@@ -19,6 +19,7 @@
 </head>
 
 <body>
+
     <div class="site-wrapper overflow-hidden ">
 
         @include('partials.header')
@@ -73,7 +74,7 @@
 
                                     <div class="mb-7">
                                         <p class="font-size-4 mb-0">Location</p>
-                                        <h5 class="font-size-4 font-weight-semibold mb-0 text-black-2 text-break">New York , USA</h5>
+                                        <h5 class="font-size-4 font-weight-semibold mb-0 text-black-2 text-break">Malawi</h5>
                                     </div>
 
                                     <div class="mb-7">
@@ -84,13 +85,25 @@
                                     <div class="mb-7">
                                         <p class="font-size-4 mb-0">Phone</p>
                                         @foreach ($profiles as $profile)
-                                        <h5 class="font-size-4 font-weight-semibold mb-0"><a class="text-black-2 text-break" href="tel:+999565562">{{ $profile->phone }}</a></h5>
+                                           @if ($profile->phone != "")
+                                                <h5 class="font-size-4 font-weight-semibold mb-0"><a class="text-black-2 text-break" href="tel:{{ $profile->phone }}">{{ $profile->phone }}</a></h5>
+                                           @else
+                                            <form action="{{ url('update-phone-number') }}" method="POST">
+                                                @csrf
+                                                <div class="form-group">
+                                                    <input type="text" required name="phone" class="form-control" placeholder="Update" value="" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <button class="btn btn-primary" type="submit"> SUBMIT </button>
+                                                </div>
+                                            </form>
+                                           @endif
                                         @endforeach
                                     </div>
 
                                     <div class="mb-7">
                                         <p class="font-size-4 mb-0">Website Linked</p>
-                                        <h5 class="font-size-4 font-weight-semibold mb-0"><a class="text-break" href="#">www.github.com</a></h5>
+                                        <h5 class="font-size-4 font-weight-semibold mb-0"><a class="text-break" href="https://www.jobfindermw.com">www.jobfindermw.com</a></h5>
                                     </div>
 
                                 </div>
@@ -138,7 +151,7 @@
                                                                 <a class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-red-2 mt-2" href="#">{{ $job->closing_date }}</a>
                                                             </li>
                                                             <li>
-                                                                <a class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-red-2 mt-2" href="#">Unsave</a>
+                                                                <a class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-red-2 mt-2" href="{{ url('/job/unsave/'.$job->id) }}">Unsave</a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -222,8 +235,8 @@
                                 @empty
 
                                 <li>
-                                    <div class="mt-3 ml-3 mr-3 mbt-3">
-                                        <p class="text-red">
+                                    <div class="mt-3 ml-3 mr-3 mb-3">
+                                        <p class="text-gray font-size-4 text-black-2">
                                             You have 0 notifications
                                         </p>
                                         <img class="img-fluid" src="{{ asset('img/no_notifications.png') }}" alt="">

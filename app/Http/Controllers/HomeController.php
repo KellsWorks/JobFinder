@@ -58,6 +58,31 @@ class HomeController extends Controller
         return view('user.profile', ['jobs' => $jobs, 'notifications' => $notifications, 'profiles' => $profiles]);
     }
 
+    public function update_phone(Request $request){
+
+        $id = Profiles::where('user_id', Auth::user()->id)->pluck('id')[0];
+
+        $profile = Profiles::find($id);
+
+        $profile->phone = $request->phone;
+
+        $profile->update();
+
+        $notification = new UserNotifications();
+
+        $notification->user_id = Auth::user()->id;
+
+        $notification->title = "Profile";
+
+        $notification->category = "Profile";
+
+        $notification->content = "You have recently updated your account phone number";
+
+        $notification->save();
+
+        return redirect()->back()->with('status', 'You have successfully updated your account phone number');
+    }
+
     public function change_picture(Request $request){
 
 
@@ -68,12 +93,28 @@ class HomeController extends Controller
         ]);
 
         $imageName = time().'.'.$request->image->extension();
+
         $request->image->move(public_path('storage\profiles'), $imageName);
 
-        $profile = Profiles::find(Auth::user()->id);
+        $id = Profiles::where('user_id', Auth::user()->id)->pluck('id')[0];
+
+        $profile = Profiles::find($id);
 
         $profile->avatar = $imageName;
+
         $profile->update();
+
+        $notification = new UserNotifications();
+
+        $notification->user_id = Auth::user()->id;
+
+        $notification->title = "Profile";
+
+        $notification->category = "Profile";
+
+        $notification->content = "You have recently updated your profile picture";
+
+        $notification->save();
 
         return redirect()->back()->with('status', 'Your profile picture has been updated successfully!');
 
@@ -82,7 +123,9 @@ class HomeController extends Controller
     public function notificationRead($id){
 
         $notification = UserNotifications::find($id);
+
         $notification->status = "read";
+
         $notification->update();
 
         return redirect()->back()->with('status', 'Notification marked as read');

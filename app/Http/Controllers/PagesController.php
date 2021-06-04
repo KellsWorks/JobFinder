@@ -16,6 +16,7 @@ use App\Models\JobsCategory;
 use App\Models\Support;
 use App\Models\Profiles;
 use Cookie;
+use Validator;
 
 use Http;
 
@@ -210,9 +211,29 @@ class PagesController extends Controller
             return redirect()->back()->with('status', 'You have saved this job');
         }
         else{
-            return redirect()->back()->with('status', 'You have already saved this job job');
+            return redirect()->back()->with('status', 'You have already saved this job');
         }
 
+
+    }
+
+    public function unSaveJob($id){
+
+        $job = SavedJobs::find($id)->delete();
+
+        $notification = new UserNotifications();
+
+        $notification->user_id = Auth::user()->id;
+
+        $notification->title = "Job Save";
+
+        $notification->category = "Jobs";
+
+        $notification->content = "You have recently deleted a saved job";
+
+        $notification->save();
+
+        return redirect()->back()->with('status', 'You have successfully deleted a saved job');
 
     }
 

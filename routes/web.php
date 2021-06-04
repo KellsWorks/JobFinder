@@ -44,6 +44,8 @@ Route::post('change-photo', [\App\Http\Controllers\HomeController::class, 'chang
 
 Route::get('profile', [\App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
 
+Route::post('update-phone-number', [\App\Http\Controllers\HomeController::class, 'update_phone'])->name('update-phone-number');
+
 Route::get('notification-read/{id}', [\App\Http\Controllers\HomeController::class, 'notificationRead'])->name('notification-read');
 
 Route::get('notification-delete/{id}', [\App\Http\Controllers\HomeController::class, 'notificationDelete'])->name('notification-delete');
@@ -64,6 +66,8 @@ Route::get('/job/{id}', [\App\Http\Controllers\PagesController::class, 'job']);
 Route::get('/job/like/{id}', [\App\Http\Controllers\PagesController::class, 'likeJob']);
 
 Route::get('/job/save/{id}', [\App\Http\Controllers\PagesController::class, 'saveJob']);
+
+Route::get('/job/unsave/{id}', [\App\Http\Controllers\PagesController::class, 'unSaveJob']);
 
 Route::get('/job-search', [\App\Http\Controllers\PagesController::class, 'jobs'])->name('job-search');
 
