@@ -17,31 +17,7 @@ use App\Models\Profiles;
 |
 */
 
-Route::get('/', function (Request $request) {
-
-    $districts = Districts::orderBy('name','asc')->get();
-
-    $categories = JobsCategory::with('icons')->with('jobs')->get();
-
-
-    Cookie::queue('name', $request->test, 1);
-
-    $jobs = Jobs::latest()->get();
-
-    if(Auth::check() == "true"){
-
-        $notifications = UserNotifications::where('user_id', Auth::user()->id)->get();
-        $profile = Profiles::where('user_id', Auth::user()->id)->get();
-
-        return view('welcome', ['jobs' => $jobs, 'categories' => $categories, 'districts' => $districts, 'notifications' => $notifications, 'profiles' => $profile]);
-
-    }else{
-
-        return view('welcome', ['jobs' => $jobs, 'categories' => $categories, 'districts' => $districts]);
-
-    }
-
-})->name('home');
+Route::get('/', [\App\Http\Controllers\PagesController::class, 'index'])->name('home');
 
 /*
 |--------------------------------------------------------------------------
@@ -82,12 +58,17 @@ Route::get('notification-delete/{id}', [\App\Http\Controllers\HomeController::cl
 */
 
 Route::get('/jobs', [\App\Http\Controllers\PagesController::class, 'jobs'])->name('jobs');
+
 Route::get('/job/{id}', [\App\Http\Controllers\PagesController::class, 'job']);
+
 Route::get('/job/like/{id}', [\App\Http\Controllers\PagesController::class, 'likeJob']);
+
 Route::get('/job/save/{id}', [\App\Http\Controllers\PagesController::class, 'saveJob']);
+
 Route::get('/job-search', [\App\Http\Controllers\PagesController::class, 'jobs'])->name('job-search');
-Route::post('/search-results', [\App\Http\Controllers\PagesController::class, 'search_results'])->name('search-results');
+
 Route::get('/explore-by-category/{id}', [\App\Http\Controllers\PagesController::class, 'exploreByCategory'])->name('explore-by-category');
+
 /*
 |--------------------------------------------------------------------------
 | TERMS AND CONDITIONS ROUTES
@@ -100,7 +81,6 @@ Route::get('/explore-by-category/{id}', [\App\Http\Controllers\PagesController::
 Route::get('/terms-and-conditions-privacy-policy', [\App\Http\Controllers\PagesController::class, 'policies'])->name('terms-and-conditions-privacy-policy');
 
 
-
 /*
 |--------------------------------------------------------------------------
 | ADMINISTRATOR ROUTES
@@ -111,9 +91,11 @@ Route::get('/terms-and-conditions-privacy-policy', [\App\Http\Controllers\PagesC
 */
 
 Route::get('admin/home', [\App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+
 Route::get('admin/posted-jobs', [\App\Http\Controllers\AdminController::class, 'postedJobs'])->name('admin.posted-jobs');
 
 Route::get('admin/users', [\App\Http\Controllers\AdminController::class, 'siteUsers'])->name('admin.site-users');
+
 Route::get('admin/settings', [\App\Http\Controllers\AdminController::class, 'settings'])->name('admin.settings');
 
 Route::get('admin/new-job', [\App\Http\Controllers\AdminController::class, 'newJob'])->name('admin.new-job');
@@ -146,9 +128,10 @@ Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => '\App\Http\Controlle
 | SUPPORT ROUTES
 |--------------------------------------------------------------------------
 |
-| Web routes for support nav link
+| Web routes for support/contact us
 |
 */
 
 Route::get('support', [\App\Http\Controllers\PagesController::class, 'support'])->name('support');
+
 Route::post('support-message', [\App\Http\Controllers\PagesController::class, 'supportMessage'])->name('support-message');

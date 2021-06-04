@@ -1,11 +1,17 @@
+{{-- Nextgenerations Malawi - Copyright - Job Finder --}}
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta author="KellsWorks,RodgerCodes@Nextgenerations Malawi" name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ env('APP_NAME') }}</title>
+
+    <title>{{ config('app.name', 'Job Finder') }}</title>
+
     <link rel="shortcut icon" href="{{ asset('icon.ico') }}" type="image/x-icon">
 
     @include('scripts.css')
@@ -13,6 +19,7 @@
 </head>
 
 <body>
+
     <div class="site-wrapper overflow-hidden ">
 
         @include('partials.header')
@@ -28,13 +35,14 @@
                         <div class="widgets mb-11">
                             <h4 class="font-size-6 font-weight-semibold mb-6">Job Type</h4>
                             <ul class="list-unstyled filter-check-list">
-                                <li class="mb-2"><a href="#" class="toggle-item">Full Time</a></li>
-                                <li class="mb-2"><a href="#" class="toggle-item">Part Time</a></li>
-                                <li class="mb-2"><a href="#" class="toggle-item">Contract</a></li>
-                                <li class="mb-2"><a href="#" class="toggle-item">Internship</a></li>
-                                <li class="mb-2"><a href="#" class="toggle-item">Temporary</a></li>
+                                <li class="mb-2"><a href="#job-type-full-time" class="toggle-item clicked">Full Time</a></li>
+                                <li class="mb-2"><a href="#job-type-part-time" class="toggle-item clicked">Part Time</a></li>
+                                <li class="mb-2"><a href="#job-type-contract" class="toggle-item clicked">Contract</a></li>
+                                <li class="mb-2"><a href="#job-type-internship" class="toggle-item clicked">Internship</a></li>
+                                <li class="mb-2"><a href="#job-type-temporary" class="toggle-item clicked">Temporary</a></li>
                             </ul>
                         </div>
+
                         <div class="widgets mb-11 ">
                             <div class="d-flex align-items-center pr-15 pr-xs-0 pr-md-0 pr-xl-22">
                                 <h4 class="font-size-6 font-weight-semibold mb-6 w-75">Salary Range</h4>
@@ -64,22 +72,24 @@
                                 <div class="pm-range-slider"></div>
                             </div>
                         </div>
+
                         <div class="widgets mb-11">
                             <h4 class="font-size-6 font-weight-semibold mb-6">Job skills </h4>
                             <ul class="list-unstyled filter-check-list">
-                                <li class="mb-2"><a href="#" class="toggle-item">All</a></li>
-                                <li class="mb-2"><a href="#" class="toggle-item">Senior</a></li>
-                                <li class="mb-2"><a href="#" class="toggle-item">Mid</a></li>
-                                <li class="mb-2"><a href="#" class="toggle-item">Junior</a></li>
+                                <li class="mb-2"><a href="#job-skills-all" class="toggle-item clicked">All</a></li>
+                                <li class="mb-2"><a href="#job-skills-senior" class="toggle-item">Senior</a></li>
+                                <li class="mb-2"><a href="#job-skills-mid" class="toggle-item">Mid</a></li>
+                                <li class="mb-2"><a href="#job-skills-junior" class="toggle-item">Junior</a></li>
                             </ul>
                         </div>
+
                         <div class="widgets mb-11">
                             <h4 class="font-size-6 font-weight-semibold mb-6">Posted Time</h4>
                             <ul class="list-unstyled filter-check-list">
-                                <li class="mb-2"><a href="#" class="toggle-item">Anytime</a></li>
-                                <li class="mb-2"><a href="#" class="toggle-item">Today</a></li>
-                                <li class="mb-2"><a href="#" class="toggle-item">Yesterday</a></li>
-                                <li class="mb-2"><a href="#" class="toggle-item">Last week</a></li>
+                                <li class="mb-2"><a href="#posted-time-anytime" class="toggle-item clicked">Anytime</a></li>
+                                <li class="mb-2"><a href="#posted-time-today" class="toggle-item">Today</a></li>
+                                <li class="mb-2"><a href="#posted-time-yesterday" class="toggle-item">Yesterday</a></li>
+                                <li class="mb-2"><a href="#posted-time-last-week" class="toggle-item">Last week</a></li>
                             </ul>
                         </div>
 
@@ -193,6 +203,7 @@
                             <div class="text-center pt-5 pt-lg-13">
                                 {{ $jobs->links() }}
                             </div>
+
                         </div>
                     </div>
                 </div>

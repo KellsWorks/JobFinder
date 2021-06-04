@@ -1,7 +1,10 @@
-{{-- Nextgenerations Malawi - Job Finder --}}
+{{-- Nextgenerations Malawi - Copyright - Job Finder --}}
 <!DOCTYPE html>
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
+
     <meta charset="UTF-8">
 
     <!-- CSRF Token -->
@@ -99,7 +102,7 @@
 
                         <div class="section-title text-center pb-lg-15 pb-8 px-xxl-10">
                             <h2 class="mb-9 font-size-10">Quick career tips</h2>
-                            <p class="text-default-color font-size-5">Read more about setting up a career/job</p>
+                            <p class="text-default-color font-size-4">Read more about setting up a job career</p>
                         </div>
 
                     </div>
@@ -113,9 +116,9 @@
                             <img src="{{ asset('assets/image/l1/png/blog-img1.png') }}" class="card-img-top" alt="...">
 
                             <div class="card-body pt-11 px-0 pb-0">
-                                <a href="#" class="badge badge-allports text-uppercase font-size-3 font-weight-bold px-4 py-1">CV Writing</a>
+                                <a href="#" class="badge badge-green text-uppercase font-size-3 font-weight-bold px-4 py-1">CV Writing</a>
                                 <h4><a class="card-title font-size-7 mt-8 mb-6 heading-default-color" href="#">How to make a perfect CV that attracts the attention </a></h4>
-                                <p class="card-text mb-9 font-size-4">Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base.</p>
+                                <p class="card-text mb-9 font-size-4">Learn how to build an impressive curiculum vitae that will potentiate you for success in your job applications.</p>
 
                             </div>
 
@@ -130,9 +133,9 @@
                             <a href="#"><img src="{{ asset('assets/image/l1/png/blog-img2.png') }}" class="card-img-top" alt="..."></a>
 
                             <div class="card-body pt-11 px-0 pb-0">
-                                <a href="#" class="badge badge-allports text-uppercase font-size-3 font-weight-bold px-4 py-1">Marketing</a>
-                                <h4><a class="card-title font-size-7 mt-8 mb-6 heading-default-color" href="#">Out bound marketing to get the job you want within 72 days</a></h4>
-                                <p class="card-text mb-9 font-size-4">Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base.</p>
+                                <a href="#" class="badge badge-green text-uppercase font-size-3 font-weight-bold px-4 py-1">Marketing yourself</a>
+                                <h4><a class="card-title font-size-7 mt-8 mb-6 heading-default-color" href="#">Out bound marketing of your skillsets to get the job you want within 72 days</a></h4>
+                                <p class="card-text mb-9 font-size-4">Add skillsets to increase your chances of being selected in one or acouple of your job applications</p>
 
                             </div>
 
@@ -147,9 +150,9 @@
                             <a href="#"><img src="{{ asset('assets/image/l1/png/blog-img3.png') }}" class="card-img-top" alt="..."></a>
 
                             <div class="card-body pt-11 px-0 pb-0">
-                                <a href="#" class="badge badge-allports text-uppercase font-size-3 font-weight-bold px-4 py-1">Social media</a>
+                                <a href="#" class="badge badge-green text-uppercase font-size-3 font-weight-bold px-4 py-1">Social media</a>
                                 <h4><a class="card-title font-size-7 mt-8 mb-6 heading-default-color" href="#">Your social media accounts will be your new CV</a></h4>
-                                <p class="card-text mb-9 font-size-4">Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster,</p>
+                                <p class="card-text mb-9 font-size-4">Social media platforms are another way of catching potential job employees. Like and follow pages on Facebook, Twitter, Instagram</p>
 
                             </div>
 
@@ -416,13 +419,13 @@
 
     @include('scripts.js')
 
-        @if (session('newsletter'))
-        <script>
-            $( function() {
-              $( "#dialog" ).dialog();
-             } );
-        </script>
-        @endif
+    @if (session('newsletter'))
+    <script>
+        $( function() {
+            $( "#dialog" ).dialog();
+            } );
+    </script>
+    @endif
 
 </body>
 

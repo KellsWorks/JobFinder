@@ -131,8 +131,8 @@ $(function() {
     $(".pm-range-slider").slider({
         range: true,
         min: 50,
-        max: 180,
-        values: [100, 130],
+        max: 1500,
+        values: [50, 1500],
         slide: function(event, ui) {
             $("#amount").val("MK" + ui.values[0] + " - " + ui.values[1] + "K");
         }
@@ -207,7 +207,7 @@ function toggleItem(params) {
             if (e.target.classList.contains("clicked")) {
                 e.target.classList.remove("clicked");
             } else {
-
+                e.target.classList.add("clicked");
             }
         })
     }
