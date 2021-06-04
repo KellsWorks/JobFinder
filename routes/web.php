@@ -68,6 +68,9 @@ Route::post('change-photo', [\App\Http\Controllers\HomeController::class, 'chang
 
 Route::get('profile', [\App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
 
+Route::get('notification-read/{id}', [\App\Http\Controllers\HomeController::class, 'notificationRead'])->name('notification-read');
+
+Route::get('notification-delete/{id}', [\App\Http\Controllers\HomeController::class, 'notificationDelete'])->name('notification-delete');
 
 /*
 |--------------------------------------------------------------------------

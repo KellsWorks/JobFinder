@@ -16,7 +16,7 @@
                 <div class="navbar-nav-wrapper">
                     <ul class="navbar-nav main-menu">
 
-                        <li @if (Request::path() == "/")
+                        <li @if (Request::path() == "/" || Request::path() == "profile")
                                 class="active nav-item"
                             @else
                                 class="nav-item"

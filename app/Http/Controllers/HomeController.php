@@ -78,4 +78,21 @@ class HomeController extends Controller
         return redirect()->back()->with('status', 'Your profile picture has been updated successfully!');
 
     }
+
+    public function notificationRead($id){
+
+        $notification = UserNotifications::find($id);
+        $notification->status = "read";
+        $notification->update();
+
+        return redirect()->back()->with('status', 'Notification marked as read');
+    }
+
+    public function notificationDelete($id){
+
+        $notification = UserNotifications::find($id);
+        $notification->delete();
+
+        return redirect()->back()->with('status', 'Notification deleted successfully!');
+    }
 }

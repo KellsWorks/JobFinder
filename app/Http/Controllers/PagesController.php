@@ -219,4 +219,5 @@ class PagesController extends Controller
         return redirect('support')->with('status', 'Your message has been sent successfully. Thank you!');
     }
 
+
 }

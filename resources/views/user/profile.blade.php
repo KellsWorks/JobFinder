@@ -83,7 +83,9 @@
 
                                     <div class="mb-7">
                                         <p class="font-size-4 mb-0">Phone</p>
-                                        <h5 class="font-size-4 font-weight-semibold mb-0"><a class="text-black-2 text-break" href="tel:+999565562">+265 99 363 48 27</a></h5>
+                                        @foreach ($profiles as $profile)
+                                        <h5 class="font-size-4 font-weight-semibold mb-0"><a class="text-black-2 text-break" href="tel:+999565562">{{ $profile->phone }}</a></h5>
+                                        @endforeach
                                     </div>
 
                                     <div class="mb-7">
@@ -264,6 +266,9 @@
                                                             <li>
                                                                 <a class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-red-2 mt-2" href="#">{{ $job->closing_date }}</a>
                                                             </li>
+                                                            <li>
+                                                                <a class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-red-2 mt-2" href="#">Unsave</a>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-md-5">
@@ -315,65 +320,39 @@
 
                             <ul class="list-unstyled">
 
+                                @forelse ($notifications as $notification)
                                 <li class="border-bottom">
-                                    <a class="media align-items-center py-9 flex-wrap" href="#">
-                                        <div class="mr-7">
-                                            <span class="circle-40 bg-green text-center ml-7">
-                                                <i class="text-white fa fa-bell"></i>
-                                            </span>
-                                        </div>
-                                        <div class="">
-                                            <h4 class="mb-0 font-size-5 font-weight-semibold">Job Alert!</h4>
-                                            <p class="mb-0 font-size-3 heading-default-color">A new job was posted.</p>
-                                            <span class="font-size-3 text-smoke"><img class="mr-2" src="{{ asset('assets/image/svg/icon-clock.svg') }}" alt="">3 hours ago</span>
-                                        </div>
-                                    </a>
-                                </li>
 
-                                <li class="border-bottom">
-                                    <a class="media align-items-center py-9 flex-wrap" href="#">
-                                        <div class="mr-7">
-                                            <span class="circle-40 bg-green text-center ml-7">
-                                                <i class="text-white fa fa-bell"></i>
-                                            </span>
+                                    <div class="w-100">
+                                        <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
+                                            <div class="square-72 d-block mr-8 mb-7 mb-sm-0">
+                                                <span class="circle-40 bg-green text-center ml-7">
+                                                    <i class="text-white fa fa-bell"></i>
+                                                </span>
+                                            </div>
+                                            <div class="w-100 mt-n2">
+                                                <h3 class="mb-0">
+                                                    <a class="font-size-6 text-black-2" href="#">{{ $notification->title }}</a>
+                                                </h3>
+                                                <a href="#" class="font-size-4 text-default-color line-height-2">{{ $notification->content }}</a>
+                                                <div class="d-flex align-items-center justify-content-md-between flex-wrap">
+                                                    <a href="#" class="font-size-2 mt-2 text-gray mr-5">
+                                                        <span><img class="mr-2" src="{{ asset('assets/image/svg/icon-clock.svg') }}" alt="">{{ \Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}</span>
+                                                    </a>
+                                                    <div class="d-flex mt-2">
+                                                        <a href="{{ url('notification-read/'.$notification->id) }}"><i class="text-green fa fa-edit ml-1"></i></a>
+                                                        <a href="{{ url('notification-delete/'.$notification->id) }}"><i class="text-red fa fa-trash ml-1"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="">
-                                            <h4 class="mb-0 font-size-5 font-weight-semibold">Job Alert!</h4>
-                                            <p class="mb-0 font-size-3 heading-default-color">A new job was posted.</p>
-                                            <span class="font-size-3 text-smoke"><img class="mr-2" src="{{ asset('assets/image/svg/icon-clock.svg') }}" alt="">3 hours ago</span>
-                                        </div>
-                                    </a>
+                                    </div>
                                 </li>
+                                @empty
 
-                                <li class="border-bottom">
-                                    <a class="media align-items-center py-9 flex-wrap" href="#">
-                                        <div class="mr-7">
-                                            <span class="circle-40 bg-green text-center ml-7">
-                                                <i class="text-white fa fa-bell"></i>
-                                            </span>
-                                        </div>
-                                        <div class="">
-                                            <h4 class="mb-0 font-size-5 font-weight-semibold">Job Alert!</h4>
-                                            <p class="mb-0 font-size-3 heading-default-color">A new job was posted.</p>
-                                            <span class="font-size-3 text-smoke"><img class="mr-2" src="{{ asset('assets/image/svg/icon-clock.svg') }}" alt="">3 hours ago</span>
-                                        </div>
-                                    </a>
-                                </li>
+                                @endforelse
 
-                                <li class="border-bottom">
-                                    <a class="media align-items-center py-9 flex-wrap" href="#">
-                                        <div class="mr-7">
-                                            <span class="circle-40 bg-green text-center ml-7">
-                                                <i class="text-white fa fa-bell"></i>
-                                            </span>
-                                        </div>
-                                        <div class="">
-                                            <h4 class="mb-0 font-size-5 font-weight-semibold">Job Alert!</h4>
-                                            <p class="mb-0 font-size-3 heading-default-color">A new job was posted.</p>
-                                            <span class="font-size-3 text-smoke"><img class="mr-2" src="{{ asset('assets/image/svg/icon-clock.svg') }}" alt="">3 hours ago</span>
-                                        </div>
-                                    </a>
-                                </li>
+
                             </ul>
 
                             </div>
