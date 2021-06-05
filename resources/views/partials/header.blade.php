@@ -16,16 +16,20 @@
                 <div class="navbar-nav-wrapper">
                     <ul class="navbar-nav main-menu">
 
-                        <li @if (Request::path() == "/")
-                            class="active nav-item"
-                        @else
-                            class="nav-item"
-                        @endif >
+                        <li @if (Request::path() == "/" || Request::path() == "profile")
+                                class="active nav-item"
+                            @else
+                                class="nav-item"
+                            @endif >
                             <a href={{ url('/') }} class="nav-link" aria-expanded="false">
                                 {{ __('messages.home') }}
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li @if (Request::path() == "jobs" || Request::path() == "explore-by-category")
+                                class="active nav-item"
+                            @else
+                                class="nav-item"
+                            @endif>
                             <a href="{{ route('jobs') }}" class="nav-link">
                                 {{ __('messages.jobs') }}
                             </a>
@@ -99,48 +103,46 @@
             @auth
                 <div class=" ml-auto ml-lg-5 pl-2 d-none d-xs-flex align-items-center">
                 <div class="dropdown show-gr-dropdown">
-                    <a href="#" role="button" class="px-3 ml-7 font-size-7 notification-block flex-y-center position-relative" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a href="#" role="button" class="text-gray px-3 ml-7 font-size-7 notification-block flex-y-center position-relative" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <ion-icon name="notifications-outline" size="large"></ion-icon>
-                    <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">{{ $notifications->count() }}</span>
+                    <span class="font-size-3 count font-weight-semibold text-white bg-red circle-24 border border-width-3 border border-white">{{ $notifications->count() }}</span>
                     </a>
                     <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-800 bg-default" aria-labelledby="dropdownMenuLink">
-                        <span class="dropdown-item dropdown-header">{{ $notifications->count() }} Notifications </span>
+                        <span class="dropdown-item dropdown-header"><span class="badge badge-red">{{ $notifications->count() }}</span> Notifications </span>
                         <div class="dropdown-divider"></div>
 
                         @forelse ($notifications as $notification)
                         <a href="#" class="dropdown-item">
                             <div class="row">
-                              <span class="circle-40 bg-green text-center">
+                              <span class="circle-40 bg-green  text-center">
                                   <i class="text-white fa fa-bell"></i>
                               </span> <span class="text-center mt-2 ml-3">{{ $notification->title }}</span>
                             </div>
                           </a>
                         @empty
-                        <a href="#" class="dropdown-item">
-                            <div class="row">
-                              <span class="circle-40 bg-green text-center">
-                                  <i class="text-white fa fa-bell"></i>
-                              </span> <span class="text-center mt-2 ml-3">Job likes</span>
-                            </div>
-                          </a>
+                        <p class="mr-3 ml-3 font-weight-bold text-red font-size-3">
+                            You have no notifications
+                        </p>
                         @endforelse
 
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                        <a href="{{ route('profile') }}" class="dropdown-item dropdown-footer">See All Notifications</a>
                       </div>
                 </div>
                 <div class="nav-item">
                     <div class="dropdown show-gr-dropdown py-5">
                         <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="circle-40">
-                                <img class="circle-40" height="40" src="../../../storage/profiles/avatar5.png" alt="">
+                                @foreach ($profiles as $profile)
+                                    <img class="circle-40 status-like img-fluid" src="{{ asset('storage/profiles/'.$profile->avatar) }}" alt="user-avatar">
+                                @endforeach
                             </div>
                         </a>
                         <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">Settings </a>
-                            <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="{{ route('profile') }}">Profile</a>
-                            <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#"  onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">Log out</a>
+                            <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase border-b" href="{{ route('profile') }}">Profile</a>
+                            <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase text-center" href="#"  onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"><i class="mr-2 fa fa-power-off"></i> Log out</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>

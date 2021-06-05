@@ -19,6 +19,7 @@
 </head>
 
 <body>
+
     <div class="site-wrapper overflow-hidden ">
 
         @include('partials.header')
@@ -28,6 +29,12 @@
 
         <div class="bg-default-2 pt-22 pt-lg-25 pb-13 pb-xxl-32">
             <div class="container">
+
+                @if (session('status'))
+                    <div class="alert alert-info" id="session-alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
 
                 <div class="row justify-content-center">
                     <div class="col-12 dark-mode-texts">
@@ -46,7 +53,13 @@
 
                             <div class="bg-white shadow-9 rounded-4">
                                 <div class="px-5 py-11 text-center border-bottom border-mercury">
-                                    <a class="mb-4" href="#"><img class="circle-54" src="../../../storage/profiles/avatar5.png" alt=""></a>
+
+                                    @include('includes.change-profile-photo')
+
+                                    @foreach ($profiles as $profile)
+                                        <a class="mb-4" href="javacript:" data-toggle="modal" data-target="#profile_photo"><img class="circle-54" src="storage/profiles/{{ $profile->avatar }}" alt=""></a>
+                                    @endforeach
+
                                     <h4 class="mb-0"><a class="text-black-2 font-size-6 mb-4 font-weight-semibold" href="#">{{ Auth::user()->name }}</a></h4>
 
                                     <div class="icon-link d-flex align-items-center justify-content-center flex-wrap">
@@ -61,7 +74,7 @@
 
                                     <div class="mb-7">
                                         <p class="font-size-4 mb-0">Location</p>
-                                        <h5 class="font-size-4 font-weight-semibold mb-0 text-black-2 text-break">New York , USA</h5>
+                                        <h5 class="font-size-4 font-weight-semibold mb-0 text-black-2 text-break">Malawi</h5>
                                     </div>
 
                                     <div class="mb-7">
@@ -71,12 +84,26 @@
 
                                     <div class="mb-7">
                                         <p class="font-size-4 mb-0">Phone</p>
-                                        <h5 class="font-size-4 font-weight-semibold mb-0"><a class="text-black-2 text-break" href="tel:+999565562">+265 99 363 48 27</a></h5>
+                                        @foreach ($profiles as $profile)
+                                           @if ($profile->phone != "")
+                                                <h5 class="font-size-4 font-weight-semibold mb-0"><a class="text-black-2 text-break" href="tel:{{ $profile->phone }}">{{ $profile->phone }}</a></h5>
+                                           @else
+                                            <form action="{{ url('update-phone-number') }}" method="POST">
+                                                @csrf
+                                                <div class="form-group">
+                                                    <input type="text" required name="phone" class="form-control" placeholder="Update" value="" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <button class="btn btn-primary" type="submit"> SUBMIT </button>
+                                                </div>
+                                            </form>
+                                           @endif
+                                        @endforeach
                                     </div>
 
                                     <div class="mb-7">
                                         <p class="font-size-4 mb-0">Website Linked</p>
-                                        <h5 class="font-size-4 font-weight-semibold mb-0"><a class="text-break" href="#">www.github.com</a></h5>
+                                        <h5 class="font-size-4 font-weight-semibold mb-0"><a class="text-break" href="https://www.jobfindermw.com">www.jobfindermw.com</a></h5>
                                     </div>
 
                                 </div>
@@ -90,143 +117,14 @@
 
                             <ul class="nav border-bottom border-mercury pl-12" id="myTab" role="tablist">
                                 <li class="tab-menu-items nav-item pr-12">
-                                    <a class="active text-uppercase font-size-3 font-weight-bold text-default-color py-3" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Activity</a>
-                                </li>
-                                <li class="tab-menu-items nav-item pr-12">
-                                    <a class="text-uppercase font-size-3 font-weight-bold text-default-color py-3" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Saved jobs</a>
+                                    <a class="active text-uppercase font-size-3 font-weight-bold text-default-color py-3" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Saved jobs</a>
                                 </li>
                             </ul>
 
                             <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-                                    <div class="pr-xl-0 pr-xxl-14 p-5 px-xs-12 pt-7 pb-5">
-                                        <h4 class="font-size-6 mb-7 mt-5 text-black-2 font-weight-semibold">About</h4>
-                                        <p class="font-size-4 mb-8">A talented professional with an academic background in IT and proven commercial development experience as C++ developer since 1999. Has a sound knowledge of the software development life cycle. Was involved in more
-                                            than 140 software development outsourcing projects.</p>
-                                        <p class="font-size-4 mb-8">Programming Languages: C/C++, .NET C++, Python, Bash, Shell, PERL, Regular expressions, Python, Active-script.</p>
-                                    </div>
+                                <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
-                                    <div class="border-top pr-xl-0 pr-xxl-14 p-5 pl-xs-12 pt-7 pb-5">
-                                        <h4 class="font-size-6 mb-7 mt-5 text-black-2 font-weight-semibold">Skills</h4>
-                                        <ul class="list-unstyled d-flex align-items-center flex-wrap">
-                                            <li>
-                                                <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#">Agile</a>
-                                            </li>
-                                            <li>
-                                                <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#">Wireframing</a>
-                                            </li>
-                                            <li>
-                                                <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#">Prototyping</a>
-                                            </li>
-                                            <li>
-                                                <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#">Information</a>
-                                            </li>
-                                            <li>
-                                                <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#">Waterfall Model</a>
-                                            </li>
-                                            <li>
-                                                <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#">New Layout</a>
-                                            </li>
-                                            <li>
-                                                <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#">Browsing</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- Skills End -->
-                                    <!-- Card Section Start -->
-                                    <div class="border-top p-5 pl-xs-12 pt-7 pb-5">
-                                        <h4 class="font-size-6 mb-7 mt-5 text-black-2 font-weight-semibold">Work Exprerience</h4>
-                                        <!-- Single Card -->
-                                        <div class="w-100">
-                                            <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
-                                                <div class="square-72 d-block mr-8 mb-7 mb-sm-0">
-                                                    <img src="./image/l2/png/featured-job-logo-1.png" alt="">
-                                                </div>
-                                                <div class="w-100 mt-n2">
-                                                    <h3 class="mb-0">
-                                                        <a class="font-size-6 text-black-2 font-weight-semibold" href="#">Lead Product Designer</a>
-                                                    </h3>
-                                                    <a href="#" class="font-size-4 text-default-color line-height-2">Airabnb</a>
-                                                    <div class="d-flex align-items-center justify-content-md-between flex-wrap">
-                                                        <a href="" class="font-size-4 text-gray mr-5">Jun 2017 - April 2020- 3 years</a>
-                                                        <a href="" class="font-size-3 text-gray">
-                              <span class="mr-4" style="margin-top: -2px"><img src="./image/svg/icon-loaction-pin-black.svg" alt=""></span>New York, USA</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single Card End -->
-                                        <!-- Single Card -->
-                                        <div class="w-100">
-                                            <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
-                                                <div class="square-72 d-block mr-8 mb-7 mb-sm-0">
-                                                    <img src="./image/l1/png/feature-brand-1.png" alt="">
-                                                </div>
-                                                <div class="w-100 mt-n2">
-                                                    <h3 class="mb-0">
-                                                        <a class="font-size-6 text-black-2 font-weight-semibold" href="#">Senior UI/UX Designer</a>
-                                                    </h3>
-                                                    <a href="#" class="font-size-4 text-default-color line-height-2">Google Inc</a>
-                                                    <div class="d-flex align-items-center justify-content-md-between flex-wrap">
-                                                        <a href="" class="font-size-3 text-gray mr-5">Jun 2017 - April 2020- 3 years</a>
-                                                        <a href="" class="font-size-3 text-gray">
-                              <span class="mr-4" style="margin-top: -2px"><img src="./image/svg/icon-loaction-pin-black.svg" alt=""></span>New York, USA</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single Card End -->
-                                    </div>
-                                    <!-- Card Section End -->
-                                    <!-- Card Section Start -->
-                                    <div class="border-top p-5 pl-xs-12 pt-7 pb-5">
-                                        <h4 class="font-size-6 mb-7 mt-5 text-black-2 font-weight-semibold">Education</h4>
-                                        <!-- Single Card -->
-                                        <div class="w-100">
-                                            <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
-                                                <div class="square-72 d-block mr-8 mb-7 mb-sm-0">
-                                                    <img src="./image/svg/harvard.svg" alt="">
-                                                </div>
-                                                <div class="w-100 mt-n2">
-                                                    <h3 class="mb-0">
-                                                        <a class="font-size-6 text-black-2" href="#">Masters in Art Design</a>
-                                                    </h3>
-                                                    <a href="#" class="font-size-4 text-default-color line-height-2">Harvard University</a>
-                                                    <div class="d-flex align-items-center justify-content-md-between flex-wrap">
-                                                        <a href="" class="font-size-3 text-gray mr-5">Jun 2017 - April 2020- 3 years</a>
-                                                        <a href="" class="font-size-3 text-gray">
-                              <span class="mr-4" style="margin-top: -2px"><img src="./image/svg/icon-loaction-pin-black.svg" alt=""></span>Brylin, USA</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single Card End -->
-                                        <!-- Single Card -->
-                                        <div class="w-100">
-                                            <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
-                                                <div class="square-72 d-block mr-8 mb-7 mb-sm-0">
-                                                    <img src="./image/svg/mit.svg" alt="">
-                                                </div>
-                                                <div class="w-100 mt-n2">
-                                                    <h3 class="mb-0">
-                                                        <a class="font-size-6 text-black-2" href="#">Bachelor in Software Engineering </a>
-                                                    </h3>
-                                                    <a href="#" class="font-size-4 text-default-color line-height-2">Manipal Institute of Technology</a>
-                                                    <div class="d-flex align-items-center justify-content-md-between flex-wrap">
-                                                        <a href="" class="font-size-3 text-gray mr-5">Fed 2012 - April 2016 - 4 years</a>
-                                                        <a href="" class="font-size-3 text-gray">
-                              <span class="mr-4" style="margin-top: -2px"><img src="./image/svg/icon-loaction-pin-black.svg" alt=""></span>New York, USA</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single Card End -->
-                                    </div>
-                                    <!-- Card Section End -->
-                                </div>
-                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                    <!-- Excerpt Start -->
                                     <div class="pr-xl-11 p-5 pl-xs-12 pt-9 pb-11 shadow">
                                         @forelse ($jobs as $job)
                                         <div class="mb-8">
@@ -252,6 +150,9 @@
                                                             <li>
                                                                 <a class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-red-2 mt-2" href="#">{{ $job->closing_date }}</a>
                                                             </li>
+                                                            <li>
+                                                                <a class="bg-regent-opacity-15 min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-red-2 mt-2" href="{{ url('/job/unsave/'.$job->id) }}">Unsave</a>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-md-5">
@@ -276,7 +177,7 @@
                                         @empty
                                         <div class="align-items-center">
                                             <p class="text-center font-size-4 text-black-2">
-                                                No search results for <span class="text-red">{{ request()->query('query') }}</span>
+                                                You have no saved jobs!
                                             </p>
                                             <p class="text-center">
                                                 <span>
@@ -303,65 +204,47 @@
 
                             <ul class="list-unstyled">
 
+                                @forelse ($notifications as $notification)
                                 <li class="border-bottom">
-                                    <a class="media align-items-center py-9 flex-wrap" href="#">
-                                        <div class="mr-7">
-                                            <span class="circle-40 bg-green text-center ml-7">
-                                                <i class="text-white fa fa-bell"></i>
-                                            </span>
-                                        </div>
-                                        <div class="">
-                                            <h4 class="mb-0 font-size-5 font-weight-semibold">Job Alert!</h4>
-                                            <p class="mb-0 font-size-3 heading-default-color">A new job was posted.</p>
-                                            <span class="font-size-3 text-smoke"><img class="mr-2" src="{{ asset('assets/image/svg/icon-clock.svg') }}" alt="">3 hours ago</span>
-                                        </div>
-                                    </a>
-                                </li>
 
-                                <li class="border-bottom">
-                                    <a class="media align-items-center py-9 flex-wrap" href="#">
-                                        <div class="mr-7">
-                                            <span class="circle-40 bg-green text-center ml-7">
-                                                <i class="text-white fa fa-bell"></i>
-                                            </span>
+                                    <div class="w-100">
+                                        <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
+                                            <div class="square-72 d-block mr-8 mb-7 mb-sm-0">
+                                                <span class="circle-40 bg-green text-center ml-7">
+                                                    <i class="text-white fa fa-bell"></i>
+                                                </span>
+                                            </div>
+                                            <div class="w-100 mt-n2">
+                                                <h3 class="mb-0">
+                                                    <a class="font-size-6 text-black-2" href="#">{{ $notification->title }}</a>
+                                                </h3>
+                                                <a href="#" class="font-size-4 text-default-color line-height-2">{{ $notification->content }}</a>
+                                                <div class="d-flex align-items-center justify-content-md-between flex-wrap">
+                                                    <a href="#" class="font-size-2 mt-2 text-gray mr-5">
+                                                        <span><img class="mr-2" src="{{ asset('assets/image/svg/icon-clock.svg') }}" alt="">{{ \Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}</span>
+                                                    </a>
+                                                    <div class="d-flex mt-2">
+                                                        <a href="{{ url('notification-read/'.$notification->id) }}"><i class="text-green fa fa-edit ml-1"></i></a>
+                                                        <a href="{{ url('notification-delete/'.$notification->id) }}"><i class="text-red fa fa-trash ml-1"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="">
-                                            <h4 class="mb-0 font-size-5 font-weight-semibold">Job Alert!</h4>
-                                            <p class="mb-0 font-size-3 heading-default-color">A new job was posted.</p>
-                                            <span class="font-size-3 text-smoke"><img class="mr-2" src="{{ asset('assets/image/svg/icon-clock.svg') }}" alt="">3 hours ago</span>
-                                        </div>
-                                    </a>
+                                    </div>
                                 </li>
+                                @empty
 
-                                <li class="border-bottom">
-                                    <a class="media align-items-center py-9 flex-wrap" href="#">
-                                        <div class="mr-7">
-                                            <span class="circle-40 bg-green text-center ml-7">
-                                                <i class="text-white fa fa-bell"></i>
-                                            </span>
-                                        </div>
-                                        <div class="">
-                                            <h4 class="mb-0 font-size-5 font-weight-semibold">Job Alert!</h4>
-                                            <p class="mb-0 font-size-3 heading-default-color">A new job was posted.</p>
-                                            <span class="font-size-3 text-smoke"><img class="mr-2" src="{{ asset('assets/image/svg/icon-clock.svg') }}" alt="">3 hours ago</span>
-                                        </div>
-                                    </a>
+                                <li>
+                                    <div class="mt-3 ml-3 mr-3 mb-3">
+                                        <p class="text-gray font-size-4 text-black-2">
+                                            You have 0 notifications
+                                        </p>
+                                        <img class="img-fluid" src="{{ asset('img/no_notifications.png') }}" alt="">
+                                    </div>
                                 </li>
+                                @endforelse
 
-                                <li class="border-bottom">
-                                    <a class="media align-items-center py-9 flex-wrap" href="#">
-                                        <div class="mr-7">
-                                            <span class="circle-40 bg-green text-center ml-7">
-                                                <i class="text-white fa fa-bell"></i>
-                                            </span>
-                                        </div>
-                                        <div class="">
-                                            <h4 class="mb-0 font-size-5 font-weight-semibold">Job Alert!</h4>
-                                            <p class="mb-0 font-size-3 heading-default-color">A new job was posted.</p>
-                                            <span class="font-size-3 text-smoke"><img class="mr-2" src="{{ asset('assets/image/svg/icon-clock.svg') }}" alt="">3 hours ago</span>
-                                        </div>
-                                    </a>
-                                </li>
+
                             </ul>
 
                             </div>

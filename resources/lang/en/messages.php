@@ -14,5 +14,6 @@ return [
     'support' => 'Support',
     'login' => 'Login',
     'register' => 'Register',
-    'notifications' => 'Chiziwiso'
+    'notifications' => 'Notifications',
+    'city_district' => 'City, district'
 ];

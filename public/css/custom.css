@@ -148,3 +148,8 @@ span.process-num {
     top: -10px; */
     opacity: .2
 }
+
+.status-like{
+    border:2.5px solid #00b074;
+    border-style: dotted;
+}

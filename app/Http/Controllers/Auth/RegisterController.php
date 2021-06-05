@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Profiles;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -64,6 +65,42 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        /**
+         * Creating user profile
+         *
+         * Algorithm to predict next user id below
+         */
+
+        $id_count = User::all()->pluck('id')->count();
+        $userId = User::all()->pluck('id')[$id_count-1];
+
+        /**
+         * User profile from defaults
+         *
+         *
+         */
+
+        $profile = new Profiles();
+        $profile->user_id = $userId+1;
+        $profile->avatar = 'avatar.png';
+        $profile->phone = '';
+        $profile->save();
+
+        /**
+         * Account creation notification and email
+         *
+         *
+         */
+
+        $notification = new UserNotifications();
+        $notification->user_id = $userId+1;
+        $notification->title = "Account registration";
+        $notification->category = "Account";
+        $notification->content = "Welcome to Job Finder. Find more than 100+ jobs everyday across malawi!"
+        $notification->save();
+
+        /* Return value of create */
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

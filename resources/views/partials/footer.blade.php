@@ -33,7 +33,7 @@
                 <h3><span class="text-green">JOB</span> FINDER</h3>
 
                 <div class="mb-11">
-                    <p>Malawi's #1 trusted job portal</p>
+                    <p>Malawi's <span class="text-orange">#1</span> trusted job portal</p>
                     <div class="footer-widget">
                         <h4 class="widget-title">Download Apps</h4>
                         <a href="#" class="other-store-link">
