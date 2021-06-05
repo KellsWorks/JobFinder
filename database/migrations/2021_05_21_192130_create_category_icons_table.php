@@ -18,6 +18,7 @@ class CreateCategoryIconsTable extends Migration
             $table->integer('jobs_category_id')->unsigned()->nullable();
             $table->foreign('jobs_category_id')->references('id')->on('jobs_categories');
             $table->string('icon');
+            $table->string('color');
             $table->timestamps();
         });
     }
