@@ -96,7 +96,7 @@ class RegisterController extends Controller
         $notification->user_id = $userId+1;
         $notification->title = "Account registration";
         $notification->category = "Account";
-        $notification->content = "Welcome to Job Finder. Find more than 100+ jobs everyday across malawi!"
+        $notification->content = "Welcome to Job Finder. Find more than 100+ jobs everyday across malawi!";
         $notification->save();
 
         /* Return value of create */
