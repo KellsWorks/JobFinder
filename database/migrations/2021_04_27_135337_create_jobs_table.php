@@ -20,8 +20,8 @@ class CreateJobsTable extends Migration
             $table->string('employer');
             $table->string('employerlogo')->default('employer-logo.png');
             $table->string('title');
-            $table->string('description');
-            $table->text('content');
+            $table->longText('description');
+            $table->longText('content');
             $table->string('closing_date');
             $table->string('location');
             $table->string('duration')->default('Full-time');
