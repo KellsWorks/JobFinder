@@ -17,7 +17,7 @@ use App\Models\Profiles;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\PagesController::class, 'index'])->name('home');
+Route::get('/', [\App\Http\Controllers\PagesController::class, 'index'])->name('home')->middleware('is_admin');
 
 /*
 |--------------------------------------------------------------------------

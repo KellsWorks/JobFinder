@@ -100,6 +100,13 @@
         </div>
 
 
+    <footer>
+        <div class="footer bg-green">
+            <p class="text-white mt-2 mb-2 w-20 font-size-3 text-center">
+                Job Finder &copy; {{ date('Y') }}
+            </p>
+        </div>
+    </footer>
     @include('scripts.js')
 
 </body>
