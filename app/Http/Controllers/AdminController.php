@@ -13,18 +13,25 @@ use App\Models\JobSkills;
 class AdminController extends Controller
 {
     public function postedJobs(){
+
         return view('admin.posted-jobs');
+
     }
     public function siteUsers(){
+
         return view('admin.users');
+
     }
     public function settings(){
+
         return view('admin.settings');
+
     }
 
     public function newJob(Request $request){
 
         $categories = JobsCategory::all();
+
         $districts = Districts::orderBy('name', 'asc')->get();
 
         return view('admin.includes.new-job', ['categories' => $categories, 'districts' => $districts]);
