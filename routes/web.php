@@ -104,6 +104,8 @@ Route::get('admin/settings', [\App\Http\Controllers\AdminController::class, 'set
 
 Route::get('admin/new-job', [\App\Http\Controllers\AdminController::class, 'newJob'])->name('admin.new-job');
 
+Route::post('admin/add-job', [\App\Http\Controllers\AdminController::class, 'addJob'])->name('admin.add-job');
+
 
 /*
 |--------------------------------------------------------------------------

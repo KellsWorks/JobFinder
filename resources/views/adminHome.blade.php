@@ -11,6 +11,13 @@
 
 @section('content')
 <div class="container">
+
+    @if (session('status'))
+    <div class="alert alert-info" id="session-alert">
+        {{ session('status') }}
+        </div>
+    @endif
+
     <div class="row mb-7">
         <div class="col-xxl-3 col-xl-4 col-lg-6 col-sm-6">
 

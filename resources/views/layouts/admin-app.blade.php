@@ -21,7 +21,7 @@
                 <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
 
                     <div class="brand-logo">
-                        <a href="{{ url('/') }}">
+                        <a href="{{ route('admin.home') }}">
 
                             <h3>
                                 <span class="text-green">JOB</span> FINDER <span class="text-green">ADMIN</span>
@@ -47,14 +47,18 @@
                             <div class="dropdown show-gr-dropdown py-5">
                                 <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <div class="circle-40">
-                                        <img src="./image/header-profile.png" alt="">
+                                        <img class="circle-40" src="{{ asset('storage/profiles/avatar.png') }}" alt="">
                                     </div>
                                     <i class="fas fa-chevron-down heading-default-color ml-6"></i>
                                 </a>
                                 <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>
-                                    <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>
-                                    <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">Log Out</a>
+                                    <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Profile </a>
+                                    <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Settings</a>
+                                    <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase text-center" href="#"  onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();"><i class="mr-2 fa fa-power-off"></i> Log out</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
                                 </div>
                             </div>
                         </div>
