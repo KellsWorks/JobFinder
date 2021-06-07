@@ -1,12 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Districts;
 use Illuminate\Http\Request;
-use App\Models\Jobs;
-use App\Models\JobsCategory;
-use App\Models\UserNotifications;
-use App\Models\Profiles;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +12,7 @@ use App\Models\Profiles;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\PagesController::class, 'index'])->name('home')->middleware('is_admin');
+Route::get('/', [\App\Http\Controllers\PagesController::class, 'index'])->name('home');
 
 /*
 |--------------------------------------------------------------------------
