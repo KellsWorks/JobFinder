@@ -1,6 +1,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
+
     {{-- <link rel="stylesheet" href="{{ asset('assets/fonts/icon-font/css/style.css') }}"> --}}
+
     <link rel="stylesheet" href="{{ asset('assets/fonts/typography-font/typo.css') }}">
+
     {{-- <link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome-5/css/all.css') }}"> --}}
 
     <link rel="stylesheet" href="{{ asset('assets/plugins/aos/aos.min.css') }}">
