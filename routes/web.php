@@ -17,7 +17,7 @@ use App\Models\Profiles;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\PagesController::class, 'index'])->name('home');
+Route::get('/', [\App\Http\Controllers\PagesController::class, 'index'])->name('home')->middleware('is_admin');
 
 /*
 |--------------------------------------------------------------------------
@@ -103,6 +103,8 @@ Route::get('admin/users', [\App\Http\Controllers\AdminController::class, 'siteUs
 Route::get('admin/settings', [\App\Http\Controllers\AdminController::class, 'settings'])->name('admin.settings');
 
 Route::get('admin/new-job', [\App\Http\Controllers\AdminController::class, 'newJob'])->name('admin.new-job');
+
+Route::post('admin/add-job', [\App\Http\Controllers\AdminController::class, 'addJob'])->name('admin.add-job');
 
 
 /*

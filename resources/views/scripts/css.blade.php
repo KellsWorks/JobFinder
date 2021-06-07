@@ -1,6 +1,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
+
     {{-- <link rel="stylesheet" href="{{ asset('assets/fonts/icon-font/css/style.css') }}"> --}}
+
     <link rel="stylesheet" href="{{ asset('assets/fonts/typography-font/typo.css') }}">
+
     {{-- <link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome-5/css/all.css') }}"> --}}
 
     <link rel="stylesheet" href="{{ asset('assets/plugins/aos/aos.min.css') }}">
@@ -13,6 +16,8 @@
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/tagsinput.css') }}">
 
     {{-- Online font awesome scripts --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />

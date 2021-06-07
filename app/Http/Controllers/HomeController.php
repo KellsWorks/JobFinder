@@ -8,6 +8,8 @@ use Auth;
 use App\Models\SavedJobs;
 use App\Models\UserNotifications;
 use App\Models\Profiles;
+use App\Models\User;
+use App\Models\JobLikes;
 
 class HomeController extends Controller
 {
@@ -40,7 +42,12 @@ class HomeController extends Controller
      */
     public function adminHome()
     {
-        return view('adminHome');
+        $jobs = Jobs::latest()->get();
+        $users = User::all()->count();
+        $savedJobs = SavedJobs::all()->count();
+        $jobLikes = JobLikes::all()->count();
+
+        return view('adminHome', ['jobs' => $jobs, 'users' => $users, 'savedJobs' => $savedJobs, 'jobLikes' => $jobLikes]);
     }
 
     public function jobs()

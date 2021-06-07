@@ -237,3 +237,6 @@ $( document ).ready(function(){
        $('#session-alert').delay(3000).fadeOut();
     });
 });
+
+//Type ahead
+$("input").tagsinput('items');
