@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/server/public_html/jobfindermw.com/
+    - /bin/cp -R * $DEPLOYPATH
