@@ -55,7 +55,7 @@
                                 <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Password</label>
                                 <div class="position-relative">
                                     <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" id="password" placeholder="Enter password">
-                                    <a class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
+
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -78,7 +78,7 @@
 
                             </div>
 
-                            <div class="form-group mb-8">
+                            <div class="form-group mb-3">
                                 <button type="submit" class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Log in </button>
                             </div>
                             <p class="font-size-4 text-center heading-default-color">Don’t have an account? <a href="javascipt:" class="text-primary" data-toggle="modal" data-target="#signup">Create a free account</a></p>
@@ -106,8 +106,7 @@
                                 Create a free account today
                             </h3>
                             <p class="mb-0 font-size-4 text-white">Create your account to continue and explore new jobs.</p>
-                            {{-- <img class="mt-4" height="250" src="{{ asset('img/Startup, Success, technology, growth _  innovation, idea, thought, woman, statistics.png') }}" alt=""> --}}
-                        </div>
+                            </div>
                         <div class="border-top border-default-color-2 mt-auto">
                             <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
                                 <div class="pt-5 px-9">
@@ -167,14 +166,13 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                    <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
-                                </div>
+
+                                    </div>
                             </div>
                             <div class="form-group">
                                 <label for="password-confirm" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Confirm Password</label>
                                 <div class="position-relative">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                                    <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password23"></a>
                                 </div>
                             </div>
                             <div class="form-group d-flex flex-wrap justify-content-between mb-1">

@@ -58,7 +58,6 @@ class PagesController extends Controller
             if($search){
 
                 $jobs = Jobs::where('title', 'LIKE', "%{$search}%")
-                              ->where('location', 'LIKE', "%{$location}")
                               ->simplePaginate(3);
 
             }

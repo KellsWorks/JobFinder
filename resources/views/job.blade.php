@@ -12,7 +12,7 @@
 
     <title>{{ env('APP_NAME') }}</title>
 
-    <link rel="shortcut icon" href="{{ asset('icon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('icon.png') }}" type="image/x-icon">
 
     @include('scripts.css')
 
@@ -61,7 +61,7 @@
                                     <div class="col-md-6 text-right pt-7 pt-md-0 mt-md-n1">
 
                                         <div class="media justify-content-md-end align-items-center">
-                                            <p class="d-flex font-size-2 font-weight-bold"><i class="fa fa-clock mr-1"></i></span>{{ \Carbon\Carbon::parse($jobs->created_at)->diffForHumans() }}</p>
+                                            <p class="d-flex font-size-2 p-5 font-weight-bold"><i class="fa fa-clock mr-1"></i></span>{{ \Carbon\Carbon::parse($jobs->created_at)->diffForHumans() }}</p>
                                         </div>
 
                                     </div>
@@ -126,10 +126,6 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 mb-lg-0 mb-10">
-                                        <div class="">
-                                            <span class="font-size-4 d-block mb-4 text-gray">Career Level</span>
-                                            <h6 class="font-size-5 text-black-2 font-weight-semibold mb-9">Project Manangement</h6>
-                                        </div>
                                         <div class="tags">
                                             <p class="font-size-4 text-gray mb-0">Essential skills</p>
                                             <ul class="list-unstyled mr-n3 mb-0">
@@ -147,10 +143,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 pr-lg-0 pl-lg-10 mb-lg-0 mb-8">
-                                        <div class="">
-                                            <span class="font-size-4 d-block mb-4 text-gray">Type of corporation</span>
-                                            <h6 class="font-size-5 text-black-2 font-weight-semibold mb-9">Government</h6>
-                                        </div>
+
                                         <div class="tags">
                                             <p class="font-size-4 text-gray mb-3">Related tags</p>
                                             <ul class="d-flex list-unstyled flex-wrap pr-sm-25 pr-md-0">
@@ -167,10 +160,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 pr-lg-0 pl-lg-10 mb-lg-0 mb-8">
-                                        <div class="">
-                                            <span class="font-size-4 d-block mb-4 text-gray">Company size</span>
-                                            <h6 class="font-size-5 text-black-2 font-weight-semibold mb-9">11-50 employees</h6>
-                                        </div>
+
                                         <div class="tags">
                                             <p class="font-size-4 text-gray mb-3">Qualifications</p>
                                             <ul class="d-flex list-unstyled flex-wrap pr-sm-25 pr-md-0">
@@ -193,12 +183,12 @@
                                     <div class="col-xl-11 col-md-12 pr-xxl-9 pr-xl-10 pr-lg-20">
                                         <div class="">
                                             <p class="mb-4 font-size-4 text-gray font-weight-semibold">Job Description</p>
-                                            <p class="font-size-4 text-black-2">{{ $jobs->description }}</p>
+                                            <p class="font-size-4 text-black-2">{!! $jobs->description !!}</p>
                                         </div>
                                         <div class="">
 
                                             <p class="font-size-4 text-black-2 com-text">
-                                                {{ $jobs->content }}
+                                                {!! $jobs->content !!}
                                             </p>
 
                                             <a class="btn btn-green text-uppercase btn-medium w-180 h-px-48 rounded-3 mr-4 mt-6" href="mailto:{{ $jobs->employer_email }}">Apply to this job</a>

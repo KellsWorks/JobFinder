@@ -4,10 +4,14 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta author="KellsWorks,RodgerCodes@NextgenerationsMalawi" name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>{{ env('ADMIN_TITLE') }}</title>
-    <link rel="shortcut icon" href="{{ asset('icon.ico') }}" type="image/x-icon">
+
+    <link rel="shortcut icon" href="{{ asset('icon.png') }}" type="image/x-icon">
 
     @include('scripts.css')
 

@@ -63,7 +63,7 @@
                                         </div>
 
                                         <div class="form-group position-relative">
-                                            <select name="location" id="location" class="nice-select font-size-4 pl-13 h-100 arrow-3">
+                                            <select name="location" id="location" class="nice-select font-size-4 pl-13 arrow-3">
                                             <option  data-display="{{ __('messages.city_district') }}">City or district</option>
                                             @foreach ($districts as $district)
                                                 <option value="{{ $district->name }}">{{ $district->name }}</option>
@@ -94,6 +94,31 @@
                 </div>
             </div>
         </div>
+
+        <div class="bg-black-2 dark-mode-texts pt-13 pt-lg-24 pb-12 pb-lg-23">
+            <div class="container">
+              <div class="row">
+                <div class="col-12">
+                  <div class="section-title mb-9 text-center text-lg-left">
+                    <h5 class="font-size-5 font-weight-normal">Get hired in top companies</h5>
+                  </div>
+                </div>
+              </div>
+              <!-- Brand Logos -->
+              <div class="row align-items-center justify-content-center justify-content-lg-between">
+
+
+                @foreach ($jobs->take(3) as $job)
+                <div class="single-brand-logo mx-5 my-6" data-aos="fade-in" data-aos-duration="800" data-aos-once="true">
+                    <img class="img-fluid" src="{{ asset('img/companies/'.$job->employer_logo) }}" alt="employers-logo">
+                </div>
+                @endforeach
+
+
+              </div>
+              <!-- End Brand Logos -->
+            </div>
+          </div>
 
         <div class="pt-11 pt-lg-24 pb-11 pb-lg-24">
             <div class="container">
@@ -164,7 +189,7 @@
             </div>
         </div>
 
-        <div class=" pt-13 pt-lg-24 pb-12 pb-lg-23">
+        <div class=" pb-12 pb-lg-23">
             <div class="container">
 
                 <section class="how-it-works">
@@ -172,26 +197,25 @@
                         <div class="row" data-aos="fade-up">
                             <div class="col-md-12">
                                 <div class="main-heading">
-                                    <p>Job finding Process</p>
                                     <h2>How It <span>Works</span></h2>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4 col-sm-4">
-                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/step-1.png') }}" class="img-fluid" alt="step-1-image"/><span class="process-num">01</span></span>
+                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/add-user.png') }}" height="100" width="100" alt="step-1-image"/><span class="process-num">01</span></span>
                                     <h4>Create an Account</h4>
                                     <p class="font-size-4">Create a <span class="text-green">Job</span> Finder account for free and get started.</p>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
-                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/step-2.png') }}" class="img-fluid" alt="step-2-image"/><span class="process-num">02</span></span>
+                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/loupe.png') }}" height="100" width="100" alt="step-2-image"/><span class="process-num">02</span></span>
                                     <h4>Search Jobs</h4>
                                     <p class="font-size-4">Search for job(s) of your choice. We'll quickly match you with the right jobs right at the spot.</p>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
-                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/step-3.png') }}" class="img-fluid" alt="step-3-image"/><span class="process-num">03</span></span>
+                                <div class="working-process"><span class="process-img"><img src="{{ asset('img/download.png') }}" height="100" width="100" alt="step-3-image"/><span class="process-num">03</span></span>
                                     <h4>Save & Apply</h4>
                                     <p class="font-size-4">Follow up a job for more updates and apply if you are interested in the job with just click of a button.</p>
                                 </div>
@@ -203,7 +227,7 @@
             </div>
         </div>
 
-        <div class="pt-11 pt-lg-26 pb-lg-16" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400" data-aos-once="true">
+        <div class="pb-lg-16" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400" data-aos-once="true">
             <div class="container">
 
                 <div class="row align-items-center pb-14">
@@ -228,7 +252,7 @@
                     <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
                         <a href="{{ url('explore-by-category/'.$category->id) }}" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
                             @foreach ($category->icons as $item)
-                            <div class="text-blue bg-{{ $item->color }}-opacity-1 square-70 rounded-4 mb-7 font-size-7">
+                            <div class="text-green bg-{{ $item->color }}-opacity-1 square-70 rounded-4 mb-7 font-size-7">
 
                                 <ion-icon name="{{ $item->icon }}" size="large"></ion-icon>
 
@@ -397,6 +421,7 @@
         </section>
 
         @include('partials.footer')
+        @include('includes.newsletter')
 
         <div class="modal fade" id="cookieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -413,8 +438,6 @@
             </div>
           </div>
 
-          @include('includes.newsletter')
-
     </div>
 
     @include('scripts.js')
@@ -426,6 +449,18 @@
             } );
     </script>
     @endif
+
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/60e35d47d6e7610a49a9bf1f/1f9s28oli';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
 
 </body>
 

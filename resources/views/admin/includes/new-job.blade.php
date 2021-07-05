@@ -44,11 +44,12 @@
 
             <div class="col-lg-12 mb-7">
                 <label for="description" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Description</label>
-                <textarea name="description" required id="description" placeholder="Job description" class="form-control h-px-144"></textarea>
+                <textarea name="description" required id="description" placeholder="Job description" class="textarea form-control h-px-144"></textarea>
             </div>
+
             <div class="col-lg-12 mb-7">
                 <label for="content" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Content</label>
-                <textarea name="content" required id="content" placeholder="Job content" class="form-control h-px-144"></textarea>
+                <textarea name="content" required id="content" placeholder="Job content" class="textarea form-control h-px-144"></textarea>
             </div>
             <div class="col-lg-12 mb-7">
                 <label for="date_" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Due date of application</label>

@@ -12,7 +12,7 @@
 
     <title>{{ config('app.name', 'Job Finder') }}</title>
 
-    <link rel="shortcut icon" href="{{ asset('icon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('icon.png') }}" type="image/x-icon">
 
     @include('scripts.css')
 
