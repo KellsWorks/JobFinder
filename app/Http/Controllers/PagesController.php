@@ -242,6 +242,12 @@ class PagesController extends Controller
 
     }
 
+    public function about(){
+
+        return view('about-us');
+
+    }
+
     public function exploreByCategory($id){
 
         $jobs = Jobs::where('jobs_category_id', $id)

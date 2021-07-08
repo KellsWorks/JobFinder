@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', [\App\Http\Controllers\PagesController::class, 'index'])->name('home');
+Route::get('/about-us', [\App\Http\Controllers\PagesController::class, 'about'])->name('about-us');
 
 /*
 |--------------------------------------------------------------------------
