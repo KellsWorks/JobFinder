@@ -19,6 +19,7 @@ use Cookie;
 use Validator;
 
 use Http;
+use Str;
 
 class PagesController extends Controller
 
@@ -90,17 +91,17 @@ class PagesController extends Controller
     }
 
 
-    public function job($id){
+    public function job($slug){
 
-        $jobs  = Jobs::findOrFail($id);
+        $jobs  = Jobs::where('slug', $slug)->firstOrFail();
 
-        $skills = JobSkills::where('job_id', $id)->get();
+        $skills = JobSkills::where('job_id', $jobs->id)->get();
 
-        $likes = JobLikes::where('jobs_id', $id)->count();
+        $likes = JobLikes::where('jobs_id', $jobs->id)->count();
 
-        $tags = JobTags::where('jobs_id', $id)->get();
+        $tags = JobTags::where('jobs_id', $jobs->id)->get();
 
-        $qualifications = JobsQualifications::where('job_id', $id)->get();
+        $qualifications = JobsQualifications::where('job_id', $jobs->id)->get();
 
         if(Auth::check() == "true"){
 

@@ -57,7 +57,7 @@ Route::get('notification-delete/{id}', [\App\Http\Controllers\HomeController::cl
 
 Route::get('/jobs', [\App\Http\Controllers\PagesController::class, 'jobs'])->name('jobs');
 
-Route::get('/job/{id}', [\App\Http\Controllers\PagesController::class, 'job']);
+Route::get('/job/{slug}', [\App\Http\Controllers\PagesController::class, 'job']);
 
 Route::get('/job/like/{id}', [\App\Http\Controllers\PagesController::class, 'likeJob']);
 

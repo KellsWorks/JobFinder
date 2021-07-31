@@ -61,7 +61,7 @@
                                     <div class="col-md-6 text-right pt-7 pt-md-0 mt-md-n1">
 
                                         <div class="media justify-content-md-end align-items-center">
-                                            <p class="d-flex font-size-2 p-5 font-weight-bold"><i class="fa fa-clock mr-1"></i></span>{{ \Carbon\Carbon::parse($jobs->created_at)->diffForHumans() }}</p>
+                                            <p class="d-flex font-size-2 p-5 font-weight-bold"><i class="fa fa-clock mr-1"></i></span>Posted: {{ \Carbon\Carbon::parse($jobs->created_at)->diffForHumans() }}</p>
                                         </div>
 
                                     </div>
@@ -83,7 +83,13 @@
                                             @else
                                             href="javascript:"
                                             @endauth>
-                                                <span class="mt-2"><ion-icon name="heart"></ion-icon></i> </span>  {{ $likes }}</a>
+                                            <span class="mt-2"><ion-icon name="heart"></ion-icon></i> </span>  {{ $likes }}</a>
+                                        </div>
+
+                                        <div>
+                                            <p style="width: 100%" class="btn btn-outline-red  text-uppercase h-px-48 rounded-3 mr-4 mb-5 px-5">
+                                                Due date for this job: {{ $jobs->closing_date }}
+                                            </p>
                                         </div>
 
                                     </div>
@@ -92,7 +98,7 @@
                                 @if (session('status'))
                                 <div class="alert alert-info" id="session-alert">
                                     {{ session('status') }}
-                                  </div>
+                                </div>
                                 @endif
 
                             </div>

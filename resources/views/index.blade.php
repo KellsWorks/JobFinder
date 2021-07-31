@@ -382,7 +382,7 @@
                             </ul>
                             <p class="mb-7 font-size-4 text-gray">{{ $job->description }}</p>
                             <div class="card-btn-group">
-                                <a class="btn btn-green text-uppercase btn-medium rounded-3" href="{{ url('job/'.$job->id) }}">view</a>
+                                <a class="btn btn-green text-uppercase btn-medium rounded-3" href="{{ url('job/'.$job->slug) }}">view</a>
                                 <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#">Save it</a>
                             </div>
                         </div>
